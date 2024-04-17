@@ -1,4 +1,4 @@
-package semi.chart.controller;
+package chart.semi.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -27,5 +27,11 @@ public class ChartLoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		//TODO DB
+		response.getWriter().append("0");
 	}
 }

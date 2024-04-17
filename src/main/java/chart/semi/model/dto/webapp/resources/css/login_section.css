@@ -1,0 +1,11 @@
+section{
+border-bottom-left-radius: 50px;
+padding: 10%;
+margin: 0;
+}
+.div.login_btn{
+	display: right;
+}
+.join_btn{
+text-align:right;
+}

@@ -1,4 +1,4 @@
-package semi.chart.common;
+package chart.semi.common;
 
 import java.io.FileReader;
 import java.io.FileWriter;
