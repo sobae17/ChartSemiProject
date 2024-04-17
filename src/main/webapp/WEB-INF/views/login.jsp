@@ -19,7 +19,7 @@
 </header>
 <br>
 <section>
-<img src="${pageContext.request.contextPath }/resources/imges/login_title.jpg" alt="login img" width="1050" height="460">
+<img src="${pageContext.request.contextPath }/resources/imges/chart_title.jpg" alt="login img" width="1050" height="460">
 <fieldset>
 	<legend> 로그인  </legend>
 	<form id="frm-login">
