@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ChartLoginController
+ * Servlet implementation class HealthController
  */
-@WebServlet("/login")
-public class ChartLoginController extends HttpServlet {
+@WebServlet("/health")
+public class HealthController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChartLoginController() {
+    public HealthController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,12 +26,7 @@ public class ChartLoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-		//TODO DB
-		response.getWriter().append("1");
-	}
+		request.getRequestDispatcher("/WEB-INF/views/health_chart.jsp").forward(request, response);
+
+}
 }

@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login_section.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/section.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/layout.css">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,26 +15,26 @@
 
 </head>
 <body>
-<header class="header_Chart">
+<header class="wrap_header">
 	<%@include file="/WEB-INF/views/header.jsp"%>
 </header>
 <br>
-<section>
-<img src="${pageContext.request.contextPath }/resources/imges/chart_title.jpg" alt="login img" width="1050" height="460">
-<fieldset>
+<section class="wrap_section">
+<img src="${pageContext.request.contextPath }/resources/imges/chart_title.jpg" alt="login img" width="960" height="460"><br>
+<fieldset class="log_frm1">
 	<legend> 로그인  </legend>
 	<form id="frm-login">
-	<div id="aaa"><label>로그인 :   <input type="text" name="id"></label></div><br>
-	<div><label>비밀번호 : <input type="current-password" name="pwd"></label></div><br>
+	<div id="aaa" class="login_1"><label>로그인 :   <input type="text" name="id"></label></div><br>
+	<div class="pwd_1"><label>비밀번호 : <input type="current-password" name="pwd"></label></div><br>
 	<div class="login_btn"><input type="button" value="로그인" class="btn submit" ></div><br>
-	<div class="join_btn""><input type="button" value="아이디 찾기" class="btn submit"> <input type="button" value="비밀번호 찾기"> <input type="button" value="회원가입하기" ></div>
+	<div class="join_btn""><input type="button" value="아이디 찾기" class="btn submit"> <input type="button" value="비밀번호 찾기"> <a href="${pageContext.request.contextPath }/join"><input type="button" value="회원가입하기" ></a></div>
 	
 	</form>
 </fieldset>
 </section>
 <br>
 
-<footer class="footer_Chart">
+<footer class="wrap_footer">
 			<%@include file="/WEB-INF/views/footer.jsp"%>
 		</footer>
 

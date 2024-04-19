@@ -1,5 +1,6 @@
 section{
-border-bottom-left-radius: 50px;
+width: 960px; margin: 0 auto;
+
 padding: 10%;
 margin: 0;
 }
@@ -8,4 +9,18 @@ margin: 0;
 }
 .join_btn{
 text-align:right;
+}
+
+.wrap_section{
+width: 960px; margin: 0 auto;
+}
+.login_1{
+	text-align: center;
+}
+.pwd_1{
+	text-align: center;
+}
+
+.login_btn{
+	text-align:center;
 }

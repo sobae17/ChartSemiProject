@@ -1,8 +1,13 @@
 .header_Chart{
-width: 1400px;
-height: 150px;
-background-color: #EEC6C6;
+width: 960px; 
+margin: 0 auto;;
+/* background-color: #EEC6C6; */
+/* text-align: center; */
 }
 .header_Chart div { 
  display:inline-block;
+ 
+}
+header{
+	background-color: #EEC6C6;
 }

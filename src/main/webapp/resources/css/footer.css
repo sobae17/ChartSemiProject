@@ -1,6 +1,6 @@
-body > footer > div > div {
-background-color: #EEC6C6;
-width: 1400px;
-height: 150px;
+.footer_chart{
+/* background-color: #EEC6C6; */
+width: 960px; 
+margin: 0 auto;
 text-align:right;
 }

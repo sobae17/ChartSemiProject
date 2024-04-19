@@ -1,0 +1,18 @@
+header.wrap_header{
+width: 960px; margin: 0 auto;
+background-color: #EEC6C6;
+}
+section.wrap_section{
+width: 960px; margin: 0 auto;
+padding-bottom: 100px;
+padding-top: 100px;
+}
+footer.wrap_footer{
+width: 960px; margin: 0 auto;
+background-color: #EEC6C6;
+}
+/* 차트 가운데 정렬하기 */
+.chart_readlist_section{
+	width: 960px; margin: 0 auto;
+	 text-align: -webkit-center;
+}

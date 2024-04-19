@@ -1,5 +1,8 @@
 package chart.semi.model.dto;
 
+import java.sql.Connection;
+import java.util.List;
+
 public class ClientDto {
 //	"CLIENT_ID"	VARCHAR2(20)		NOT NULL,
 //	"CLIENT_PWD"	VARCHAR2(20)		NOT NULL,
@@ -38,6 +41,30 @@ public class ClientDto {
 	}
 	public void setPatientId(String patientId) {
 		this.patientId = patientId;
+	}
+	public List<ClientDto> selectAllList(Connection conn) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ClientDto selectOne1(Connection conn, String memId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ClientDto selectOne(Connection conn, String memId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public int insert(Connection conn, ClientDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public int update(Connection conn, ClientDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public int delete(Connection conn, String memId) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

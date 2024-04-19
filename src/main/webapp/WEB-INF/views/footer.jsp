@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<footer class="wrap_footer">
 <div class="container">
     <div class="col-md-4 d-flex align-items-center">
       <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
@@ -11,3 +12,4 @@
       <span class="mb-3 mb-md-0 text-body-secondary">COPYRIGHT 2020 (C) 요양일지도몰라</span>
     </div>
 </div>
+</footer>

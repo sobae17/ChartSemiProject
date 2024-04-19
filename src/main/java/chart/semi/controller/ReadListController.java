@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ChartSemiReadController
+ * Servlet implementation class ReadListController
  */
-@WebServlet("/read")
-public class ChartSemiReadController extends HttpServlet {
+@WebServlet("/readlist")
+public class ReadListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChartSemiReadController() {
+    public ReadListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,6 @@ public class ChartSemiReadController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	request.getRequestDispatcher("/WEB-INF/views/chart_read.jsp").forward(request, response);
+	request.getRequestDispatcher("/WEB-INF/views/read_list.jsp").forward(request, response);
 	}
-
 }
