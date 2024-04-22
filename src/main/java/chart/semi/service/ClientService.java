@@ -8,11 +8,13 @@ import org.apache.ibatis.session.SqlSession;
 import static chart.semi.common.MybatisTemplate.*;
 
 import chart.semi.model.dao.ClientDao;
+import chart.semi.model.vo.ClientLoginReqVo;
+import chart.semi.model.vo.ClientLoginResVo;
 import chart.semi.model.vo.ClientVo;
 
 public class ClientService {
 	private ClientDao dao = new ClientDao();
-	// select list - all
+		// select list - all
 		public List<ClientVo> selectAllList() {
 			List<ClientVo> result = null;
 			SqlSession session = getSqlSession(true);
@@ -21,6 +23,15 @@ public class ClientService {
 			return result;
 		}
 
+		// select one
+		public ClientLoginResVo selectLogin(ClientLoginReqVo vo) {
+			ClientLoginResVo result = null;
+			SqlSession session = getSqlSession(true);
+			result = dao.selectLoginOne(session, vo);
+			session.close();
+			return result;
+		}
+		
 		// select one
 		public ClientVo selectOne(String clientId) {
 			ClientVo result = null;

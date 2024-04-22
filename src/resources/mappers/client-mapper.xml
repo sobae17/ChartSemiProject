@@ -5,6 +5,10 @@
 	select * from client
 </select>
 
+<select id="selectLoginOne" parameterType="ClientLoginReqVo" resultType="ClientLoginResVo">
+	SELECT CLIENT_ID, CLIENT_EMAIL ,PATIENT_ID
+	FROM CLIENT WHERE CLIENT_ID=#{clientId} and CLIENT_PWD=#{clientPwd}
+</select>
 <select id="selectOne" parameterType="string" resultType="ClientVo">
 	SELECT CLIENT_ID, CLIENT_PWD, CLIENT_EMAIL ,PATIENT_ID
 	FROM CLIENT WHERE CHART_ID=#{clientId}

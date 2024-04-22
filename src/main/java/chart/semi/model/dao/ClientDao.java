@@ -16,6 +16,10 @@ public class ClientDao {
 		}
 
 		// select one 
+		public ClientLoginResVo selectLoginOne(SqlSession session, ClientLoginReqVo vo) {
+			return session.selectOne("clientMapper.selectLoginOne", vo );
+		}
+		// select one 
 		public ClientVo selectOne(SqlSession session, String clientId) {
 			return session.selectOne("clientMapper.selectOne", clientId );
 		}
