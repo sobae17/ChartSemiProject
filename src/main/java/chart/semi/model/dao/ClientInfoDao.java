@@ -9,27 +9,27 @@ import chart.semi.model.vo.*;
 public class ClientInfoDao  {
 		// select list - all
 			public List<ClientInfoVo> selectAllList(SqlSession session) {
-				return session.selectList("chartMapper.selectAllList");
+				return session.selectList("clientInfoMapper.selectAllList");
 			}
 
 			// select one 
 			public ClientInfoVo selectOne(SqlSession session, String patientId) {
-				return session.selectOne("chartMapper.selectOne", patientId );
+				return session.selectOne("clientInfoMapper.selectOne", patientId );
 			}
 
 			// insert
 			public int insert(SqlSession session, ClientInfoVo vo) {
-				return session.insert("chartMapper.insert", vo);
+				return session.insert("clientInfoMapper.insert", vo);
 			}
 
 			// update
 			public int update(SqlSession session, ClientInfoVo vo) {
-				return session.update("chartMapper.update", vo);
+				return session.update("clientInfoMapper.update", vo);
 			}
 
 			// delete
 			public int delete(SqlSession session, String patientId) {
-				return session.delete("chartMapper.delete", patientId);
+				return session.delete("clientInfoMapper.delete", patientId);
 			}
 
 		}

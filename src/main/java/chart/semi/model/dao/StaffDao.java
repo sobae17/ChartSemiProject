@@ -11,27 +11,27 @@ import chart.semi.model.vo.StaffVo;
 public class StaffDao {
 	// select list - all
 				public List<StaffVo> selectAllList(SqlSession session) {
-					return session.selectList("chartMapper.selectAllList");
+					return session.selectList("staffMapper.selectAllList");
 				}
 
 				// select one 
 				public StaffVo selectOne(SqlSession session, String staffId) {
-					return session.selectOne("chartMapper.selectOne", staffId );
+					return session.selectOne("staffMapper.selectOne", staffId );
 				}
 
 				// insert
 				public int insert(SqlSession session, StaffVo vo) {
-					return session.insert("chartMapper.insert", vo);
+					return session.insert("staffMapper.insert", vo);
 				}
 
 				// update
 				public int update(SqlSession session, StaffVo vo) {
-					return session.update("chartMapper.update", vo);
+					return session.update("staffMapper.update", vo);
 				}
 
 				// delete
 				public int delete(SqlSession session, String staffId) {
-					return session.delete("chartMapper.delete", staffId);
+					return session.delete("staffMapper.delete", staffId);
 				}
 
 			}
