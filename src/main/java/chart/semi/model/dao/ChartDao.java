@@ -7,14 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import chart.semi.model.dto.ChartDto;
-import chart.semi.model.dto.ClientDto;
+
+import chart.semi.model.vo.ChartVo;
+
 import static chart.semi.common.JdbcTemplate.close;
 
 public class ChartDao {
 	// select list - all
-	public List<ChartDto> selectAllList(Connection conn) {
-		List<ChartDto> result = null;
+	public List<ChartVo> selectAllList(Connection conn) {
+		List<ChartVo> result = null;
 		String sql = "select * from chart";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -24,11 +25,11 @@ public class ChartDao {
 			rs = pstmt.executeQuery();
 			// ResetSet처리
 			if (rs.next()) {
-				result = new ArrayList<ChartDto>();
+				result = new ArrayList<ChartVo>();
 				do {
-					ChartDto dto = null;// new ChartDto(
+					ChartVo vo = null;// new ChartDto(
 										// rs.getString("chartId"),rs.getString("pationId"),rs.getString("writer"),rs.getString("pnote"));
-					result.add(dto);
+					result.add(vo);
 				} while (rs.next());
 			}
 		} catch (SQLException e) {
@@ -40,8 +41,8 @@ public class ChartDao {
 	}
 
 	// select one
-	public ChartDto selectOne(Connection conn, String chartId) {
-		ChartDto result = null;
+	public ChartVo selectOne(Connection conn, String chartId) {
+		ChartVo result = null;
 		String sql = "SELECT MEM_ID,MEM_PWD,MEM_EMAIL  FROM MEMBER WHERE MEM_ID=?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -64,7 +65,7 @@ public class ChartDao {
 	}
 
 	// insert
-	public int insert(Connection conn, ChartDto dto) {
+	public int insert(Connection conn, ChartVo vo) {
 		int result = 0;
 //			INSERT INTO MEMBER VALUES ('kh1', 'pwd1', 'kh1@a.com');
 		String sql = "INSERT INTO MEMBER (MEM_ID,MEM_PWD,MEM_EMAIL) VALUES (?, ?, ?)";
@@ -72,10 +73,10 @@ public class ChartDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			// ? 처리
-			pstmt.setString(1, dto.getChartId());
-			pstmt.setString(2, dto.getPationId());
-			pstmt.setString(3, dto.getWriter());
-			pstmt.setString(4, dto.getpNote());
+			pstmt.setString(1, vo.getChartId());
+			pstmt.setString(2, vo.getPationId());
+			pstmt.setString(3, vo.getWriter());
+			pstmt.setString(4, vo.getpNote());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,7 +86,7 @@ public class ChartDao {
 	}
 
 	// update
-	public int update(Connection conn, ClientDto dto) {
+	public int update(Connection conn, ChartVo vo) {
 		int result = 0;
 		String sql = ""; // TODO
 		PreparedStatement pstmt = null;
@@ -103,7 +104,7 @@ public class ChartDao {
 	// delete
 	public int delete(Connection conn, String chartId) {
 		int result = 0;
-		String sql = "DELETE FROM MEMBER WHERE MEM_ID=?";
+		String sql = "DELETE FROM  WHERE MEM_ID=?";
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(sql);

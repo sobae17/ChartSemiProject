@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import chart.semi.model.dto.ChartDto;
-import chart.semi.model.dto.ClientDto;
+import chart.semi.model.vo.*;
+
 
 public class ClientDao {
 	// select list - all
@@ -65,7 +65,7 @@ public class ClientDao {
 	}
 
 	// insert
-	public int insert(Connection conn, ChartDto dto) {
+	public int insert(Connection conn, ChartVo vo) {
 		int result = 0;
 //			INSERT INTO MEMBER VALUES ('kh1', 'pwd1', 'kh1@a.com');
 		String sql = "INSERT INTO MEMBER (MEM_ID,MEM_PWD,MEM_EMAIL) VALUES (?, ?, ?)";
@@ -73,10 +73,10 @@ public class ClientDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			// ? 처리
-			pstmt.setString(1, dto.getChartId());
-			pstmt.setString(2, dto.getPationId());
-			pstmt.setString(3, dto.getWriter());
-			pstmt.setString(4, dto.getpNote());
+			pstmt.setString(1, vo.getChartId());
+			pstmt.setString(2, vo.getPationId());
+			pstmt.setString(3, vo.getWriter());
+			pstmt.setString(4, vo.getpNote());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -86,7 +86,7 @@ public class ClientDao {
 	}
 
 	// update
-	public int update(Connection conn, ClientDto dto) {
+	public int update(Connection conn, ClientVo vo) {
 		int result = 0;
 		String sql = ""; // TODO
 		PreparedStatement pstmt = null;
