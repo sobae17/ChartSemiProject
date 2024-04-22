@@ -1,17 +1,17 @@
 section{
 width: 960px; margin: 0 auto;
 
-padding: 10%;
-margin: 0;
+/* padding: 10%; */
+
 }
-.div.login_btn{
+/* .div.login_btn{
 	display: right;
 }
 .join_btn{
 text-align:right;
-}
+} */
 
-.wrap_section{
+/* .wrap_section{
 width: 960px; margin: 0 auto;
 }
 .login_1{
@@ -23,4 +23,4 @@ width: 960px; margin: 0 auto;
 
 .login_btn{
 	text-align:center;
-}
+} */

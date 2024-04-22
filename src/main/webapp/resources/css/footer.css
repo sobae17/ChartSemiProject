@@ -1,6 +1,7 @@
 .footer_chart{
 /* background-color: #EEC6C6; */
-width: 960px; 
+/* width: 100%;  */
 margin: 0 auto;
 text-align:right;
+background-color: #EEC6C6;
 }
