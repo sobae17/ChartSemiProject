@@ -3,16 +3,18 @@ package chart.semi.service;
 import java.sql.Connection;
 import java.util.List;
 
-import chart.semi.model.dto.ClientDto;
+import chart.semi.model.vo.ClientVo;
+
+
 
 public class ChartService {
-private ClientDto dao = new ClientDto(); 
+private ClientVo vo = new ClientVo(); 
 	
 	// select list - all
-	public List<ClientDto> selectAllList() {
-		List<ClientDto> result = null;
+	public List<ClientVo> selectAllList() {
+		List<ClientVo> result = null;
 		Connection conn = getSemiConnection(true);
-		result = dao.selectAllList(conn);
+//		result = vo.selectAllList(conn);
 		close(conn);
 		return result;
 	}
@@ -25,34 +27,34 @@ private ClientDto dao = new ClientDto();
 		return null;
 	}
 	// select one
-	public ClientDto selectOne(String memId) {
-		ClientDto result = null;
+	public ClientVo selectOne(String clientId) {
+		ClientVo result = null;
 		Connection conn = getSemiConnection(true);
-		result = dao.selectOne(conn, memId);
+//		result = vo.selectOne(conn, clientId);
 		close(conn);
 		return result;
 	}
 	// insert
-	public int insert(ClientDto dto) {
+	public int insert(ClientVo vo) {
 		int result = 0;
 		Connection conn = getSemiConnection(true);
-		result = dao.insert(conn, dto);
+//		result = vo.insert(conn, vo);
 		close(conn);
 		return result;
 	}
 	// update
-	public int update(ClientDto dto) {
+	public int update(ClientVo vo) {
 		int result = 0;
 		Connection conn = getSemiConnection(true);
-		result = dao.update(conn, dto);
+//		result = vo.update(conn, vo);
 		close(conn);
 		return result;
 	}
 	// delete
-	public int delete(String memId) {
+	public int delete(String clientId) {
 		int result = 0;
 		Connection conn = null;
-		result = dao.delete(conn, memId);
+//		result = vo.delete(conn, clientId);
 		close(conn);
 		return result;
 }
