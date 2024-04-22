@@ -22,8 +22,9 @@
 <section calss="chart_readlist_section">
 
 <h1> 치료일지</h1>
+<div><input type="search" value="검색창"> </div>
 
-<table class="chart_read">
+<table class="chart_readlist">
 <tr class="c_list">
 <td class="chart_num">글 번호</td>
 <td class="chart_"> 날짜 </td>
@@ -32,9 +33,9 @@
 </tr>
 <tr>
 <td> 01</td>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
+<td> 2024-04-12</td>
+<td> 작업치료 입니다.</td>
+<td> 배소진</td>
 </tr>
 <tr>
 <td> 01</td>
