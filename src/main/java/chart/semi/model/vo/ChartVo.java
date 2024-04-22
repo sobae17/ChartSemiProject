@@ -1,6 +1,6 @@
-package chart.semi.model.dto;
+package chart.semi.model.vo;
 
-public class ChartDto {
+public class ChartVo {
 //	"CHART_ID"	VARCHAR2(10)		NOT NULL,
 //	"PATIENT_ID"	VARCHAR2(10)		NOT NULL,
 //	"WRITER"	VARCHAR2(10)		NOT NULL,

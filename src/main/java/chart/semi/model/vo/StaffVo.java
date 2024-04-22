@@ -1,6 +1,6 @@
-package chart.semi.model.dto;
+package chart.semi.model.vo;
 
-public class StaffDto {
+public class StaffVo {
 //	
 //	"STAFF_ID"	VARCHAR2(7)		NOT NULL,
 //	"STAFF_NAME"	VARCHAR2(10)		NOT NULL,

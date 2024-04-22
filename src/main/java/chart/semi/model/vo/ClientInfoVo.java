@@ -1,6 +1,6 @@
-package chart.semi.model.dto;
+package chart.semi.model.vo;
 
-public class ClientInfoDto {
+public class ClientInfoVo {
 //	"CLIENT_NUM"	NUMBER(2)	DEFAULT 1	NOT NULL,
 //	"PATIENT_ID"	VARCHAR2(10)		NOT NULL,
 //	"CLIENT_NAME"	VARCHAR2(20)		NOT NULL,

@@ -1,6 +1,6 @@
-package chart.semi.model.dto;
+package chart.semi.model.vo;
 
-public class PatientDto {
+public class PatientVo {
 //	"PATIENT_ID"	VARCHAR2(10)		NOT NULL,
 //	"PATIENT_NAME"	VARCHAR2(50)		NOT NULL,
 //	"PATIENT_AGE"	NUMBER		NOT NULL,

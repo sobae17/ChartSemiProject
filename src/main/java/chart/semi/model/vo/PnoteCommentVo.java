@@ -1,6 +1,6 @@
-package chart.semi.model.dto;
+package chart.semi.model.vo;
 
-public class PnoteCommentDto {
+public class PnoteCommentVo {
 //	"CHART_ID"	VARCHAR2(10)		NOT NULL,
 //	"PATIENT_ID"	VARCHAR2(10)		NOT NULL,
 //	"PNOTE_REPLAY"	VARCHAR2(4000)		NOT NULL,
