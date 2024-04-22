@@ -7,37 +7,32 @@ public class ChartVo {
 //	"P_NOTE"	VARCHAR2(4000)		NOT NULL
 
 	private String chartId;
-	private String pationId;
+	private String patientId;
 	private String writer;
 	private String pnote;
 	@Override
 	public String toString() {
-		return "ChartDto [chartId=" + chartId + ", pationId=" + pationId + ", writer=" + writer + ", pNote=" + pnote
+		return "ChartVo [chartId=" + chartId + ", patientId=" + patientId + ", writer=" + writer + ", pnote=" + pnote
 				+ "]";
+	}
+	public ChartVo(String chartId, String patientId, String writer, String pnote) {
+		super();
+		this.chartId = chartId;
+		this.patientId = patientId;
+		this.writer = writer;
+		this.pnote = pnote;
 	}
 	public String getChartId() {
 		return chartId;
 	}
-	public void setChartId(String chartId) {
-		this.chartId = chartId;
-	}
-	public String getPationId() {
-		return pationId;
-	}
-	public void setPationId(String pationId) {
-		this.pationId = pationId;
+	public String getPatientId() {
+		return patientId;
 	}
 	public String getWriter() {
 		return writer;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
-	public String getpNote() {
+	public String getPnote() {
 		return pnote;
-	}
-	public void setpNote(String pNote) {
-		this.pnote = pNote;
 	}
 	
 	

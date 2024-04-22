@@ -1,121 +1,38 @@
 package chart.semi.model.dao;
 
-import static chart.semi.common.JdbcTemplate.close;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
 
 import chart.semi.model.vo.*;
 
 
 public class ClientDao {
 	// select list - all
-	public List<ClientDao> selectAllList(Connection conn) {
-		List<ClientDao> result = null;
-		String sql = "select * from chlient";
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			pstmt = conn.prepareStatement(sql);
-			// ? 처리
-			rs = pstmt.executeQuery();
-			// ResetSet처리
-			if (rs.next()) {
-				result = new ArrayList<ClientDao>();
-				do {
-					ClientDao dto = null;// new ChartDto(
-										// rs.getString("chartId"),rs.getString("pationId"),rs.getString("writer"),rs.getString("pnote"));
-					result.add(dto);
-				} while (rs.next());
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		public List<ClientVo> selectAllList(SqlSession session) {
+			return session.selectList("chartMapper.selectAllList");
 		}
-		close(rs);
-		close(pstmt);
-		return result;
-	}
 
-	// select one
-	public ClientDao selectOne(Connection conn, String clientId) {
-		ClientDao result = null;
-		String sql = "SELECT MEM_ID,MEM_PWD,MEM_EMAIL  FROM MEMBER WHERE MEM_ID=?";
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			pstmt = conn.prepareStatement(sql);
-			// ? 처리
-			pstmt.setString(1, clientId);
-			rs = pstmt.executeQuery();
-			// ResetSet처리
-			if (rs.next()) {
-				result = null;// new ChartDto(
-								// rs.getString("chartId"),rs.getString("pationId"),rs.getString("writer"),rs.getString("pnote"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		// select one 
+		public ClientVo selectOne(SqlSession session, String clientId) {
+			return session.selectOne("chartMapper.selectOne", clientId );
 		}
-		close(rs);
-		close(pstmt);
-		return result;
-	}
 
-	// insert
-	public int insert(Connection conn, ChartVo vo) {
-		int result = 0;
-//			INSERT INTO MEMBER VALUES ('kh1', 'pwd1', 'kh1@a.com');
-		String sql = "INSERT INTO MEMBER (MEM_ID,MEM_PWD,MEM_EMAIL) VALUES (?, ?, ?)";
-		PreparedStatement pstmt = null;
-		try {
-			pstmt = conn.prepareStatement(sql);
-			// ? 처리
-			pstmt.setString(1, vo.getChartId());
-			pstmt.setString(2, vo.getPationId());
-			pstmt.setString(3, vo.getWriter());
-			pstmt.setString(4, vo.getpNote());
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		// insert
+		public int insert(SqlSession session, ClientVo vo) {
+			return session.insert("chartMapper.insert", vo);
 		}
-		close(pstmt);
-		return result;
-	}
 
-	// update
-	public int update(Connection conn, ClientVo vo) {
-		int result = 0;
-		String sql = ""; // TODO
-		PreparedStatement pstmt = null;
-		try {
-			pstmt = conn.prepareStatement(sql);
-			// ? 처리
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		// update
+		public int update(SqlSession session, ClientVo vo) {
+			return session.update("chartMapper.update", vo);
 		}
-		close(pstmt);
-		return result;
-	}
 
-	// delete
-	public int delete(Connection conn, String clientId) {
-		int result = 0;
-		String sql = "DELETE FROM MEMBER WHERE MEM_ID=?";
-		PreparedStatement pstmt = null;
-		try {
-			pstmt = conn.prepareStatement(sql);
-			// ? 처리
-			pstmt.setString(1, clientId);
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		// delete
+		public int delete(SqlSession session, String clientId) {
+			return session.delete("chartMapper.delete", clientId);
 		}
-		close(pstmt);
-		return result;
-	}
 
-}
+	}

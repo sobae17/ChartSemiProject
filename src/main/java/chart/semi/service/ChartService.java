@@ -1,61 +1,57 @@
 package chart.semi.service;
 
-import java.sql.Connection;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
+import static chart.semi.common.MybatisTemplate.*;
+
+import chart.semi.model.dao.ChartDao;
+import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.ClientVo;
 
-
-
 public class ChartService {
-private ClientVo vo = new ClientVo(); 
+	private ChartDao dao = new ChartDao(); 
 	
 	// select list - all
-	public List<ClientVo> selectAllList() {
-		List<ClientVo> result = null;
-		Connection conn = getSemiConnection(true);
-//		result = vo.selectAllList(conn);
-		close(conn);
+	public List<ChartVo> selectAllList() {
+		List<ChartVo> result = null;
+		SqlSession session = getSqlSession(true);
+		result = dao.selectAllList(session); 
+		session.close();
 		return result;
 	}
-	private void close(Connection conn) {
-		// TODO Auto-generated method stub
-		
-	}
-	private Connection getSemiConnection(boolean b) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	// select one
-	public ClientVo selectOne(String clientId) {
-		ClientVo result = null;
-		Connection conn = getSemiConnection(true);
-//		result = vo.selectOne(conn, clientId);
-		close(conn);
+	public ChartVo selectOne(String clientId) {
+		ChartVo result = null;
+		SqlSession session = getSqlSession(true);
+		result = dao.selectOne(session, clientId);
+		session.close();
 		return result;
 	}
 	// insert
-	public int insert(ClientVo vo) {
+	public int insert(ChartVo vo) {
 		int result = 0;
-		Connection conn = getSemiConnection(true);
-//		result = vo.insert(conn, vo);
-		close(conn);
+		SqlSession session = getSqlSession(true);
+		result = dao.insert(session, vo);
+		session.close();
 		return result;
 	}
 	// update
-	public int update(ClientVo vo) {
+	public int update(ChartVo vo) {
 		int result = 0;
-		Connection conn = getSemiConnection(true);
-//		result = vo.update(conn, vo);
-		close(conn);
+		SqlSession session = getSqlSession(true);
+		result = dao.update(session, vo);
+		session.close();
 		return result;
 	}
 	// delete
 	public int delete(String clientId) {
 		int result = 0;
-		Connection conn = null;
-//		result = vo.delete(conn, clientId);
-		close(conn);
+		SqlSession session = null;
+		result = dao.delete(session, clientId);
+		session.close();
 		return result;
 }
 }

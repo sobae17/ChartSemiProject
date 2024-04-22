@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+<properties resource="db.properties"/>
+
+<settings>
+	<setting name="jdbcTypeForNull" value="NULL"/>
+	<setting name="mapUnderscoreToCamelCase" value="true"/>
+</settings>
+
+<typeAliases>
+	<package name="chart.semi.model.vo"/>
+</typeAliases>
+
+<environments default="chartsemiDBServer">
+	<environment id="chartsemiDBServer">
+		<transactionManager type="JDBC"></transactionManager>
+		<dataSource type="POOLED">
+			<property name="driver" value="${jdbc.driver}"/>
+			<property name="url" value="${jdbc.semi.dbserver.url}"/>
+			<property name="username" value="${jdbc.semi.chart.username}"/>
+			<property name="password" value="${jdbc.semi.chart.password}"/>
+		</dataSource>
+	</environment>
+	<environment id="chartsemiLocalhost">
+		<transactionManager type="JDBC"></transactionManager>
+		<dataSource type="POOLED">
+			<property name="driver" value="${jdbc.driver}"/>
+			<property name="url" value="${jdbc.semi.localhost.url}"/>
+			<property name="username" value="${jdbc.semi.chart.username}"/>
+			<property name="password" value="${jdbc.semi.chart.password}"/>
+		</dataSource>
+	</environment>
+</environments>
+
+<mappers>
+	<mapper resource="mappers/chart-mapper.xml"/>
+	<mapper resource="mappers/clientInfo-mapper.xml"/>
+	<mapper resource="mappers/client-mapper.xml"/>
+	<mapper resource="mappers/healthChart-mapper.xml"/>
+	<mapper resource="mappers/patient-mapper.xml"/>
+	<mapper resource="mappers/pnoteComment-mapper.xml"/>
+	<mapper resource="mappers/staff-mapper.xml"/>
+</mappers>
+</configuration>

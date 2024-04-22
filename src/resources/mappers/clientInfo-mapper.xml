@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="clientInfoMapper">
+<select id="selectAllList" resultType="ClientInfoVo">
+	select * from client_info
+</select>
+
+<select id="selectOne" parameterType="string" resultType="ClientInfoVo">
+	SELECT CLIENT_NUM, PATIENT_ID, CLIENT_NAME ,CLIENT_PHONE,FAMILY,CLIENT_ADDRESS,CLIENT_NO
+	FROM CLIENT_INFO WHERE CHART_ID=#{patientId}
+</select>
+
+<insert id="insert" parameterType="string">
+	INSERT INTO CLIENT_INFO (CLIENT_ID,CLIENT_PWD,CLIENT_EMAIL,PATIENT_ID) 
+	VALUES (#{clientNum}, #{patientId}, #{clientName}, #{phone}, #{family}, #{clientAddess}, #{clientNo})
+</insert>
+
+<update id="update" parameterType="ClientInfoVo">
+	UPDATE FROM CLIENT_INFO WHERE CLIENT_NUM=#{patientId}
+</update>
+<delete id="delete" parameterType="string">
+	DELETE FROM CLIENT_INFO WHERE CLIENT_NUM=#{patientId}
+</delete>
+</mapper>
