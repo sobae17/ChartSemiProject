@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="patientMapper">
+<select id="selectAllList" resultType="PatientVo">
+	select * from patient
+</select>
+
+<select id="selectOne" parameterType="string" resultType="PatientVo">
+	SELECT PATIENT_ID, PATIENT_NAME, PATIENT_AGE ,PATIENT_GENDER,PATIENT_DISEASE,PATIENT_ADDRESS,PATIENT_NO
+	FROM PATIENT WHERE PATIENT_ID=#{patientId}
+</select>
+
+<insert id="insert" parameterType="PatientVo">
+	INSERT INTO PATIENT (PATIENT_ID, PATIENT_NAME, PATIENT_AGE ,PATIENT_GENDER,PATIENT_DISEASE,PATIENT_ADDRESS,PATIENT_NO) 
+	VALUES (#{patientId}, #{patientName}, #{patientAge}, #{patientGender}, #{patientDisease}, #{patientAddress}, #{patientNo})
+</insert>
+
+<update id="update" parameterType="PatientVo">
+<!-- TODO -->
+</update>
+<delete id="delete" parameterType="string">
+	DELETE FROM PATIENT WHERE PATIENT_ID=#{patientId}
+</delete>
 
 </mapper>

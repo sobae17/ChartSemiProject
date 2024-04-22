@@ -7,7 +7,7 @@
 
 <select id="selectOne" parameterType="string" resultType="ClientInfoVo">
 	SELECT CLIENT_NUM, PATIENT_ID, CLIENT_NAME ,CLIENT_PHONE,FAMILY,CLIENT_ADDRESS,CLIENT_NO
-	FROM CLIENT_INFO WHERE CHART_ID=#{patientId}
+	FROM CLIENT_INFO WHERE CLIENT_NUM=#{clientNum}
 </select>
 
 <insert id="insert" parameterType="string">
@@ -16,9 +16,9 @@
 </insert>
 
 <update id="update" parameterType="ClientInfoVo">
-	UPDATE FROM CLIENT_INFO WHERE CLIENT_NUM=#{patientId}
+	UPDATE FROM CLIENT_INFO WHERE CLIENT_NUM=#{clientNum}
 </update>
 <delete id="delete" parameterType="string">
-	DELETE FROM CLIENT_INFO WHERE CLIENT_NUM=#{patientId}
+	DELETE FROM CLIENT_INFO WHERE CLIENT_NUM=#{clientNum}
 </delete>
 </mapper>

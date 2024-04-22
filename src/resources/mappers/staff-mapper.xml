@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="staffMapper">
+<select id="selectAllList" resultType="StaffVo">
+	select * from staff
+</select>
 
+<select id="selectOne" parameterType="string" resultType="StaffVo">
+	SELECT STAFF_ID, STAFF_NAME, STAFF_PWD ,STAFF_EMAIL,STAFF_TYPE
+	FROM staff WHERE staffId=#{staffId}
+</select>
+
+<insert id="insert" parameterType="StaffVo">
+	INSERT INTO staff (STAFF_ID, STAFF_NAME, STAFF_PWD ,STAFF_EMAIL,STAFF_TYPE) 
+	VALUES (#{staffId}, #{staffName}, #{staffPwd}, #{staffEmail}, #{staffType})
+</insert>
+
+<update id="update" parameterType="StaffVo">
+<!-- TODO -->
+</update>
+<delete id="delete" parameterType="string">
+	DELETE FROM staff WHERE staffId=#{staffId}
+</delete>
 </mapper>

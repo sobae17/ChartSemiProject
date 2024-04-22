@@ -24,10 +24,10 @@ public class ClientInfoService {
 		}
 
 		// select one
-		public ClientInfoVo selectOne(String patientId) {
+		public ClientInfoVo selectOne(String clientNum) {
 			ClientInfoVo result = null;
 			SqlSession session = getSqlSession(true);
-			result = dao.selectOne(session, patientId);
+			result = dao.selectOne(session, clientNum);
 			session.close();
 			return result;
 		}
@@ -48,10 +48,10 @@ public class ClientInfoService {
 			return result;
 		}
 		// delete
-		public int delete(String patientId) {
+		public int delete(String clientNum) {
 			int result = 0;
 			SqlSession session = null;
-			result = dao.delete(session, patientId);
+			result = dao.delete(session, clientNum);
 			session.close();
 			return result;
 	}

@@ -13,7 +13,7 @@ public class ClientInfoDao  {
 			}
 
 			// select one 
-			public ClientVo selectOne(SqlSession session, String patientId) {
+			public ClientInfoVo selectOne(SqlSession session, String patientId) {
 				return session.selectOne("chartMapper.selectOne", patientId );
 			}
 

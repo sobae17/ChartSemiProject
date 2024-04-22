@@ -8,19 +8,26 @@ public class StaffVo {
 //	"STAFF_EMAIL"	VARCHAR2(100)		NOT NULL,
 //	"STAFF_TYPE"	CHAR(2)	DEFAULT 2	NOT NULL
 	private String staffId;
+	private String staffName;
 	private String staffPwd;
 	private String staffEmail;
 	private Integer staffType;
 	@Override
 	public String toString() {
-		return "StaffDto [staffId=" + staffId + ", staffPwd=" + staffPwd + ", staffEmail=" + staffEmail + ", staffType="
-				+ staffType + "]";
+		return "StaffVo [staffId=" + staffId + ", staffName=" + staffName + ", staffPwd=" + staffPwd + ", staffEmail="
+				+ staffEmail + ", staffType=" + staffType + "]";
 	}
 	public String getStaffId() {
 		return staffId;
 	}
 	public void setStaffId(String staffId) {
 		this.staffId = staffId;
+	}
+	public String getStaffName() {
+		return staffName;
+	}
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
 	public String getStaffPwd() {
 		return staffPwd;
@@ -40,7 +47,5 @@ public class StaffVo {
 	public void setStaffType(Integer staffType) {
 		this.staffType = staffType;
 	}
-
-
-
+	
 }

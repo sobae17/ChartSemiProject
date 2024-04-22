@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="pnoteCommentMapper">
+<select id="selectAllList" resultType="PnoteCommentVo">
+	select * from pnote_comment
+</select>
 
+<select id="selectOne" parameterType="string" resultType="PnoteCommentVo">
+	SELECT CHART_ID, PATIENT_ID, PULSE ,PNOTE_REPLAY,PNOTE_REP
+	FROM pnote_comment WHERE CHART_ID=#{chartId}
+</select>
+
+<insert id="insert" parameterType="PnoteCommentVo">
+	INSERT INTO pnote_comment (CHART_ID, PATIENT_ID, PULSE ,PNOTE_REPLAY,PNOTE_REP) 
+	VALUES (#{chartId}, #{patientId}, #{pnoteReplay}, #{pnoteRep})
+</insert>
+
+<update id="update" parameterType="PnoteCommentVo">
+<!-- TODO -->
+</update>
+<delete id="delete" parameterType="string">
+	DELETE FROM pnote_comment WHERE CHART_ID=#{chartId}
+</delete>
 </mapper>
