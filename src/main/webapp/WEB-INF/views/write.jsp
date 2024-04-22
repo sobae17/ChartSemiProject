@@ -14,9 +14,16 @@
 <header class="header_Chart">
 	<%@include file="/WEB-INF/views/header.jsp"%>
 </header>
+<section>
 <h1> 치료사의 일지 작성하기</h1>
-
-
+<form>
+<div> 치료 일지 작성하기
+<textarea rows="30" cols="100">내용</textarea>
+</div>
+</form>
+<div class="btn_submit"><input type="reset" value="삭제하기"> <input type="submit" value="수정하기"> <input type="submit" value="작성하기">
+</div>
+</section>
 <footer class="footer_Chart">
 			<%@include file="/WEB-INF/views/footer.jsp"%>
 		</footer>

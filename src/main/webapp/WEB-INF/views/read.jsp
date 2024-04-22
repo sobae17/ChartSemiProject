@@ -16,7 +16,10 @@
 <section class="wrap_section">
 
 <h1> 치료일지</h1>
+<div><input type="search" value="검색창"> </div>
+<div>
 
+</div>
 
 
 <footer class="footer_Chart">
