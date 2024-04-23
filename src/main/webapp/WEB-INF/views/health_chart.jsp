@@ -15,38 +15,29 @@
 	<%@include file="/WEB-INF/views/header_chart.jsp"%>
 </header>
 <section>
-<h1> 건강 일지</h1>
-<table class="chart_health">
-<tr class="health_list">
-<td class="health_num">글 번호</td>
-<td class="health_"> 날짜 </td>
-<td> 치료일지 </td>
-<td> 작성자 </td>
-</tr>
-<tr>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
-</tr>
-<tr>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
-</tr>
-<tr>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
-</tr>
-<tr>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
-<td> 01</td>
-</tr>
+<form class="health_frm">
+
+			<h1>건강 일지</h1>
+			<div class="health_chart">
+				<div class="pulse">
+					<p>맥박</p>
+				</div>
+				<div class="weight">
+					<p>몸무게</p>
+				</div>
+				<div class="blood_pressure">
+					<p>혈압</p>
+				</div>
+				<div class="pee">
+					<p>소변</p>
+					<p>2</p>
+				</div>
+				<div class="comment">
+					<p>코멘트
+					<p>
+				</div>
+			</div>
+		</form>
 </section>
 </table>
 <footer class="footer_Chart">
