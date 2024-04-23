@@ -4,11 +4,20 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import chart.semi.model.vo.PatientCheckReqVo;
 import chart.semi.model.vo.PatientVo;
 
 
 
 public class PatientDao {
+	// select one 
+	public String selectOneCheckPatient(SqlSession session, PatientCheckReqVo vo) {
+		System.out.println(vo);
+		return session.selectOne("patientMapper.selectOneCheckPatient", vo );
+	}
+
+	
+	
 	// select list - all
 	public List<PatientVo> selectAllList(SqlSession session) {
 		return session.selectList("patientMapper.selectAllList");

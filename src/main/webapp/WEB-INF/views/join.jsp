@@ -16,6 +16,11 @@
 <header class="header_Chart">
 	<%@include file="/WEB-INF/views/header.jsp"%>
 </header>
+<style>
+.patientId {
+display: none;
+}
+</style>
 </head>
 <body>
 
@@ -25,35 +30,43 @@
 </div>
 
 <form action="${pageContext.request.contextPath }/join" method="post" id="chartjoin" style="flex-direction: column;">
-<div class="join_frm">
-<div>아이디 <input type="text" name="id" required> <button type="button" class="btn checkid">중복확인</button></div><br>
-<div>비밀번호 <input type="password" name="pwd" required></div><br>
-<div>비밀번호 확인 <input type="password" required> </div><br>
-<div>이메일 <input type="email" name="email" required></div><br>
-<div> 입원환자 이름 <input type="text" name="pname" required></div> <br>
-<div> 입원환자 주민번호 <input type="text" name="pno" required> <button type="button" class="btn checkpatient"> 입원확인</button></div><br>
-<div class="agree-check"><input type="checkbox" required> 이용약관 개인정보 수집 및 이용, 마케팅 활용 선택에 모두 동의합니다.</div><br>
-</div>
-<div><button type="submit">회원가입</button></div>
-<div><button type="reset"> 취소하기</button></div>
+	<div class="join_frm">
+		<div>아이디 <input type="text" name="id" required> <button type="button" class="btn checkid">중복확인</button></div><br>
+		<div>비밀번호 <input type="password" name="pwd" required></div><br>
+		<div>비밀번호 확인 <input type="password" required> </div><br>
+		<div>이메일 <input type="email" name="email" required></div><br>
+		<div> 입원환자 이름 <input type="text" name="patientName" required></div> <br>
+		<div> 입원환자 주민번호 <input type="text" name="patientNo" required> <button type="button" class="btn checkpatient"> 입원확인</button></div><br>
+		<div class="patientId"> 입원환자아이디 <input type="text" name="patientId" readonly></div><br>
+		<div class="agree-check"><input type="checkbox" required> 이용약관 개인정보 수집 및 이용, 마케팅 활용 선택에 모두 동의합니다.</div><br>
+	</div>
+	<div><button type="submit">회원가입</button></div>
+	<div><button type="reset"> 취소하기</button></div>
 </form>
 </section>
 		
 <footer class="footer_Chart">
-			<%@include file="/WEB-INF/views/footer.jsp"%>
-		</footer>
+	<%@include file="/WEB-INF/views/footer.jsp"%>
+</footer>
 <script>
 $(loadedHendler);
 function loadedHendler() {
 	$(".btn.checkid").on("click", btnCheckidClickHandler);
+	$(".btn.checkpatient").on("click", btnCheckPatientClickHandler);
 }
+function errorHandler(request, status, error){
+	alert("code: "+request.status+"/n"+ "message: "
+			+ request.responseText + "/n"
+			+ "error: "+error);
+}
+
 function btnCheckidClickHandler() {
 	var idVal = $("[name=id]").val();
 	$.ajax({
 		async : false
 		,url : "${pageContext.request.contextPath }/checkid.ajax"
 		,method : "post"
-		,data : { cid : $("[name=id]").val()}
+		,data : { cid : idVal}
 		
 		,success : function(result) {
 			console.log(result);
@@ -62,40 +75,35 @@ function btnCheckidClickHandler() {
 			}else{
 				alert("사용 가능한 아이디 입니다.");
 			}
-			,error : function(request, status, error){
-				alert("code: "+request.status+"/n"+ "message: "
-						+ request.responseText + "/n"
-						+ "error: "+error);
-			}
+		}
+		,error : errorHandler
 			
 	});
-$(loadedHendler);
-function loadedHendler() {
-	$(".btn.checkpatient").on("click", btnCheckPatientClickHandler);
 }
 function btnCheckPatientClickHandler() {
-	 var pnoval = $("[name=pno]").val();
-	 $,ajax({
+	 var patientNo = $("[name=patientNo]").val();
+	 var patientName = $("[name=patientName]").val();
+	 $.ajax({
 		async : false
 		,url : "${pageContext.request.contextPath }/checkpatient.ajax"
 		,method : "post"
-		,data : { cpno : = $("[name=pno]").val()}
+		,data : { patientNo : patientNo,  patientName : patientName }
 		
-		,success : function(result) {
-			console.log(result);
-			if(result > 0){
+		,success : function(patientId) {
+			console.log(patientId);
+			if(patientId == "null"){
 				alert("입원환자가 아닙니다. 다시 입력해주세요.")
+				$(".patientId").hide();
 			}else{
 				alert("입원환자 확인 되었습니다.");
+				$(".patientId input[name=patientId]").val(patientId);
+				$(".patientId").show();
 			}
-			,error : function(request, status, error){
-				alert("code: "+request.status+"/n"+ "message: "
-						+ request.responseText + "/n"
-						+ "error: "+error);
-			}
+		}
+		,error : errorHandler
 	 });
 	 
-
+}
 	
 	
 

@@ -10,10 +10,23 @@ import chart.semi.model.dao.ChartDao;
 import chart.semi.model.dao.PatientDao;
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.ClientVo;
+import chart.semi.model.vo.PatientCheckReqVo;
 import chart.semi.model.vo.PatientVo;
 
 public class PatientService {
 	private PatientDao dao = new PatientDao(); 
+	
+	// select one
+	public String selectOneCheckPatient(PatientCheckReqVo vo) {
+		String result = null;
+		SqlSession session = getSqlSession(true);
+		result = dao.selectOneCheckPatient(session, vo);
+		session.close();
+		return result;
+	}
+	
+	
+	
 	
 	// select list - all
 	public List<PatientVo> selectAllList() {
@@ -32,6 +45,7 @@ public class PatientService {
 		session.close();
 		return result;
 	}
+	
 	// insert
 	public int insert(PatientVo vo) {
 		int result = 0;
