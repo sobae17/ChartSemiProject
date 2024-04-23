@@ -19,24 +19,67 @@
 <style>
 .patientId {
 display: none;
+
+ }
+ .join_h1{
+ border-bottom-style: none;
+ padding-bottom: 10px;
+ padding-top: 10px;
 }
+.join_pwd {
+padding-bottom: 20;
+}
+.join_id {
+padding-bottom: 20;
+
+}
+.join_pwdcheck {
+padding-bottom: 20;
+
+}
+.join_emil {
+padding-bottom: 20;
+}
+.join_pname {
+padding-bottom: 20;
+}
+.join_pno {
+padding-bottom: 20;
+}
+.patientId {
+padding-bottom: 20;
+ padding-bottom: 10px;
+}
+#text {
+left;
+}
+ }
+.join_frm {
+
+}
+.join_section{
+background-color: #ffdee5bf;
+border-bottom-left-radius: 10 10 10;
+}
+}
+
 </style>
 </head>
 <body>
 
-<section style="text-align:center;">
-<div class="">
-<h1> 회원가입 </h1>
+<section class="join_section" style="text-align:center;">
+<div class="join_title" align="center">
+<h1 class="join_h1"> 회원가입 </h1>
 </div>
 
-<form action="${pageContext.request.contextPath }/join" method="post" id="chartjoin" style="flex-direction: column;">
-	<div class="join_frm">
-		<div>아이디 <input type="text" name="id" required> <button type="button" class="btn checkid">중복확인</button></div><br>
-		<div>비밀번호 <input type="password" name="pwd" required></div><br>
-		<div>비밀번호 확인 <input type="password" required> </div><br>
-		<div>이메일 <input type="email" name="email" required></div><br>
-		<div> 입원환자 이름 <input type="text" name="patientName" required></div> <br>
-		<div> 입원환자 주민번호 <input type="text" name="patientNo" required> <button type="button" class="btn checkpatient"> 입원확인</button></div><br>
+<form action="${pageContext.request.contextPath }/join" method="post" id="chartjoin" class="join_frm" style="flex-direction: column;">
+	<div class="join_frm" text-align="center" align="center">
+		<div class="join_id" >아이디 <input type="text" name="id" required> <button type="button" class="btn checkid">중복확인</button></div><br>
+		<div class="join_pwd" >비밀번호 <input type="password" name="pwd" required></div><br>
+		<div class="join_pwdcheck" >비밀번호 확인 <input type="password" class="pwdcheck" required> </div><br>
+		<div class="join_emil" >이메일 <input type="email" name="email" required></div><br>
+		<div class="join_pname" > 입원환자 이름 <input type="text" name="patientName" required></div> <br>
+		<div class="join_pno" > 입원환자 주민번호 <input type="text" name="patientNo" required> <button type="button" class="btn checkpatient"> 입원확인</button></div><br>
 		<div class="patientId"> 입원환자아이디 <input type="text" name="patientId" readonly></div><br>
 		<div class="agree-check"><input type="checkbox" required> 이용약관 개인정보 수집 및 이용, 마케팅 활용 선택에 모두 동의합니다.</div><br>
 	</div>

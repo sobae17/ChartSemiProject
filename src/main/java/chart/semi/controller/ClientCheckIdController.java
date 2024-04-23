@@ -31,7 +31,7 @@ public class ClientCheckIdController extends HttpServlet {
 		int result = 0;
 		String clientId = request.getParameter("cid");
 		if(clientId == null) {
-			result = 2; // req 데이터가 없어서 오류 
+			result = 2; // 
 		}else {
 			result = service.selectOneCheckId(clientId);
 		}
