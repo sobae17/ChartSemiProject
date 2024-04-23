@@ -7,12 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import chart.semi.model.vo.ClientLoginReqVo;
+import chart.semi.model.vo.ClientLoginResVo;
+import chart.semi.service.ClientService;
+
 /**
  * Servlet implementation class ChartLoginController
  */
 @WebServlet("/login")
 public class ChartLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ClientService service = new ClientService();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -31,7 +36,18 @@ public class ChartLoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		//TODO DB
-		response.getWriter().append("1");
+		
+		ClientLoginReqVo vo = new ClientLoginReqVo(id, pwd);
+		System.out.println("vo: "+ vo);
+		ClientLoginResVo resVo = service.selectLogin(vo);
+		if(resVo != null) {
+			// 로그인 정보를 Session 등록
+			request.getSession().setAttribute("ssslogin", resVo);
+			System.out.println("로그인 성공");
+			response.getWriter().append("1");
+		} else {
+			System.out.println("로그인 실패");
+			response.getWriter().append("0");
+		}
 	}
 }
