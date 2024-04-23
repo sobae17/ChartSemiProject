@@ -31,7 +31,14 @@ public class ClientService {
 			session.close();
 			return result;
 		}
-		
+		// select one 
+		public int selectOneCheckId(String clientId) {
+			int result = 0;
+			SqlSession session = getSqlSession(true);
+			result = dao.selectOneCheckId(session, clientId);
+			session.close();
+			return result;
+		}
 		// select one
 		public ClientVo selectOne(String clientId) {
 			ClientVo result = null;

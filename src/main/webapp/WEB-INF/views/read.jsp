@@ -19,6 +19,33 @@
 	<section class="wrap_section">
 
 		<h1>치료일지</h1>
+		<form class="read_main">
+		<fieldset>
+		<article>
+		<table>
+		<thead>
+		<tr> 치료사 </tr>
+		</thead>
+		
+		<tbody>
+		
+		
+		</tbody>
+		
+		
+		</table>
+		
+		
+		</article>
+		
+		</fieldset>
+		
+		
+		</form>
+		
+		
+		
+<!-- 잠시  -->		
 		<div>
 			<input type="search" value="검색창">
 		</div>
