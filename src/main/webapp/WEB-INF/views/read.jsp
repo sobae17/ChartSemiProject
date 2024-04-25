@@ -20,46 +20,47 @@
 
 		<h1>치료일지</h1>
 		<form class="read_main">
-		<fieldset>
-		<article>
-		<table>
-		<thead>
-		<tr> 글 번호: 01 </tr>
-		<
-		</thead>
-		
-		<tbody>
-		
-		
-		</tbody>
-		
-		
-		</table>
-		
-		
-		</article>
-		
-		</fieldset>
-		
-		
-		</form>
-		
-		
-		
-<!-- 잠시  -->		
-		<div>
-			<input type="search" value="검색창">
-		</div>
-		<div class="chart grid">
-			<div class="" flex>
-				<div>${vo.chartId }</div>
-				<div>${vo.patientId }</div>
-				<div>${vo.writer }</div>
-				<div>${vo.pnote }</div>
+			<fieldset>
+				<article>
+					<table>
+						<thead>
+							<tr>글 번호: 01
+							</tr>
 
-			</div>
-		</div>
-		<div></div>
+						</thead>
+
+						<tbody>
+
+
+						</tbody>
+
+
+					</table>
+
+
+				</article>
+
+			</fieldset>
+
+			<textarea rows="100" cols="100" style="width: 957px; height: 450px;"> 
+예시> * Dysphagia - Apply 30min (PM 16:45 ~ 17:15)
+- 자세 취하기를 통한 안전한 인두 삼킴 유도를 위한 턱 당김 자세(Chin tuck) 유지하기
+- 반사의 정상화를 위한 차가운 설압자(ice stick)를 이용한 온도촉각자극하기(TTS)
+- pharyngeal alignment 위한  Massage
+			</textarea>
+		</form>
+
+<!-- 댓글  -->
+<form class="chart_replay">
+<fieldset>
+<input type="text" name="chart_re" style="width: 900px; height: 100px;">
+<input type="submit" name="repaly_submit" value="댓글 달기">
+
+</fieldset>
+</form>
+
+		<!-- 잠시  -->
+
 
 
 		<footer class="footer_Chart">
