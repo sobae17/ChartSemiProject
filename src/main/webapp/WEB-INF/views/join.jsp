@@ -15,12 +15,10 @@
 <title>Chart join page</title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
-</head>
-<body>
-	<header class="header_Chart">
-		<%@include file="/WEB-INF/views/header.jsp"%>
-	</header>
-	<style>
+<style>
+.join_frm {
+
+}
 .patientId {
 	display: none;
 }
@@ -77,6 +75,9 @@
 </style>
 </head>
 <body>
+	<header class="header_Chart">
+		<%@include file="/WEB-INF/views/header.jsp"%>
+	</header>
 
 	<section class="join_section" style="text-align: center;">
 		<div class="join_title" align="center">
@@ -85,7 +86,7 @@
 
 		<form action="${pageContext.request.contextPath }/join" method="post"
 			id="chartjoin" class="join_frm" style="flex-direction: column;">
-			<div class="join_frm" text-align="center" align="center">
+			<div class="join_frm">
 				<div class="join_id">
 					아이디 <input type="text" name="id" required>
 					<button type="button" class="btn checkid">중복확인</button>
