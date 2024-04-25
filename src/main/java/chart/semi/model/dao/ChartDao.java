@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
+import chart.semi.model.vo.ChartListVo;
 import chart.semi.model.vo.ChartVo;
 
 
@@ -19,17 +20,17 @@ public class ChartDao {
 			return session.selectOne("chartMapper.selectTotalCount");
 		}
 	// select list - all
-	public List<ChartVo> selectPageList(SqlSession session, int start, int end) {
+	public List<ChartListVo> selectPageList(SqlSession session, int start, int end) {
 		Map<String, Integer> param = new HashMap<String, Integer>();
 		param.put("startRownum", start);
 		param.put("endRownum", end);
 		return session.selectList("chartMapper.selectPageList", param);
 	}
 	// select list - all
-	public List<ChartVo> selectAllList(SqlSession session) {
+	public List<ChartListVo> selectAllList(SqlSession session) {
 		return session.selectList("chartMapper.selectAllList");
 	}
-	public List<ChartVo> selectPageListRowBounds(SqlSession session,int pageSize,  int currentPageNum) {
+	public List<ChartListVo> selectPageListRowBounds(SqlSession session,int pageSize,  int currentPageNum) {
 		int offset = (currentPageNum - 1) * pageSize;
 		RowBounds rbounds = new RowBounds( offset , pageSize);
 		return session.selectList("chartMapper.selectPageList", null, rbounds);

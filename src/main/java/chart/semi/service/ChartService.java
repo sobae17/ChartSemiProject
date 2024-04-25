@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import static chart.semi.common.MybatisTemplate.*;
 
 import chart.semi.model.dao.ChartDao;
+import chart.semi.model.vo.ChartListVo;
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.ClientVo;
 
@@ -18,7 +19,7 @@ public class ChartService {
 	public Map<String, Object> selectPageListMybatis(int pageSize, int pageBlockSize, int currentPageNum) {
 		Map<String, Object> result = null;
 		SqlSession session = getSqlSession(true);
-		List<ChartVo> List = dao.selectPageListRowBounds(session, pageSize, currentPageNum);
+		List<ChartListVo> List = dao.selectPageListRowBounds(session, pageSize, currentPageNum);
 		session.close();
 		return result;
 	}
@@ -45,8 +46,9 @@ public class ChartService {
 			int startPageNum = (currentPageNum%pageBlockSize == 0) ? ((currentPageNum/pageBlockSize)-1)*pageBlockSize + 1  :((currentPageNum/pageBlockSize))*pageBlockSize + 1;
 			int endPageNum = (startPageNum+pageBlockSize > totalPageCount) ? totalPageCount : startPageNum+pageBlockSize-1;
 			
-			List<ChartVo> dtolist = dao.selectPageList(session, start, end);
+			List<ChartListVo> dtolist = dao.selectPageList(session, start, end);
 			session.close();
+			System.out.println("서비스");
 			
 			result = new HashMap<String, Object>();
 			result.put("dtolist", dtolist);
@@ -60,8 +62,8 @@ public class ChartService {
 	
 	
 	// select list - all
-	public List<ChartVo> selectAllList() {
-		List<ChartVo> result = null;
+	public List<ChartListVo> selectAllList() {
+		List<ChartListVo> result = null;
 		SqlSession session = getSqlSession(true);
 		result = dao.selectAllList(session); 
 		session.close();

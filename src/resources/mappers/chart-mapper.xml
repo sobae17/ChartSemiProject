@@ -10,18 +10,26 @@
 	select * from chart
 </select>
 
-<select id="selectPageListRowBounds" resultType="chartvo">
-		select chart_id, patient_id, to_char(sysdate,'yy-mm-dd hh24:mi'),p_note, staff_id
+<select id="selectPageList" parameterType="map" resultType="ChartListVo">
+select  chart_id, patient_id, ptitle ,pnote, staff_id  from
+	(select t1.*, rownum rn from 
+		(select chart_id, patient_id, ptitle ,pnote, staff_id
+		from chart order by chart_id desc ) t1
+	)t2
+where rn between #{startRownum} and #{endRownum}
+	</select>
+<select id="selectPageListRowBounds" resultType="ChartVo">
+		select chart_id, patient_id, to_char(sysdate,'yy-mm-dd hh24:mi'),pnote, staff_id
 from chart order by chart_id desc
 	</select>
 	
 <select id="selectOne" parameterType="string" resultType="ChartVo">
-	SELECT CHART_ID, PATIENT_ID, WRITER ,P_NOTE
+	SELECT CHART_ID, PATIENT_ID, WRITER ,PNOTE
 	FROM CHART WHERE CHART_ID=#{chartId}
 </select>
 
 <insert id="insert" parameterType="ChartVo">
-	INSERT INTO CHART (CHART_ID,PATIENT_ID,WRITER,P_NOTE) 
+	INSERT INTO CHART (CHART_ID,PATIENT_ID,WRITER,PNOTE) 
 	VALUES (#{chartId}, #{patienId}, #{writer}, #{pnote})
 </insert>
 
