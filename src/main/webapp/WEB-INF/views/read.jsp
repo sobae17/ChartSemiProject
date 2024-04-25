@@ -24,7 +24,8 @@
 		<article>
 		<table>
 		<thead>
-		<tr> 치료사 </tr>
+		<tr> 글 번호: 01 </tr>
+		<
 		</thead>
 		
 		<tbody>

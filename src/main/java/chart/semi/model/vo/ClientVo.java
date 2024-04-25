@@ -13,33 +13,33 @@ public class ClientVo{
 	private String clientPwd;
 	private String clientEmail;
 	private String patientId;
+	
+	public ClientVo(String clientId, String clientPwd, String clientEmail, String patientId) {
+		super();
+		this.clientId = clientId;
+		this.clientPwd = clientPwd;
+		this.clientEmail = clientEmail;
+		this.patientId = patientId;
+	}
 	@Override
 	public String toString() {
-		return "ClientDto [clientId=" + clientId + ", clientPwd=" + clientPwd + ", clientEmail=" + clientEmail
+		return "ClientVo [clientId=" + clientId + ", clientPwd=" + clientPwd + ", clientEmail=" + clientEmail
 				+ ", patientId=" + patientId + "]";
 	}
 	public String getClientId() {
 		return clientId;
 	}
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
-	}
 	public String getClientPwd() {
 		return clientPwd;
-	}
-	public void setClientPwd(String clientPwd) {
-		this.clientPwd = clientPwd;
 	}
 	public String getClientEmail() {
 		return clientEmail;
 	}
-	public void setClientEmail(String clientEmail) {
-		this.clientEmail = clientEmail;
-	}
 	public String getPatientId() {
 		return patientId;
 	}
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
-	}
+	
+
+	
+
 }

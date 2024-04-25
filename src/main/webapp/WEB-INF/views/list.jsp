@@ -43,7 +43,63 @@
 </form>
 </fieldset>
 <!-- 게시판 검색 끝 -->
+<div><button type="button" class="btn write" >글쓰기</button></div>
+<div class="board grid">
+<c:choose>
+	<c:when test="${empty map.volist }">
+	글 없어요.
+	</c:when>
+	<c:otherwise>
+		<c:forEach items="${map.volist }" var="vo" varStatus="vs">
+			<div>${vo.chartId }</div>
+			<div><a href="${pageContext.request.contextPath }/board/read?id=${vo.chartId }">${vo.pnote }</a></div>
+<%-- 			<div>${vo.writeTime }</div> --%>
+			<div>${vo.patientId }</div>
+			<div>${vo.writer }</div>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
+</div>
 
+<div >
+	<ul>
+	<c:if test="${map.startPageNum > 1}">
+		<li><a href="${pageContext.request.contextPath }/board/list?page=${map.startPageNum-1 }">  &lt;&lt; </a></li>
+	</c:if>
+	<c:forEach begin="${map.startPageNum }" end="${map.endPageNum }" var="page">
+		<c:if test="${map.currentPageNum == page }">
+		<li><strong>${page }</strong></li>
+		</c:if>
+		<c:if test="${map.currentPageNum != page }">
+		<li><a href="${pageContext.request.contextPath }/board/list?page=${page }">${page }</a></li>
+		</c:if>
+	</c:forEach>
+	<c:if test="${map.endPageNum < map.totalPageCount }">
+		<li><a href="${pageContext.request.contextPath }/board/list?page=${map.endPageNum+1 }">  &gt;&gt; </a></li>
+	</c:if>
+	</ul>
+</div>
+
+<script>
+$(loadedHandler);
+function loadedHandler(){
+	//event 등록
+	$(".btn.write").on("click", btnWriteClickHandler);
+}
+
+function btnWriteClickHandler(){
+	//Login 페이지로 이동
+	if(checkLogin("로그인되어야 글쓰기가 가능합니다.\n로그인페이지로 이동하시겠습니까?","write")){
+		return;
+	}
+	
+	location.href="${pageContext.request.contextPath}/board/write";
+}
+
+
+
+
+<!-- 
 <form class="pnote_list">
 <div class="pnote_main">
 <div class="tb_wrap">
@@ -75,7 +131,7 @@
 </th>
 </tr>
 </thead>
-<!-- 게시물 리스트 채워 넣기  -->
+게시물 리스트 채워 넣기 
 <tbody>
 <tr>
 <td>dd</td>
@@ -124,7 +180,7 @@
 </div>
 
 </form>
-<!-- 하단에 페이지 이동 칸 만들기.. -->
+하단에 페이지 이동 칸 만들기..
 <nav class="pg_wrap">
 <span class="pg">
 <span class="sound_only">열린</span>
@@ -158,12 +214,13 @@
 </span>
 </nav>
 </article>
-<!-- 게시판 목록 끝 -->
+게시판 목록 끝
 </div>
-</section>
+</section -->>
 
 <footer class="footer_Chart">
 			<%@include file="/WEB-INF/views/footer.jsp"%>
 		</footer>
+		
 </body>
 </html>
