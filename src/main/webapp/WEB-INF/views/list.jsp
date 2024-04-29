@@ -34,7 +34,7 @@ padding-left: 10px;
 	<header class="header_Chart">
 		<%@include file="/WEB-INF/views/header_chart.jsp"%>
 	</header>
-	[[${map }]]<br>[[${map.totalPageCount }]]<br>[[${map.startPageNum }]]<br>[[${map.endPageNum }]]<br>[[${map.currentPageNum }]]
+<%-- 	[[${map }]]<br>[[${map.totalPageCount }]]<br>[[${map.startPageNum }]]<br>[[${map.endPageNum }]]<br>[[${map.currentPageNum }]] --%>
 	<section calss="chart_readlist_section">
 		<h1 style="text-align: center;">치료일지</h1>
 		<div class="notice-area">

@@ -22,7 +22,7 @@ public class ClientInfoService {
 			session.close();
 			return result;
 		}
-
+	
 		// select one
 		public ClientInfoVo selectOne(String clientNum) {
 			ClientInfoVo result = null;
