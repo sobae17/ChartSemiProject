@@ -48,7 +48,7 @@ p {
 			<div class="health_chart">
 				<div class="pulse">
 					<p>맥박</p>
-					<input type="text" name="pulse" readonly>
+					<input type="text" name="pulse" value="${dto. }" readonly>
 				</div>
 				<div class="weight">
 					<p>몸무게</p>

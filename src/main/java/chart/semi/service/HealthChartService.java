@@ -10,6 +10,7 @@ import chart.semi.model.dao.ChartDao;
 import chart.semi.model.dao.HealthChartDao;
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.ClientVo;
+import chart.semi.model.vo.HealthChartReadVo;
 import chart.semi.model.vo.HealthChartVo;
 
 public class HealthChartService {
@@ -24,6 +25,14 @@ public class HealthChartService {
 		return result;
 	}
 
+	// select one
+	public HealthChartReadVo selectOneLast(String patientId) {
+		HealthChartReadVo result = null;
+		SqlSession session = getSqlSession(true);
+		result = dao.selectOneLast(session, patientId);
+		session.close();
+		return result;
+	}
 	// select one
 	public HealthChartVo selectOne(String chartId) {
 		HealthChartVo result = null;

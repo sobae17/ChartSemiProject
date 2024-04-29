@@ -32,8 +32,8 @@ public class ChartReadController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String chartId = request.getParameter("id");
-		// ((ClientLoginResVo)request.getSession().getAttribute("ssslogin")).getPatientId() ==> ·Î±×ÀÎÇÑ Á¤º¸ÀÇ getter
-		ChartReadReqVo vo = new ChartReadReqVo(chartId, ((ClientLoginResVo)request.getSession().getAttribute("ssslogin")).getPatientId());
+		// ((ClientLoginResVo)request.getSession().getAttribute("ssslogin")).getPatientId() ==> ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ getter
+		ChartReadReqVo vo = new ChartReadReqVo(patientId, ((ClientLoginResVo)request.getSession().getAttribute("ssslogin")).getPatientId());
 		request.setAttribute("dto", service.selectRead(vo));
 		request.getRequestDispatcher("/WEB-INF/views/read.jsp").forward(request, response);
 			
