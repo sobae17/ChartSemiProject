@@ -35,9 +35,10 @@ section {
 h1 {
 	text-align: center;
 }
- p{
- text-align: center;
- }
+
+p {
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -69,7 +70,8 @@ h1 {
 				<div class="comment">
 					<p>코멘트</p>
 					<input type="text" name="comment" readonly>
-				</div><br>
+				</div>
+				<br>
 			</div>
 		</form>
 	</section>

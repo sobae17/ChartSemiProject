@@ -1,7 +1,7 @@
 package chart.semi.model.dao;
 
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,6 +13,10 @@ public class ClientDao {
 	// select list - all
 		public List<ClientVo> selectAllList(SqlSession session) {
 			return session.selectList("clientMapper.selectAllList");
+		}
+		// select list - all
+		public List<ClientInfoVo> selectInfoAllList(SqlSession session) {
+			return session.selectList("clientInfoMapper.selectAllList");
 		}
 
 		// select one 

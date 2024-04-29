@@ -17,8 +17,9 @@
 
 <style>
 .join_frm {
-
+	
 }
+
 .patientId {
 	display: none;
 }
@@ -58,17 +59,8 @@
 	padding-bottom: 10px;
 }
 
-#text {left;
-	
-}
-
-}
-.join_frm {
-	
-}
-
 .join_section {
-	background-color: #ffdee5bf;
+	background-color: #ivory;
 	border-bottom-left-radius: 10 10 10;
 }
 }
@@ -136,91 +128,101 @@
 		<%@include file="/WEB-INF/views/footer.jsp"%>
 	</footer>
 	<script>
-$(loadedHendler);
-function loadedHendler() {
-	$(".btn.checkid").on("click", btnCheckidClickHandler);
-	$(".btn.checkpatient").on("click", btnCheckPatientClickHandler);
-	$("#chartjoin .btn.sumbit").on("click", btnJoinClickHandler);
-}
-function errorHandler(request, status, error){
-	alert("code: "+request.status+"/n"+ "message: "
-			+ request.responseText + "/n"
-			+ "error: "+error);
-}
-
-function btnCheckidClickHandler() {
-	var idVal = $("[name=id]").val();
-	$.ajax({
-		async : false
-		,url : "${pageContext.request.contextPath }/checkid.ajax"
-		,method : "post"
-		,data : { cid : idVal}
-		
-		,success : function(result) {
-			console.log(result);
-			if(result > 0){
-				alert("중복된 아이디 입니다./n 다른 아이디를 입력해 주세요.")
-			}else{
-				alert("사용 가능한 아이디 입니다.");
-			}
+		$(loadedHendler);
+		function loadedHendler() {
+			$(".btn.checkid").on("click", btnCheckidClickHandler);
+			$(".btn.checkpatient").on("click", btnCheckPatientClickHandler);
+			$("#chartjoin .btn.sumbit").on("click", btnJoinClickHandler);
 		}
-		,error : errorHandler
-			
-	});
-}
-function btnCheckPatientClickHandler() {
-	 var patientNo = $("[name=patientNo]").val();
-	 var patientName = $("[name=patientName]").val();
-	 $.ajax({
-		async : false
-		,url : "${pageContext.request.contextPath }/checkpatient.ajax"
-		,method : "post"
-		,data : { patientNo : patientNo,  patientName : patientName }
-		
-		,success : function(patientId) {
-			console.log(patientId);
-			if(patientId == "null"){
-				alert("입원환자가 아닙니다. 다시 입력해주세요.")
-				$(".patientId").hide();
-			}else{
-				alert("입원환자 확인 되었습니다.");
-				$(".patientId input[name=patientId]").val(patientId);
-				$(".patientId").show();
-			}
+		function errorHandler(request, status, error) {
+			alert("code: " + request.status + "/n" + "message: "
+					+ request.responseText + "/n" + "error: " + error);
 		}
-		,error : errorHandler
-	 });
-	 
-}
-	
-function btnJoinClickHandler() {
-	var idVal = $("[name=id]").val();
-	var pwdVal = $("[name=pwd]").val();
-	var emailVal = $("[name=email]").val();
-	var pidVal = $("[name=patientId]").val();
 
-	console.log("btnJoinClickHandler 클릭");
-	$.ajax({
-		url:"${pageContext.request.contextPath }/join"
-		,method: "post"
-		, data: {idVal : idVal, pwdVal : pwdVal, emailVal : emailVal, pidVal : pidVal }
-		
-		, success : function(result){
-			console.log(result);
-			if(result == 1){
-				alert("회원가입 되었습니다. 로그인 해주세요");
-				location.href = "${pageContext.request.contextPath }/login";
-			}else { 
-				alert("회원가입에 실패 했습니다. 다시 시도해 주세요.");
-				$("[name=pwd]").val("");
-			}
+		function btnCheckidClickHandler() {
+			var idVal = $("[name=id]").val();
+			$.ajax({
+				async : false,
+				url : "${pageContext.request.contextPath }/checkid.ajax",
+				method : "post",
+				data : {
+					cid : idVal
+				}
+
+				,
+				success : function(result) {
+					console.log(result);
+					if (result > 0) {
+						alert("중복된 아이디 입니다./n 다른 아이디를 입력해 주세요.")
+					} else {
+						alert("사용 가능한 아이디 입니다.");
+					}
+				},
+				error : errorHandler
+
+			});
 		}
-		});
-	
-	
-}
+		function btnCheckPatientClickHandler() {
+			var patientNo = $("[name=patientNo]").val();
+			var patientName = $("[name=patientName]").val();
+			$.ajax({
+				async : false,
+				url : "${pageContext.request.contextPath }/checkpatient.ajax",
+				method : "post",
+				data : {
+					patientNo : patientNo,
+					patientName : patientName
+				}
 
+				,
+				success : function(patientId) {
+					console.log(patientId);
+					if (patientId == "null") {
+						alert("입원환자가 아닙니다. 다시 입력해주세요.")
+						$(".patientId").hide();
+					} else {
+						alert("입원환자 확인 되었습니다.");
+						$(".patientId input[name=patientId]").val(patientId);
+						$(".patientId").show();
+					}
+				},
+				error : errorHandler
+			});
 
-</script>
+		}
+
+		function btnJoinClickHandler() {
+			var idVal = $("[name=id]").val();
+			var pwdVal = $("[name=pwd]").val();
+			var emailVal = $("[name=email]").val();
+			var pidVal = $("[name=patientId]").val();
+
+			console.log("btnJoinClickHandler 클릭");
+			$
+					.ajax({
+						url : "${pageContext.request.contextPath }/join",
+						method : "post",
+						data : {
+							idVal : idVal,
+							pwdVal : pwdVal,
+							emailVal : emailVal,
+							pidVal : pidVal
+						}
+
+						,
+						success : function(result) {
+							console.log(result);
+							if (result == 1) {
+								alert("회원가입 되었습니다. 로그인 해주세요");
+								location.href = "${pageContext.request.contextPath }/login";
+							} else {
+								alert("회원가입에 실패 했습니다. 다시 시도해 주세요.");
+								$("[name=pwd]").val("");
+							}
+						}
+					});
+
+		}
+	</script>
 </body>
 </html>

@@ -1,8 +1,6 @@
 package chart.semi.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -11,22 +9,21 @@ import static chart.semi.common.MybatisTemplate.*;
 import chart.semi.model.dao.ChartDao;
 import chart.semi.model.vo.ChartListVo;
 import chart.semi.model.vo.ChartVo;
-import chart.semi.model.vo.ClientVo;
 
 public class ChartService {
 	private ChartDao dao = new ChartDao(); 
 	
-	public Map<String, Object> selectPageListMybatis(int pageSize, int pageBlockSize, int currentPageNum) {
-		Map<String, Object> result = null;
+	public List<ChartListVo> selectPageListMybatis(int pageSize, int pageBlockSize, int currentPageNum) {
+		List<ChartListVo> result = null;
 		SqlSession session = getSqlSession(true);
-		List<ChartListVo> List = dao.selectPageListRowBounds(session, pageSize, currentPageNum);
+		result = dao.selectPageListRowBounds(session, pageSize, currentPageNum);
 		session.close();
 		return result;
 	}
 	// select list - all
-		public Map<String, Object> selectPageList(int pageSize, int pageBlockSize, int currentPageNum) {
-			Map<String, Object> result = null;
-			
+		public List<ChartListVo> selectPageList(int pageSize, int pageBlockSize, int currentPageNum) {
+			List<ChartListVo> result = null;
+			int totalCount = 0;
 			SqlSession session = getSqlSession(true);
 			
 			System.out.println("currentPageNum: " +currentPageNum);
@@ -35,7 +32,7 @@ public class ChartService {
 			
 //			--- 총글개수 103
 //			select count(*) cnt from board;
-			int totalCount = dao.selectTotalCount(session);
+			totalCount = dao.selectTotalCount(session);
 			System.out.println("totalCount:"+totalCount);
 //			-- 전체페이지수  = ceil(총글개수/한페이지당글수) = (총글개수%한페이지당글수== 0)?(총글개수/한페이지당글수):(총글개수/한페이지당글수+1) 
 //			int totalPageCount = (int)Math.ceil(totalCount/(double)pageSize);
@@ -46,17 +43,17 @@ public class ChartService {
 			int startPageNum = (currentPageNum%pageBlockSize == 0) ? ((currentPageNum/pageBlockSize)-1)*pageBlockSize + 1  :((currentPageNum/pageBlockSize))*pageBlockSize + 1;
 			int endPageNum = (startPageNum+pageBlockSize > totalPageCount) ? totalPageCount : startPageNum+pageBlockSize-1;
 			
-			List<ChartListVo> dtolist = dao.selectPageList(session, start, end);
+			result = dao.selectPageList(session, start, end);
 			session.close();
-			System.out.println("서비스");
-			
-			result = new HashMap<String, Object>();
-			result.put("dtolist", dtolist);
-			result.put("totalPageCount", totalPageCount);
-			result.put("startPageNum", startPageNum);
-			result.put("endPageNum", endPageNum);
-			result.put("currentPageNum", currentPageNum);
-			System.out.println("selectPageList() : "+result);
+//			System.out.println("서비스");
+//			
+//			result = new HashMap<String, Object>();
+//			result.put("dtolist", dtolist);
+//			result.put("totalPageCount", totalPageCount);
+//			result.put("startPageNum", startPageNum);
+//			result.put("endPageNum", endPageNum);
+//			result.put("currentPageNum", currentPageNum);
+//			System.out.println("selectPageList() : "+result);
 			return result;
 		}
 	

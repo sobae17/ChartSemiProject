@@ -17,7 +17,7 @@
 <section>
 <h1> 치료사의 일지 작성하기</h1>
 <form>
-<div> 치료 일지 작성하기
+<div> 
 <textarea rows="30" cols="100">내용</textarea>
 </div>
 </form>

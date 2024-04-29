@@ -7,10 +7,10 @@ import org.apache.ibatis.session.SqlSession;
 
 import static chart.semi.common.MybatisTemplate.*;
 
-import chart.semi.model.dao.ClientDao;
+
 import chart.semi.model.dao.ClientInfoDao;
 import chart.semi.model.vo.ClientInfoVo;
-import chart.semi.model.vo.ClientVo;
+
 
 public class ClientInfoService {
 	private ClientInfoDao dao = new ClientInfoDao();

@@ -2,6 +2,11 @@
 /* background-color: #EEC6C6; */
 /* width: 100%;  */
 margin: 0 auto;
-text-align:right;
+text-align:center;
 background-color: #EEC6C6;
+}
+.footer_chart .footer-copuright{
+	font-size: 0.9rem;
+	color:#545e6f;
+	margin: 0.6rem;
 }
