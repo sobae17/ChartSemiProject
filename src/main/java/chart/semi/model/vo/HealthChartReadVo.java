@@ -1,6 +1,6 @@
 package chart.semi.model.vo;
 
-public class HealthChartVo {
+public class HealthChartReadVo {
 
 //	"CHART_ID"	VARCHAR2(10)		NOT NULL,
 //	"PATIENT_ID"	VARCHAR2(10)		NOT NULL,
@@ -19,76 +19,48 @@ public class HealthChartVo {
 	private Integer pee;
 	private String memo;
 	private String staffId;
-
+	
 	@Override
 	public String toString() {
-		return "HealthChartDto [chartId=" + chartId + ", patientId=" + patientId + ", pulse=" + pulse + ", weight="
+		return "HealthChartReadVo [chartId=" + chartId + ", patientId=" + patientId + ", pulse=" + pulse + ", weight="
 				+ weight + ", bloodPressure=" + bloodPressure + ", pee=" + pee + ", memo=" + memo + ", staffId="
 				+ staffId + "]";
 	}
-
+	public HealthChartReadVo(String chartId, String patientId, Integer pulse, Integer weight, Integer bloodPressure,
+			Integer pee, String memo, String staffId) {
+		super();
+		this.chartId = chartId;
+		this.patientId = patientId;
+		this.pulse = pulse;
+		this.weight = weight;
+		this.bloodPressure = bloodPressure;
+		this.pee = pee;
+		this.memo = memo;
+		this.staffId = staffId;
+	}
 	public String getChartId() {
 		return chartId;
 	}
-
-	public void setChartId(String chartId) {
-		this.chartId = chartId;
-	}
-
 	public String getPatientId() {
 		return patientId;
 	}
-
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
-	}
-
 	public Integer getPulse() {
 		return pulse;
 	}
-
-	public void setPulse(Integer pulse) {
-		this.pulse = pulse;
-	}
-
 	public Integer getWeight() {
 		return weight;
 	}
-
-	public void setWeight(Integer weight) {
-		this.weight = weight;
-	}
-
 	public Integer getBloodPressure() {
 		return bloodPressure;
 	}
-
-	public void setBloodPressure(Integer bloodPressure) {
-		this.bloodPressure = bloodPressure;
-	}
-
 	public Integer getPee() {
 		return pee;
 	}
-
-	public void setPee(Integer pee) {
-		this.pee = pee;
-	}
-
 	public String getMemo() {
 		return memo;
 	}
-
-	public void setMemo(String memo) {
-		this.memo = memo;
-	}
-
 	public String getStaffId() {
 		return staffId;
-	}
-
-	public void setStaffId(String staffId) {
-		this.staffId = staffId;
 	}
 
 }
