@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import chart.semi.model.vo.ClientVo;
 import chart.semi.service.ClientService;
 
@@ -17,22 +16,26 @@ import chart.semi.service.ClientService;
 @WebServlet("/join")
 public class ChartJoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ChartJoinController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private ClientService service = new ClientService();
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ChartJoinController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.getRequestDispatcher("/WEB-INF/views/join.jsp").forward(request, response);
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("여기여기");
 		String clientId = request.getParameter("id");
@@ -42,15 +45,21 @@ public class ChartJoinController extends HttpServlet {
 		
 		ClientVo vo = new ClientVo(clientId, clientPwd, clientEmail,patientId);
 		System.err.println(vo);
-		int result = new ClientService().insert(vo);
-		if(result < 0 ) {
-			// 회원가입실패시
-			// TODO
-			response.sendRedirect(request.getContextPath()+"/join");
-			return;
-		}
-		// 회원가입정상
-		response.sendRedirect(request.getContextPath()+"/login");
+		int result = service.insert(vo);
+
+		// ajax 일 경우 응답
+		response.getWriter().append(String.valueOf(result));
+
+// form submit일 경우
+//		if(result < 0 ) {
+//			 회원가입실패시
+//			 TODO
+//			response.sendRedirect(request.getContextPath()+"/join");
+//			return;
+//		}
+//		 회원가입정상
+//		response.sendRedirect(request.getContextPath()+"/login");
+		
 	
 }
 }

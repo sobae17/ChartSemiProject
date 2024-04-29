@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ChartSemiReadController
  */
-@WebServlet("/read")
+@WebServlet("/my/read")
 public class ChartReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

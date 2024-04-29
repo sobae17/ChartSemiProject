@@ -7,12 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import chart.semi.model.vo.ClientLoginResVo;
 import chart.semi.service.ChartService;
 
 /**
  * Servlet implementation class ReadListController
  */
-@WebServlet("/list")
+@WebServlet("/my/list")
 public class ReadListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ChartService service = new ChartService();
@@ -30,7 +31,7 @@ public class ReadListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		-- 한페이지당글수 3 씩
-		int pageSize = 3;
+		int pageSize = 2;
 //		-- 화면하단 나타날 페이지수 5 씩
 		int pageBlockSize = 5;
 //		-- 현재페이지
@@ -45,7 +46,8 @@ public class ReadListController extends HttpServlet {
 				//e.printStackTrace();
 			}
 		}
-		request.setAttribute("map" , service.selectPageList(pageSize, pageBlockSize, currentPageNum));
+		ClientLoginResVo ssslogin = (ClientLoginResVo)request.getSession().getAttribute("ssslogin");
+		request.setAttribute("pagemap" , service.selectPageList(pageSize, pageBlockSize, currentPageNum, ssslogin.getPatientId()));
 //		request.setAttribute("dtolist", service.selectAllList());
 		
 		
