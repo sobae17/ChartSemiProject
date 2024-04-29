@@ -10,6 +10,7 @@ import static chart.semi.common.MybatisTemplate.*;
 
 import chart.semi.model.dao.ChartDao;
 import chart.semi.model.vo.ChartListVo;
+import chart.semi.model.vo.ChartReadReqVo;
 import chart.semi.model.vo.ChartReadVo;
 import chart.semi.model.vo.ChartVo;
 
@@ -80,10 +81,10 @@ public class ChartService {
 	}
 	
 	// select one
-	public ChartReadVo selectRead(String chartId) {
+	public ChartReadVo selectRead(ChartReadReqVo vo) {
 		ChartReadVo result = null;
 		SqlSession session = getSqlSession(true);
-		result = dao.selectRead(session, chartId);
+		result = dao.selectRead(session, vo);
 		session.close();
 		return result;
 	}

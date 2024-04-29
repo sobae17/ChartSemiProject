@@ -1,31 +1,21 @@
 package chart.semi.model.vo;
 
 public class ChartReadVo {
-	private String rn;
+//	CHART_ID   NOT NULL VARCHAR2(10)   
+//	PATIENT_ID NOT NULL VARCHAR2(10)   
+//	PTITLE     NOT NULL VARCHAR2(120)  
+//	PNOTE      NOT NULL VARCHAR2(4000) 
+//	STAFF_ID   NOT NULL VARCHAR2(7)
 	private String chartdate;
 	private String ptitle;
 	private String pnote;
 	private String staffName;
 	private String chartId;
 	private String patientName;
-	public ChartReadVo(String rn, String chartdate, String ptitle, String pnote, String staffName, String chartId,
-			String patientName) {
-		super();
-		this.rn = rn;
-		this.chartdate = chartdate;
-		this.ptitle = ptitle;
-		this.pnote = pnote;
-		this.staffName = staffName;
-		this.chartId = chartId;
-		this.patientName = patientName;
-	}
 	@Override
 	public String toString() {
-		return "ChartReadVo [rn=" + rn + ", chartdate=" + chartdate + ", ptitle=" + ptitle + ", pnote=" + pnote
-				+ ", staffName=" + staffName + ", chartId=" + chartId + ", patientName=" + patientName + "]";
-	}
-	public String getRn() {
-		return rn;
+		return "ChartReadVo [chartdate=" + chartdate + ", ptitle=" + ptitle + ", pnote=" + pnote + ", staffName="
+				+ staffName + ", chartId=" + chartId + ", patientName=" + patientName + "]";
 	}
 	public String getChartdate() {
 		return chartdate;

@@ -15,21 +15,17 @@
 	<section class="wrap_section">
 		<h1>치료일지</h1>
 			<div class="flex">
-		<div class="chart grid">
-				<div>${dto. }</div>
-				<div>${ }</div>
-				<div>${ }</div>
-				<div>${ }</div>
-</div>
-<div class="title">${dto. }</div>	
-<div>${}</div>
-<c:if test="${}"></c:if>	
+				<div class="chart grid">
+						<div>${dto.chartdate }</div>
+						<div>${dto.patientName }</div>
+						<div>${dto.staffName }</div>
+				</div>
+				<div class="title">${dto.ptitle }</div>	
+				<div>${dto.pnote }</div>
 
-
-</c:if>
 <!-- 댓글  -->
 <form id="frm_replay">
-<input type="hidden" name="chart" value="${}">
+<input type="hidden" name="chartId" value="${dto.chartId}">
 <div class="flex">
 <div>댓글</div>
 
