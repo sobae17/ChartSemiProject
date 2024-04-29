@@ -6,7 +6,7 @@
 select * from
 (select rownum rn, t1.* from
 	(select 
-    substr(chart_id, 6) chartdate
+    substr(chart_id, 0, 6) chartdate
 	, pulse, weight, BLOOD_PRESSURE, pee, memo
 	, (select staff_name from staff where staff_id = tc.staff_id) staff_name
 	, chart_id
@@ -14,6 +14,21 @@ select * from
 from health_chart tc where PATIENT_ID = #{patientId} order by chart_id desc ) t1 ) t2
 where rn =1
 </select>
+
+<select id="selectOneDate" parameterType="HealthChartReadReqVo" resultType="HealthChartReadVo">
+select 
+    substr(chart_id, 0, 6) chartdate
+	, pulse, weight, BLOOD_PRESSURE, pee, memo
+	, (select staff_name from staff where staff_id = tc.staff_id) staff_name
+	, chart_id
+	, (select patient_name from patient where patient_id = #{patientId}  ) patient_name
+from health_chart tc 
+where PATIENT_ID = #{patientId} 
+and substr(chart_id, 0, 6) in replace(substr( #{healthDate}, 3), '-','')
+</select>
+
+
+
 <select id="selectAllList" resultType="HealthChartVo">
 	select * from health_chart
 </select>

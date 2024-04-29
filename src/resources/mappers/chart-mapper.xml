@@ -9,7 +9,7 @@
 <select id="selectPageList" parameterType="map" resultType="ChartListVo">
 select * from
 (select rownum rn, t1.* from
-	(select substr(chart_id, 6) chartdate
+	(select substr(chart_id, 0,6) chartdate
 	, ptitle
 	, (select staff_name from staff where staff_id = tc.staff_id) staff_name
 	, chart_id
@@ -18,7 +18,7 @@ from chart tc where PATIENT_ID = #{patientId}  order by chart_id desc ) t1 ) t2
 where rn between #{startRownum} and #{endRownum}
 </select>
 <select id="selectPageListRowBounds"  resultType="ChartListVo" parameterType="string">
-	select rownum rn, substr(chart_id, 6), ptitle, (select staff_name from staff where staff_id = tc.staff_id), chart_id
+	select rownum rn, substr(chart_id, 0,6) chartdate, ptitle, (select staff_name from staff where staff_id = tc.staff_id), chart_id
 from chart tc where PATIENT_ID = #{patientId} order by chart_id desc
 </select>
 
@@ -31,7 +31,7 @@ from chart tc where PATIENT_ID = #{patientId} order by chart_id desc
 	FROM CHART WHERE CHART_ID=#{chartId}
 </select>
 <select id="selectRead" parameterType="ChartReadReqVo" resultType="ChartReadVo">
-select substr(chart_id, 6) chartdate
+select substr(chart_id, 0,6) chartdate
 	, ptitle, pnote
 	, (select staff_name from staff where staff_id = tc.staff_id) staff_name
 	, chart_id

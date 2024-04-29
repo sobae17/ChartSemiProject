@@ -11,56 +11,71 @@ public class HealthChartReadVo {
 //	"COMMENT"	VARCHAR2(4000)		NULL,
 //	"STAFF_ID"	VARCHAR2(7)		NOT NULL
 //
-	private String chartId;
-	private String patientId;
+	private String chartdate;
+	private String patientName;
 	private Integer pulse;
 	private Integer weight;
 	private Integer bloodPressure;
 	private Integer pee;
 	private String memo;
-	private String staffId;
+	private String staffName;
 	
 	@Override
 	public String toString() {
-		return "HealthChartReadVo [chartId=" + chartId + ", patientId=" + patientId + ", pulse=" + pulse + ", weight="
-				+ weight + ", bloodPressure=" + bloodPressure + ", pee=" + pee + ", memo=" + memo + ", staffId="
-				+ staffId + "]";
+		return "HealthChartReadVo [chartdate=" + chartdate + ", patientName=" + patientName + ", pulse=" + pulse
+				+ ", weight=" + weight + ", bloodPressure=" + bloodPressure + ", pee=" + pee + ", memo=" + memo
+				+ ", staffName=" + staffName + "]";
 	}
-	public HealthChartReadVo(String chartId, String patientId, Integer pulse, Integer weight, Integer bloodPressure,
-			Integer pee, String memo, String staffId) {
-		super();
-		this.chartId = chartId;
-		this.patientId = patientId;
-		this.pulse = pulse;
-		this.weight = weight;
-		this.bloodPressure = bloodPressure;
-		this.pee = pee;
-		this.memo = memo;
-		this.staffId = staffId;
+	
+	public String getChartdate() {
+		return chartdate;
 	}
-	public String getChartId() {
-		return chartId;
+
+	public void setChartdate(String chartdate) {
+		this.chartdate = chartdate;
 	}
-	public String getPatientId() {
-		return patientId;
+
+	public String getPatientName() {
+		return patientName;
+	}
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
 	public Integer getPulse() {
 		return pulse;
 	}
+	public void setPulse(Integer pulse) {
+		this.pulse = pulse;
+	}
 	public Integer getWeight() {
 		return weight;
+	}
+	public void setWeight(Integer weight) {
+		this.weight = weight;
 	}
 	public Integer getBloodPressure() {
 		return bloodPressure;
 	}
+	public void setBloodPressure(Integer bloodPressure) {
+		this.bloodPressure = bloodPressure;
+	}
 	public Integer getPee() {
 		return pee;
+	}
+	public void setPee(Integer pee) {
+		this.pee = pee;
 	}
 	public String getMemo() {
 		return memo;
 	}
-	public String getStaffId() {
-		return staffId;
+	public void setMemo(String memo) {
+		this.memo = memo;
 	}
-
+	public String getStaffName() {
+		return staffName;
+	}
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+	
 }

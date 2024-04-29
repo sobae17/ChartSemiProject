@@ -10,6 +10,7 @@ import chart.semi.model.dao.ChartDao;
 import chart.semi.model.dao.HealthChartDao;
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.ClientVo;
+import chart.semi.model.vo.HealthChartReadReqVo;
 import chart.semi.model.vo.HealthChartReadVo;
 import chart.semi.model.vo.HealthChartVo;
 
@@ -25,7 +26,16 @@ public class HealthChartService {
 		return result;
 	}
 
-	// select one
+	// select one -최신 1개
+	public HealthChartReadVo selectOneDate(HealthChartReadReqVo vo) {
+		HealthChartReadVo result = null;
+		SqlSession session = getSqlSession(true);
+		result = dao.selectOneDate(session, vo);
+		session.close();
+		return result;
+	}
+	
+	// select one - �ֽ�1��
 	public HealthChartReadVo selectOneLast(String patientId) {
 		HealthChartReadVo result = null;
 		SqlSession session = getSqlSession(true);

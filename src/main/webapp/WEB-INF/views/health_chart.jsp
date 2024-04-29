@@ -42,37 +42,82 @@ p {
 	</header>
 	<section>
 		<form class="health_frm">
-
-			${pagemap.dtolist[0].patientName }<h1>건강 일지</h1>
+			${vo.patientName }<h1>건강 일지 <span id="chartdate">${vo.chartdate }</span></h1>
 
 			<div class="health_chart">
 				<div class="pulse">
 					<p>맥박</p>
-					<input type="text" name="pulse" value="${dto. }" readonly>
+					<input type="text" name="pulse" value="${vo.pulse }" readonly>
 				</div>
 				<div class="weight">
 					<p>몸무게</p>
-					<input type="text" name="weight" readonly>
+					<input type="text" name="weight" value="${vo.weight }" readonly>
 				</div>
 				<div class="blood_pressure">
 					<p>혈압</p>
-					<input type="text" name="blood_pressure" readonly>
+					<input type="text" name="bloodPressure" value="${vo.bloodPressure }" readonly>
 				</div>
 				<div class="pee">
 					<p>소변</p>
-					<input type="text" name="pee" readonly>
+					<input type="text" name="pee" value="${vo.pee }" readonly>
 				</div>
-				<div class="comment">
+				<div class="memo">
 					<p>코멘트</p>
-					<input type="text" name="comment" readonly>
+					<input type="text" name="memo" value="${vo.memo }" readonly>
 				</div>
 				<br>
 			</div>
 		</form>
+		<input type="date" name="healthDate" id="healthDate" >
 	</section>
 	</table>
 	<footer class="footer_Chart">
 		<%@include file="/WEB-INF/views/footer.jsp"%>
 	</footer>
+	<script>
+		// 오늘 날짜 이후 선택 안되게 하는 코드
+		var now_utc = Date.now()
+		// 한국 9시간 오차처리
+		var timeOff = new Date().getTimezoneOffset()*60000;
+		var today = new Date(now_utc-timeOff).toISOString().split("T")[0];
+		$("[name=healthDate]").prop("max", today);
+	</script>
+	<script>
+	$(loadedHandler);
+	function loadedHandler(){
+		$("[name=healthDate]").on("change", healthDateChangeHandler)
+		
+	}
+	function healthDateChangeHandler(){
+		console.log("선택된 날짜 :");
+		console.log($("[name=healthDate]").val());
+		$.ajax({
+			url: "${pageContext.request.contextPath}/my/health",
+			type: "post",
+			data : {healthDate : $("[name=healthDate]").val()},
+			dataType : "json",
+			success: function(result){
+				console.log(result);
+				if(result == null){
+					alert("일지가 없습니다.");
+				}else {
+					$("#chartdate").html(result.chartdate);
+					$("[name=pulse]").val(result.pulse);
+					$("[name=weight]").val(result.weight);
+					$("[name=bloodPressure]").val(result.bloodPressure);
+					$("[name=pee]").val(result.pee);
+					$("[name=memo]").val(result.memo);
+					//$("[name=staffName]").val(result.staffName);
+				}
+			},
+			error : errorHandler
+		});
+	}
+	function errorHandler(request, status, error) {
+		alert("code: " + request.status + "/n" + "message: "
+				+ request.responseText + "/n" + "error: " + error);
+	}
+	
+	</script>
 </body>
 </html>

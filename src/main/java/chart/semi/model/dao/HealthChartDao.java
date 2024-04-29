@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import chart.semi.model.vo.HealthChartReadReqVo;
 import chart.semi.model.vo.HealthChartReadVo;
 import chart.semi.model.vo.HealthChartVo;
 
@@ -15,7 +16,10 @@ public class HealthChartDao {
 			return session.selectList("healthChartMapper.selectAllList");
 		}
 		public HealthChartReadVo selectOneLast(SqlSession session, String patientId ) {
-			return session.selectOneLast("healthChartMapper.selectOneLast", patientId );
+			return session.selectOne("healthChartMapper.selectOneLast", patientId );
+		}
+		public HealthChartReadVo selectOneDate(SqlSession session, HealthChartReadReqVo vo ) {
+			return session.selectOne("healthChartMapper.selectOneDate", vo );
 		}
 
 		// select one 
