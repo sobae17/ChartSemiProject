@@ -8,6 +8,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import chart.semi.model.vo.ChartListVo;
+import chart.semi.model.vo.ChartReadVo;
 import chart.semi.model.vo.ChartVo;
 
 public class ChartDao {
@@ -35,6 +36,12 @@ public class ChartDao {
 	public List<ChartListVo> selectAllList(SqlSession session) {
 		return session.selectList("chartMapper.selectAllList");
 	}
+	
+	// selectRead
+		public ChartReadVo selectRead(SqlSession session, String chartId) {
+			return session.selectOne("chartMapper.selectRead", chartId);
+		}
+	
 	// select one 
 	public ChartVo selectOne(SqlSession session, String chartId) {
 		return session.selectOne("chartMapper.selectOne", chartId );
@@ -49,8 +56,8 @@ public class ChartDao {
 	}
 
 	// delete
-	public int delete(SqlSession session, String chartId) {
-		return session.delete("chartMapper.delete", chartId);
+	public int delete(SqlSession session, String ChartId) {
+		return session.delete("chartMapper.delete", ChartId);
 	}
 
 }

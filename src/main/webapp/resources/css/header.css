@@ -1,13 +1,12 @@
+.wrap_header{
+	background-color: #EEC6C6;
+}
 .header_Chart{
-/* width: 100%;  */
-margin: 0 auto;
+width:960px;
+
 /* background-color: #EEC6C6; */
 /* text-align: center; */
 }
 .header_Chart div { 
- display:inline-block;
- 
-}
-header{
-	background-color: #EEC6C6;
+ display:inline-block; 
 }

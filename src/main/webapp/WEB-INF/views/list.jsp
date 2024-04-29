@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/read.css">
-<title>chart read page</title>
+<title>chart List page</title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <style>
 /* /* .chart_readlist_section {
@@ -68,7 +68,7 @@ padding-left: 10px;
 					<fieldset class="list_fieled">
 						<table class="list_flex">
 							<tr>
-								<td class="c_num" style="width:100px;"><a href="${pageContext.request.contextPath }/read"> 글 번호</a></td>
+								<td class="c_num" style="width:100px;"> 글 번호</a></td>
 								<td class="c_date" style="width: 200px;">날짜</td>
 								<td class="c_subject" style="width: 500px;">제목</td>
 								<td class="c_writer"style="width: 200px;">작성자</td>

@@ -30,7 +30,10 @@ from chart tc where PATIENT_ID = #{patientId} order by chart_id desc
 	SELECT CHART_ID, PATIENT_ID, WRITER ,P_NOTE
 	FROM CHART WHERE CHART_ID=#{chartId}
 </select>
-
+<select id="selectRead" parameterType="string" resultType="ChartReadVo">
+	SELECT CHART_ID, PATIENT_ID, WRITER ,P_NOTE
+	FROM CHART WHERE CHART_ID=#{chartId}
+</select>
 <insert id="insert" parameterType="ChartVo">
 	INSERT INTO CHART (CHART_ID,PATIENT_ID,WRITER,P_NOTE) 
 	VALUES (#{chartId}, #{patienId}, #{writer}, #{pnote})
