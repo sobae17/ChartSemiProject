@@ -9,6 +9,7 @@
 </settings>
 
 <typeAliases>
+	<!-- 
 	<typeAlias type="chart.semi.model.vo.ChartListVo" alias="ChartListVo"/>
 	<typeAlias type="chart.semi.model.vo.ChartVo" alias="ChartVo"/>
 	<typeAlias type="chart.semi.model.vo.ClientLoginReqVo" alias="ClientLoginReqVo"/>
@@ -20,6 +21,8 @@
 	<typeAlias type="chart.semi.model.vo.PatientVo" alias="PatientVo"/>
 	<typeAlias type="chart.semi.model.vo.PnoteCommentVo" alias="PnoteCommentVo"/>
 	<typeAlias type="chart.semi.model.vo.StaffVo" alias="StaffVo"/>
+	 -->
+	 <package name="chart.semi.model.vo"/>
 </typeAliases>
 
 <environments default="chartsemiDBServer">
