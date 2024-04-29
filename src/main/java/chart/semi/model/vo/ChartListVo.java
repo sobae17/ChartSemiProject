@@ -7,39 +7,47 @@ public class ChartListVo {
 //	PNOTE     NOT NULL VARCHAR2(4000) 
 //	STAFF_ID   NOT NULL VARCHAR2(7) 
 	
-	private String chartId;
-	private String patientId;
+	private String rn;
+	private String chartdate;
 	private String ptitle;
-	private String pnote;
-	private String staffId;
-	public ChartListVo(String chartId, String patientId, String ptitle, String pnote, String staffId) {
-		super();
-		this.chartId = chartId;
-		this.patientId = patientId;
-		this.ptitle = ptitle;
-		this.pnote = pnote;
-		this.staffId = staffId;
-	}
+	private String staffName;
+	private String chartId;
+	private String patientName;
 	@Override
 	public String toString() {
-		return "ChartListVo [chartId=" + chartId + ", patientId=" + patientId + ", ptitle=" + ptitle + ", pnote="
-				+ pnote + ", staffId=" + staffId + "]";
+		return "ChartListVo [rn=" + rn + ", chartdate=" + chartdate + ", ptitle=" + ptitle + ", staffName=" + staffName
+				+ ", chartId=" + chartId + ", patientName=" + patientName + "]";
 	}
-	public String getChartId() {
-		return chartId;
+	public ChartListVo(String rn, String chartdate, String ptitle, String staffName, String chartId,
+			String patientName) {
+		super();
+		this.rn = rn;
+		this.chartdate = chartdate;
+		this.ptitle = ptitle;
+		this.staffName = staffName;
+		this.chartId = chartId;
+		this.patientName = patientName;
 	}
-	public String getPatientId() {
-		return patientId;
+	public String getRn() {
+		return rn;
+	}
+	public String getChartdate() {
+		return chartdate;
 	}
 	public String getPtitle() {
 		return ptitle;
 	}
-	public String getPnote() {
-		return pnote;
+	public String getStaffName() {
+		return staffName;
 	}
-	public String getStaffId() {
-		return staffId;
+	public String getChartId() {
+		return chartId;
 	}
+	public String getPatientName() {
+		return patientName;
+	}
+
+	
 
 
 }

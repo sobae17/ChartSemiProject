@@ -55,7 +55,7 @@ function frmClickHandler(){
 			console.log(result);
 			if(result == 1){
 				alert("로그인 되었습니다.");
-				location.href = "${pageContext.request.contextPath }/list";
+				location.href = "${pageContext.request.contextPath }/my/list";
 			}else { 
 				alert("아이디 또는 패스워드가 일치 하지 않습니다\n 다시 확인하고 로그인 해주세요.");
 				$("[name=pwd]").val("");

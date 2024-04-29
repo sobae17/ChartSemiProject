@@ -1,28 +1,19 @@
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/header.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/section.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/footer.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/layout.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/read.css">
-
+<%@ include file="/WEB-INF/views/css_link_file.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/read.css">
 <title>chart read page</title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<!-- <link rel="stylesheet" href="../css/footer.css"> -->
 <style>
 /* /* .chart_readlist_section {
 	display: felx; */
 } */
-
 .list_flex {
 	display: flex;
 	flex-direction: row;
@@ -43,9 +34,8 @@ padding-left: 10px;
 	<header class="header_Chart">
 		<%@include file="/WEB-INF/views/header_chart.jsp"%>
 	</header>
-	[[${map }]]
+	[[${map }]]<br>[[${map.totalPageCount }]]<br>[[${map.startPageNum }]]<br>[[${map.endPageNum }]]<br>[[${map.currentPageNum }]]
 	<section calss="chart_readlist_section">
-
 		<h1 style="text-align: center;">치료일지</h1>
 		<div class="notice-area">
 			<article class="list-area">
@@ -65,7 +55,7 @@ padding-left: 10px;
 
 						<div class="total_area">
 							<p class="total_txt">
-								<span>홍길동</span>님
+								<span>${pagemap.dtolist[0].patientName }</span>님
 							</p>
 						</div>
 						<!-- 환자 이름 가지고 와서 넣기 -->
@@ -83,38 +73,14 @@ padding-left: 10px;
 								<td class="c_subject" style="width: 500px;">제목</td>
 								<td class="c_writer"style="width: 200px;">작성자</td>
 							</tr>
+<c:forEach items="${pagemap.dtolist }" var="dto">
 							<tr>
-								<td>${map.pnote }</td>
-								<td>${map.patientId }</td>
-								<td>${map.ptitle }</td>
-								<td>${map.staffId }</td>
+								<td>${dto.rn }</td>
+								<td>${dto.chartdate }</td>
+								<td><a href="${pageContext.request.contextPath}/my/read?id=${dto.chartId }">${dto.ptitle }</a></td>
+								<td>${dto.staffName }</td>
 							</tr>
-							<tr>
-								<td>4</td>
-								<td>2024-02-25</td>
-								<td>연하치료</td>
-								<td>배소진</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>2024-02-25</td>
-								<td>연하치료</td>
-								<td>배소진</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>2024-02-25</td>
-								<td>연하치료</td>
-								<td>배소진</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>2024-02-25</td>
-								<td>연하치료</td>
-								<td>배소진</td>
-							</tr>
-							
-
+</c:forEach>
 						</table>
 
 					</fieldset>

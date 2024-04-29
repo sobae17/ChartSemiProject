@@ -28,6 +28,6 @@
 <!-- TODO -->
 </update>
 <delete id="delete" parameterType="string">
-	DELETE FROM CLIENT WHERE CHART_ID=#{clientId}
+	DELETE FROM CLIENT WHERE CHART_ID=#{clientId}  
 </delete>
 </mapper>
