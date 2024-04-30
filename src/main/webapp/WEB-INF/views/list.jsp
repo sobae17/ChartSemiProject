@@ -73,12 +73,12 @@ padding-left: 10px;
 								<td class="c_subject" style="width: 500px;">제목</td>
 								<td class="c_writer"style="width: 200px;">작성자</td>
 							</tr>
-<c:forEach items="${pagemap.volist }" var="vo">
+<c:forEach items="${pagemap.dtolist }" var="dto">
 							<tr>
-								<td>${vo.rn }</td>
-								<td>${vo.chartdate }</td>
-								<td><a href="${pageContext.request.contextPath}/my/read?id=${vo.chartId }">${vo.ptitle }</a></td>
-								<td>${vo.staffName }</td>
+								<td>${dto.rn }</td>
+								<td>${dto.chartdate }</td>
+								<td><a href="${pageContext.request.contextPath}/my/read?id=${dto.chartId }">${dto.ptitle }</a></td>
+								<td>${dto.staffName }</td>
 							</tr>
 </c:forEach>
 						</table>

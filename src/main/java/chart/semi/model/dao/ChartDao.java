@@ -41,9 +41,9 @@ public class ChartDao {
 	public List<ChartListVo> selectAllList(SqlSession session) {
 		return session.selectList("chartMapper.selectAllList");
 	}
-	// select list - StaffListAll
-	public List<StaffChartListVo> selectStaffPage(SqlSession session) {
-		return session.selectList("chartMapper.StaffChartListVo");
+	// select list - ChartListAll
+	public List<StaffChartListVo> selectChartByPatientId(SqlSession session, String patientId) {
+		return session.selectList("chartMapper.selectChartByPatientId", patientId);
 	}
 	
 	// selectRead
