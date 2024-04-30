@@ -37,8 +37,8 @@ align-items: baseline;
 <fieldset class="log_frm1">
 	<legend> 의료진 로그인  </legend>
 	<form id="frm-stafflogin">
-	<div id="aaa" class="login_1"><label>로그인 :   <input type="text" name="staffid"></label></div><br>
-	<div class="pwd_1"><label>비밀번호 : <input type="password" name="staffPwdpwd"></label></div><br>
+	<div id="aaa" class="login_1"><label>로그인 :   <input type="text" name="staffId"></label></div><br>
+	<div class="pwd_1"><label>비밀번호 : <input type="password" name="staffPwd"></label></div><br>
 	<div class="login_btn"><input type="button" value="로그인" class="btn submit" ></div><br>
 	<div class="join_btn""><input type="button" value="아이디 찾기" class="btn submit"> <input type="button" value="비밀번호 찾기"> <a href="${pageContext.request.contextPath }/join"><input type="button" value="의료진 회원가입하기" ></a></div>
 	
@@ -59,12 +59,12 @@ align-items: baseline;
 		}
 		function frmClickHandler() {
 			console.log("frmClickHandler 클릭");
-			console.log($("frm-stafflogin").serialize());
+			console.log($("#frm-stafflogin").serialize());
 			$
 					.ajax({
-						url : "${pageContext.request.contextPath }/staff/login",
+						url : "${pageContext.request.contextPath }/stafflogin",
 						method : "post",
-						data : $("frm-stafflogin").serialize(),
+						data : $("#frm-stafflogin").serialize(),
 						success : function(result) {
 							console.log(result);
 							if (result == 1) {

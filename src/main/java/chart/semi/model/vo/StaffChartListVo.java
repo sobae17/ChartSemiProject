@@ -23,6 +23,35 @@ public class StaffChartListVo {
 		this.chartId = chartId;
 		this.patientName = patientName;
 	}
+	
+	public void setChartdate(String chartdate) {
+		this.chartdate = chartdate;
+	}
+
+	public void setPtitle(String ptitle) {
+		this.ptitle = ptitle;
+	}
+
+	public void setPnote(String pnote) {
+		this.pnote = pnote;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
+	public void setChartId(String chartId) {
+		this.chartId = chartId;
+	}
+
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
+
+	public StaffChartListVo() {
+		super();
+	}
+
 	@Override
 	public String toString() {
 		return "StaffChartListVo [chartdate=" + chartdate + ", ptitle=" + ptitle + ", pnote=" + pnote + ", staffName="

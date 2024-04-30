@@ -13,6 +13,7 @@ import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.StaffChartWriteVo;
 import chart.semi.model.vo.StaffVo;
 import chart.semi.service.ChartService;
+import chart.semi.service.PatientService;
 
 /**
  * Servlet implementation class WriteController
@@ -21,6 +22,7 @@ import chart.semi.service.ChartService;
 public class StaffChartWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ChartService service =  new ChartService();
+	private PatientService servicePatient =  new PatientService();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,6 +36,7 @@ public class StaffChartWriteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("pvolist", servicePatient.selectAllPatientIdName());
 		request.getRequestDispatcher("/WEB-INF/views/staff_write.jsp").forward(request, response);
 	}
 	

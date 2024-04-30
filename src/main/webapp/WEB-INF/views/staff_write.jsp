@@ -21,7 +21,15 @@
 				<label>제목</label><input type="text" name="ptitle">
 			</div>
 			
-			<div> <label>환자 이름 불러와서 넣기 </label><input type="text" name="patientName" required="required" /></div>
+			<div> <label>환자 이름 불러와서 넣기 ${pagemap.dtolist[0].patientName }</label>
+			<select name="patientId"> 
+			<c:forEach items="${pvolist }" var="vo">
+				<option value="${vo.patientId }">
+				${vo.patientName }(${vo.patientId }) 
+				</option>
+			</c:forEach>
+			</select>
+			</div>
 			<div> <label>날짜</label> <input type="datetime-local" name="aaa"  /></div>
 			<div>
 				<label>내용</label>
@@ -29,7 +37,7 @@
 			</div>
 			<!-- event click 시 추가됨 -->
 			<div>
-				<button type="submit" class="btn write" style="width: 80px; height: 30px;">글쓰기</button>
+				<button type="button" class="btn write" style="width: 80px; height: 30px;">글쓰기</button>
 			</div>
 			<div>
 				<button type="reset" class="btn reset" style="width: 80px; height: 30px;">취소하기</button>
