@@ -9,23 +9,38 @@
 <title>Staff login page </title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<style type="text/css">
+.staff_logo {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-content: center;
+justify-content: center;
+align-items: baseline;
 
+}
+
+
+</style>
 
 </head>
+
 <body>
 <header class="wrap_header">
 	<%@include file="/WEB-INF/views/header.jsp"%>
 </header>
 <br>
 <section class="wrap_section">
-<img src="${pageContext.request.contextPath }/resources/imges/chart_title.jpg" alt="login img" width="960" height="460"><br>
+<div class="staff_logo">
+<img src="${pageContext.request.contextPath }/resources/imges/staff_login.png" alt="login img" width="500" height="300" class="staff_logo"><br>
+</div>
 <fieldset class="log_frm1">
-	<legend> 로그인  </legend>
+	<legend> 의료진 로그인  </legend>
 	<form id="frm-login">
 	<div id="aaa" class="login_1"><label>로그인 :   <input type="text" name="id"></label></div><br>
 	<div class="pwd_1"><label>비밀번호 : <input type="current-password" name="pwd"></label></div><br>
 	<div class="login_btn"><input type="button" value="로그인" class="btn submit" ></div><br>
-	<div class="join_btn""><input type="button" value="아이디 찾기" class="btn submit"> <input type="button" value="비밀번호 찾기"> <a href="${pageContext.request.contextPath }/join"><input type="button" value="회원가입하기" ></a></div>
+	<div class="join_btn""><input type="button" value="아이디 찾기" class="btn submit"> <input type="button" value="비밀번호 찾기"> <a href="${pageContext.request.contextPath }/join"><input type="button" value="의료진 회원가입하기" ></a></div>
 	
 	</form>
 </fieldset>
