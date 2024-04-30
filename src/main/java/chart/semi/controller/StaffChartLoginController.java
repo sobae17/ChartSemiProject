@@ -40,15 +40,17 @@ public class StaffChartLoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String id = request.getParameter("staffId");
-		String pwd = request.getParameter("staffPwd");
+		String staffId = request.getParameter("staffId");
+		String staffPwd = request.getParameter("staffPwd");
 
-		StaffReqVo vo = new StaffReqVo(id, pwd);
+		StaffReqVo vo = new StaffReqVo(staffId, staffPwd);
 		System.out.println("vo: " + vo);
 		StaffVo resVo = service.selectOneLogin(vo);
+		;
+		
 		if(resVo != null) {
 			// 로그인 정보를 Session 등록
-			request.getSession().setAttribute("ssslogin", resVo);
+			request.getSession().setAttribute("sssloginStaff", resVo);
 			System.out.println("로그인 성공");
 			response.getWriter().append("1");
 		} else {

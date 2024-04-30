@@ -12,11 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "loginFilter", urlPatterns = { "/staff/*" })
+@WebFilter(filterName = "loginStaffFilter", urlPatterns = { "/staff/*" })
 public class LoginStaffFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		System.out.println("loginStaffFilter");
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
