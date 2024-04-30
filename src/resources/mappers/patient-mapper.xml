@@ -8,6 +8,9 @@
 </select>
 
 
+<select id="selectAllPatientIdName" resultType="PatientIdNameVo">
+	select patient_id, patient_name     from patient
+</select>
 <select id="selectAllList" resultType="PatientVo">
 	select * from patient
 </select>

@@ -17,6 +17,16 @@ select * from
 from chart tc where PATIENT_ID = #{patientId}  order by chart_id desc ) t1 ) t2
 where rn between #{startRownum} and #{endRownum}
 </select>
+<select id="selectStaffPage" resultType="ChartListVo">
+select * from
+(select t1.* from
+	(select substr(chart_id, 0,6) chartdate
+	, ptitle
+	, (select staff_name from staff where staff_id = tc.staff_id) staff_name
+	, chart_id
+	, (select patient_name from patient where patient_id = #{patientId} ) patient_name
+from chart tc where PATIENT_ID = #{patientId} and chart_id=#{chartId}
+</select>
 <select id="selectPageListRowBounds"  resultType="ChartListVo" parameterType="string">
 	select rownum rn, substr(chart_id, 0,6) chartdate, ptitle, (select staff_name from staff where staff_id = tc.staff_id), chart_id
 from chart tc where PATIENT_ID = #{patientId} order by chart_id desc
@@ -49,5 +59,9 @@ from chart tc where PATIENT_ID = #{patientId} and chart_id=#{chartId}
 <delete id="delete" parameterType="string">
 	DELETE FROM CHART WHERE CHART_ID=#{chartId}
 </delete>
+
+
+
+
 
 </mapper>

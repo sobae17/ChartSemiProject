@@ -11,6 +11,7 @@ import chart.semi.model.vo.ChartListVo;
 import chart.semi.model.vo.ChartReadReqVo;
 import chart.semi.model.vo.ChartReadVo;
 import chart.semi.model.vo.ChartVo;
+import chart.semi.model.vo.StaffChartListVo;
 
 public class ChartDao {
 	
@@ -19,6 +20,7 @@ public class ChartDao {
 		System.out.println("dao selectTotalCount patientId: "+patientId);
 		return session.selectOne("chartMapper.selectTotalCount", patientId);
 	}
+
 	// select list - page
 	public List<ChartListVo> selectPageList(SqlSession session, int start, int end, String patientId) {
 		Map<String, Object> param = new HashMap<String, Object>();
@@ -36,6 +38,10 @@ public class ChartDao {
 	// select list - all
 	public List<ChartListVo> selectAllList(SqlSession session) {
 		return session.selectList("chartMapper.selectAllList");
+	}
+	// select list - StaffListAll
+	public List<StaffChartListVo> selectStaffPage(SqlSession session) {
+		return session.selectList("chartMapper.StaffChartListVo");
 	}
 	
 	// selectRead

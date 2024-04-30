@@ -11,6 +11,7 @@ import chart.semi.model.dao.PatientDao;
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.ClientVo;
 import chart.semi.model.vo.PatientCheckReqVo;
+import chart.semi.model.vo.PatientIdNameVo;
 import chart.semi.model.vo.PatientVo;
 
 public class PatientService {
@@ -28,6 +29,14 @@ public class PatientService {
 	
 	
 	
+	// select list - all
+	public List<PatientIdNameVo> selectAllPatientIdName() {
+		List<PatientIdNameVo> result = null;
+		SqlSession session = getSqlSession(true);
+		result = dao.selectAllPatientIdName(session); 
+		session.close();
+		return result;
+	}
 	// select list - all
 	public List<PatientVo> selectAllList() {
 		List<PatientVo> result = null;

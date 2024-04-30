@@ -7,63 +7,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import chart.semi.model.vo.StaffReqVo;
-import chart.semi.model.vo.StaffVo;
-import chart.semi.service.StaffService;
+import chart.semi.model.vo.ClientLoginReqVo;
+import chart.semi.model.vo.ClientLoginResVo;
+import chart.semi.service.ClientService;
 
 /**
  * Servlet implementation class ChartLoginController
  */
-@WebServlet("/stafflogin")
+@WebServlet("/login")
 public class ChartLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private StaffService service = new StaffService();
+	private ClientService service = new ClientService();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ChartLoginController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public ChartLoginController() {
-		super();
-		// TODO Auto-generated constructor stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/staff_login.jsp").forward(request, response);
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-
-		StaffReqVo vo = new StaffReqVo(id, pwd);
-		System.out.println("vo: " + vo);
-		/* StaffVo resVo = service.selectOne(vo); */
-//		ajax
-//		성공: 1
-//		실패: 0
-		int result = 0;
-		StaffVo resultInfo = service.selectOneLogin(vo);
-		if (vo != null) {
+		
+		ClientLoginReqVo vo = new ClientLoginReqVo(id, pwd);
+		System.out.println("vo: "+ vo);
+		ClientLoginResVo resVo = service.selectLogin(vo);
+		if(resVo != null) {
 			// 로그인 정보를 Session 등록
-			request.getSession().setAttribute("sssloginStaff", resultInfo);
-			result = 1;
+			request.getSession().setAttribute("ssslogin", resVo);
 			System.out.println("로그인 성공");
-		} 
-		response.getWriter().append(String.valueOf(result));
-		
-		
-//		/*else {
-//			System.out.println("로그인 실패");
-//			response.getWriter().append("0");*/
-//		}
-		
+			response.getWriter().append("1");
+		} else {
+			System.out.println("로그인 실패");
+			response.getWriter().append("0");
+		}
 	}
 }
