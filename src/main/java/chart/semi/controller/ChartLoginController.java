@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chart.semi.model.vo.StaffReqVo;
+import chart.semi.model.vo.StaffVo;
 import chart.semi.service.StaffService;
 
 /**
@@ -45,14 +46,24 @@ public class ChartLoginController extends HttpServlet {
 		StaffReqVo vo = new StaffReqVo(id, pwd);
 		System.out.println("vo: " + vo);
 		/* StaffVo resVo = service.selectOne(vo); */
+//		ajax
+//		성공: 1
+//		실패: 0
+		int result = 0;
+		StaffVo resultInfo = service.selectOne(vo);
 		if (vo != null) {
 			// 로그인 정보를 Session 등록
-			request.getSession().setAttribute("ssslogin", vo);
+			request.getSession().setAttribute("ssslogin", resultInfo);
+			result = 1;
 			System.out.println("로그인 성공");
-			response.getWriter().append("1");
-		} else {
-			System.out.println("로그인 실패");
-			response.getWriter().append("0");
-		}
+		} 
+		response.getWriter().append(String.valueOf(result));
+		
+		
+//		/*else {
+//			System.out.println("로그인 실패");
+//			response.getWriter().append("0");*/
+//		}
+		
 	}
 }

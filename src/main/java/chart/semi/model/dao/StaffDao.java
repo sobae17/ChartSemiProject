@@ -16,8 +16,8 @@ public class StaffDao {
 				}
 
 				// select staff login 
-				public StaffReqVo selectOneLogin(SqlSession session, String staffId) {
-					return session.selectOne("staffMapper.selectOneLogin", staffId );
+				public StaffReqVo selectOneLogin(SqlSession session, StaffReqVo vo) {
+					return session.selectOne("staffMapper.selectOneLogin", vo );
 				}
 				// select one 
 				public StaffVo selectOne(SqlSession session, String staffId) {
