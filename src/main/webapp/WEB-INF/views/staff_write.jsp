@@ -53,7 +53,7 @@
 			$(loadHandler);
 			function loadHandler() {
 				$(".btn.write").on("click", btnWriteClickHandler);
-
+//시리얼 넘버 뭐시낑이로 묶어 보내기
 			}
 			function btnWriteClickHandler() {
 			var ptitleVal = ${"[name=ptitle]"}.val();

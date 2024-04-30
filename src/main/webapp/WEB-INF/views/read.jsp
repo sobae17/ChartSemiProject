@@ -37,6 +37,7 @@
 </form>
 
 			</div>
+</section>
 		<footer class="footer_Chart">
 			<%@include file="/WEB-INF/views/footer.jsp"%>
 		</footer>

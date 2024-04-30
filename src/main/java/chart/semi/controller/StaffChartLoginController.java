@@ -47,8 +47,8 @@ public class StaffChartLoginController extends HttpServlet {
 		System.out.println("vo: " + vo);
 		StaffVo resVo = service.selectOneLogin(vo);
 		;
-		
-		if(resVo != null) {
+
+		if (resVo != null) {
 			// 로그인 정보를 Session 등록
 			request.getSession().setAttribute("sssloginStaff", resVo);
 			System.out.println("로그인 성공");
@@ -59,4 +59,3 @@ public class StaffChartLoginController extends HttpServlet {
 		}
 	}
 }
-		

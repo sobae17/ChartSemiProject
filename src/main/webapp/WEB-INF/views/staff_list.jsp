@@ -106,7 +106,7 @@ function selectChangeHandler(){
 		success : function(result) {
 			console.log(result);
 			if(result == -1){
-				alert("retry...... dfksdljfl");
+				alert("다시 시도해 주세요.");
 				return;
 			} 
 			//display

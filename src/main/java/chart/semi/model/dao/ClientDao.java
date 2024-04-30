@@ -15,8 +15,8 @@ public class ClientDao {
 			return session.selectList("clientMapper.selectAllList");
 		}
 		// select list - all
-		public List<ClientInfoVo> selectInfoAllList(SqlSession session) {
-			return session.selectList("clientInfoMapper.selectAllList");
+		public List<ClientInfoVo> selectAllListMypage(SqlSession session) {
+			return session.selectList("clientInfoMapper.selectAllListMypage");
 		}
 
 		// select one 

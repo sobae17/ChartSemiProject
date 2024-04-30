@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import chart.semi.model.vo.ChartReadReqVo;
+import chart.semi.model.vo.ClientLoginResVo;
+import chart.semi.service.ChartService;
+import chart.semi.service.ClientInfoService;
+
 /**
  * Servlet implementation class ChartJoinController
  */
@@ -14,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MyPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private ClientInfoService service = new ClientInfoService();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -29,7 +35,11 @@ public class MyPageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+//		request.setAttribute("cvolist", service.selectAllList());
 		request.getRequestDispatcher("/WEB-INF/views/MyPage.jsp").forward(request, response);
+
+//		String chartId = request.getParameter("id");
+//		ChartReadReqVo vo = new ChartReadReqVo(chartId,
+//				((ClientLoginResVo) request.getSession().getAttribute("ssslogin")).getPatientId());
 	}
 }
