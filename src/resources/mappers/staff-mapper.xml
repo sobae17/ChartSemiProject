@@ -6,12 +6,12 @@
 </select>
 
 <select id="selectOneLogin" parameterType="StaffReqVo" resultType="StaffVo">
-	SELECT STAFF_ID, STAFF_NAME, STAFF_PWD ,STAFF_EMAIL,STAFF_TYPE
-	FROM staff WHERE staffId=#{staffId}
+	SELECT STAFF_ID, STAFF_NAME, STAFF_EMAIL,STAFF_TYPE
+	FROM STAFF WHERE STAFF_ID=#{staffId}
 </select>
 <select id="selectOne" parameterType="string" resultType="StaffVo">
 	SELECT STAFF_ID, STAFF_NAME, STAFF_PWD ,STAFF_EMAIL,STAFF_TYPE
-	FROM staff WHERE staffId=#{staffId}
+	FROM STAFF WHERE STAFF_ID=#{staffId}
 </select>
 
 <insert id="insert" parameterType="StaffVo">
@@ -23,6 +23,6 @@
 <!-- TODO -->
 </update>
 <delete id="delete" parameterType="string">
-	DELETE FROM staff WHERE staffId=#{staffId}
+	DELETE FROM STAFF WHERE STAFF_ID=#{staffId}
 </delete>
 </mapper>

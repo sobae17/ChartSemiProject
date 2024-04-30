@@ -26,10 +26,10 @@ public class StaffService {
 	}
 
 	// select loginone
-	public StaffReqVo selectOneLogin(String staffId) {
-		StaffReqVo result = null;
+	public StaffVo selectOneLogin(StaffReqVo vo) {
+		StaffVo result = null;
 		SqlSession session = getSqlSession(true);
-		result = dao.selectOneLogin(session, staffId);
+		result = dao.selectOneLogin(session, vo);
 		session.close();
 		return result;
 	}

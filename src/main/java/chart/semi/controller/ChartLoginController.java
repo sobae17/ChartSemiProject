@@ -14,7 +14,7 @@ import chart.semi.service.StaffService;
 /**
  * Servlet implementation class ChartLoginController
  */
-@WebServlet("/staff/login")
+@WebServlet("/stafflogin")
 public class ChartLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private StaffService service = new StaffService();
@@ -50,10 +50,10 @@ public class ChartLoginController extends HttpServlet {
 //		성공: 1
 //		실패: 0
 		int result = 0;
-		StaffVo resultInfo = service.selectOne(vo);
+		StaffVo resultInfo = service.selectOneLogin(vo);
 		if (vo != null) {
 			// 로그인 정보를 Session 등록
-			request.getSession().setAttribute("ssslogin", resultInfo);
+			request.getSession().setAttribute("sssloginStaff", resultInfo);
 			result = 1;
 			System.out.println("로그인 성공");
 		} 

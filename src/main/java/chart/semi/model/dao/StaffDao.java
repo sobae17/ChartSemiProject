@@ -11,32 +11,32 @@ import chart.semi.model.vo.StaffVo;
 
 public class StaffDao {
 	// select list - all
-				public List<StaffVo> selectAllList(SqlSession session) {
-					return session.selectList("staffMapper.selectAllList");
-				}
+	public List<StaffVo> selectAllList(SqlSession session) {
+		return session.selectList("staffMapper.selectAllList");
+	}
 
-				// select staff login 
-				public StaffReqVo selectOneLogin(SqlSession session, StaffReqVo vo) {
-					return session.selectOne("staffMapper.selectOneLogin", vo );
-				}
-				// select one 
-				public StaffVo selectOne(SqlSession session, String staffId) {
-					return session.selectOne("staffMapper.selectOne", staffId );
-				}
+	// select staff login 
+	public StaffVo selectOneLogin(SqlSession session, StaffReqVo vo) {
+		return session.selectOne("staffMapper.selectOneLogin", vo );
+	}
+	// select one 
+	public StaffVo selectOne(SqlSession session, String staffId) {
+		return session.selectOne("staffMapper.selectOne", staffId );
+	}
 
-				// insert
-				public int insert(SqlSession session, StaffVo vo) {
-					return session.insert("staffMapper.insert", vo);
-				}
+	// insert
+	public int insert(SqlSession session, StaffVo vo) {
+		return session.insert("staffMapper.insert", vo);
+	}
 
-				// update
-				public int update(SqlSession session, StaffVo vo) {
-					return session.update("staffMapper.update", vo);
-				}
+	// update
+	public int update(SqlSession session, StaffVo vo) {
+		return session.update("staffMapper.update", vo);
+	}
 
-				// delete
-				public int delete(SqlSession session, String staffId) {
-					return session.delete("staffMapper.delete", staffId);
-				}
+	// delete
+	public int delete(SqlSession session, String staffId) {
+		return session.delete("staffMapper.delete", staffId);
+	}
 
-			}
+}
