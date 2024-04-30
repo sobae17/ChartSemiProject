@@ -16,16 +16,16 @@
 		<h1>치료일지</h1>
 			<div class="flex">
 				<div class="chart grid">
-						<div>${dto.chartdate }</div>
-						<div>${dto.patientName }</div>
-						<div>${dto.staffName }</div>
+						<div>${vo.chartdate }</div>
+						<div>${vo.patientName }</div>
+						<div>${vo.staffName }</div>
 				</div>
-				<div class="title">${dto.ptitle }</div>	
-				<div>${dto.pnote }</div>
+				<div class="title">${vo.ptitle }</div>	
+				<div>${vo.pnote }</div>
 
 <!-- 댓글  -->
 <form id="frm_replay">
-<input type="hidden" name="chartId" value="${dto.chartId}">
+<input type="hidden" name="chartId" value="${vo.chartId}">
 <div class="flex">
 <div>댓글</div>
 

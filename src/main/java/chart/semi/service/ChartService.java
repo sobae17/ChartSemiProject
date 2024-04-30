@@ -13,6 +13,8 @@ import chart.semi.model.vo.ChartListVo;
 import chart.semi.model.vo.ChartReadReqVo;
 import chart.semi.model.vo.ChartReadVo;
 import chart.semi.model.vo.ChartVo;
+import chart.semi.model.vo.StaffChartWriteVo;
+import chart.semi.model.vo.StaffVo;
 
 public class ChartService {
 	private ChartDao dao = new ChartDao(); 
@@ -126,6 +128,14 @@ public class ChartService {
 		return result;
 	}
 	
+	// insert
+	public int insertStaffWrite(StaffChartWriteVo vo) {
+		int result = 0;
+		SqlSession session = getSqlSession(true);
+		result = dao.insertStaffWrite(session, vo);
+		session.close();
+		return result;
+	}
 	// insert
 	public int insert(ChartVo vo) {
 		int result = 0;

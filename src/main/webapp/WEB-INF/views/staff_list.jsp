@@ -55,7 +55,7 @@ padding-left: 10px;
 
 						<div class="total_area">
 							
-							<select name="환자 이름"> 
+							<select name="patientName"> 
 							<option>
 							${pagemap.volist[0].patientName } 
 							</option>

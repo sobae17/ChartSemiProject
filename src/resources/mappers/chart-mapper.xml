@@ -48,11 +48,14 @@ select substr(chart_id, 0,6) chartdate
 	, (select patient_name from patient where patient_id = #{patientId} ) patient_name
 from chart tc where PATIENT_ID = #{patientId} and chart_id=#{chartId}
 </select>
-<insert id="insert" parameterType="ChartVo">
-	INSERT INTO CHART (CHART_ID,PATIENT_ID,WRITER,P_NOTE) 
-	VALUES (#{chartId}, #{patienId}, #{writer}, #{pnote})
+<insert id="insertStaffWrite" parameterType="StaffChartWriteVo">
+	INSERT INTO CHART (CHART_ID,PATIENT_ID,ptitle, pnote , staff_id) 
+	VALUES (#{chartId}, #{patienId}, #{ptitle}, #{pnote}, #{staff_id}
 </insert>
-
+<insert id="insert" parameterType="ChartVo">
+	INSERT INTO CHART (CHART_ID,PATIENT_ID,ptitle, pnote , staff_id) 
+	VALUES (#{chartId}, #{patienId}, #{ptitle}, #{pnote}, #{staff_id})
+</insert>
 <update id="update" parameterType="ChartVo">
 <!-- TODO -->
 </update>

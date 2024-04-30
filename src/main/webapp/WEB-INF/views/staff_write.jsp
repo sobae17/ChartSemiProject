@@ -18,18 +18,24 @@
 		<h1>치료사의 일지 작성하기</h1>
 		<form id="frm-write">
 			<div>
-				<label>제목</label><input type="text" name="ptile" required>
+				<label>제목</label><input type="text" name="ptitle">
 			</div>
+			
+			<div> <label>환자 이름 불러와서 넣기 </label><input type="text" name="patientName" required="required" /></div>
+			<div> <label>날짜</label> <input type="datetime-local" name="aaa"  /></div>
 			<div>
 				<label>내용</label>
-				<textarea name="pnote" required> 내용쓰기</textarea>
+				<textarea name="pnote" cols="130" rows="35" required> 내용쓰기</textarea>
 			</div>
 			<!-- event click 시 추가됨 -->
 			<div>
-				<button type="button" class="btn write">글쓰기</button>
+				<button type="submit" class="btn write" style="width: 80px; height: 30px;">글쓰기</button>
+			</div>
+			<div>
+				<button type="reset" class="btn reset" style="width: 80px; height: 30px;">취소하기</button>
 			</div>
 		</form>
-
+</section>
 		<footer class="footer_Chart">
 			<%@include file="/WEB-INF/views/footer.jsp"%>
 		</footer>
@@ -42,33 +48,47 @@
 
 			}
 			function btnWriteClickHandler() {
-
-				//Login 페이지로 이동
-				if (checkLogin("로그인되어야 글쓰기가 가능합니다.\n로그인페이지로 이동하시겠습니까?", "write")) {
-					return;
+			var ptitleVal = ${"[name=ptitle]"}.val();
+			var patientNameVal = ${"[name=pnote]"}.val();
+			
+			console.log("btnWriteClickHandler 클릭클릭");
+			$.ajax({
+					url:"${pageContext.request.contextPath }/staff/list"
+					,method: "post"
+					,data : {
+						ptitleVal : ptitleVal,
+						patientNameVal : patientNameVal
+						
+					}
+			success : function(result) {
+				console.log(result);
+				if(result == 1) {
+					alert("글이 등록 되었습니다.");
+					location,.href = "${pageContext.request.contextPath }staff/list";
+				} else {
+					alert("글 등록에 실패 했습니다. 다시 시도해 주세요.");
+					var ptitleVal = ${"[name=ptitle]"}.val("");
+					var patientNameVal = ${"[name=pnote]"}.val("");
 				}
-
-				console.log($("[name=pnote]").val().length); // 사용자 입력값은 value가 진짜임.
-				console.log($("[name=pnote]").val().trim().length);
-				//console.log($("[name=content]").html());
-				//console.log($("[name=content]").text());
-
-				if ($("[name=ptile]").val().trim().length == 0) {
-					alert("빈문자열만 입력할 수 없습니다. 제목을 작성해주세요.");
-					return;
+				{
+					
 				}
-				if ($("[name=pnote]").val().trim().length == 0) {
-					alert("빈문자열만 입력할 수 없습니다. 내용을 작성해주세요.");
-					return;
-				}
-
-				// 중요!
-				var frm = document.getElementById("frm-write");
-				frm.method = "post"; // content 길이 길거라..
-				frm.action = "${pageContext.request.contextPath}/staff_write";
-				frm.type = "form-data"; // form 태그 내부에 input type="file"이 있다면
-				frm.submit();
+				
 			}
+			
+			
+			
+			})
+			}
+			
+			
+			
+				
+				
+				
+				
+				
+				
 		</script>
 </body>
 </html>

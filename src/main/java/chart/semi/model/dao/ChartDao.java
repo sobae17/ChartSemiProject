@@ -12,6 +12,8 @@ import chart.semi.model.vo.ChartReadReqVo;
 import chart.semi.model.vo.ChartReadVo;
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.StaffChartListVo;
+import chart.semi.model.vo.StaffChartWriteVo;
+import chart.semi.model.vo.StaffVo;
 
 public class ChartDao {
 	
@@ -52,6 +54,15 @@ public class ChartDao {
 	// select one 
 	public ChartVo selectOne(SqlSession session, String chartId) {
 		return session.selectOne("chartMapper.selectOne", chartId );
+	}
+	
+	// insert
+	public int insert(SqlSession session, StaffVo vo) {
+		return session.insert("chartMapper.insert", vo);
+	}
+	// insert
+	public int insertStaffWrite(SqlSession session, StaffChartWriteVo vo) {
+		return session.insert("chartMapper.insertStaffWrite", vo);
 	}
 	// insert
 	public int insert(SqlSession session, ChartVo vo) {
