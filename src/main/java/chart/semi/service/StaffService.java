@@ -10,6 +10,7 @@ import chart.semi.model.dao.ChartDao;
 import chart.semi.model.dao.StaffDao;
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.ClientVo;
+import chart.semi.model.vo.StaffReqVo;
 import chart.semi.model.vo.StaffVo;
 
 public class StaffService {
@@ -24,6 +25,14 @@ public class StaffService {
 		return result;
 	}
 
+	// select loginone
+	public StaffReqVo selectOneLogin(String staffId) {
+		StaffReqVo result = null;
+		SqlSession session = getSqlSession(true);
+		result = dao.selectOneLogin(session, staffId);
+		session.close();
+		return result;
+	}
 	// select one
 	public StaffVo selectOne(String staffId) {
 		StaffVo result = null;

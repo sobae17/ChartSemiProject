@@ -5,6 +5,10 @@
 	select * from staff
 </select>
 
+<select id="selectOneLogin" parameterType="StaffReqVo" resultType="StaffVo">
+	SELECT STAFF_ID, STAFF_NAME, STAFF_PWD ,STAFF_EMAIL,STAFF_TYPE
+	FROM staff WHERE staffId=#{staffId}
+</select>
 <select id="selectOne" parameterType="string" resultType="StaffVo">
 	SELECT STAFF_ID, STAFF_NAME, STAFF_PWD ,STAFF_EMAIL,STAFF_TYPE
 	FROM staff WHERE staffId=#{staffId}

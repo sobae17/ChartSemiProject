@@ -6,7 +6,7 @@
 <div id="title" ><h1>요일</h1></div>
 <div id="title2"><h4>내 가족의 행복과 건강을 위한 요양일지</h4></div>
 <a href="${pageContext.request.contextPath }/login"><input type="button" value="로그아웃" class="btn submit"></a>
-<input type="button" value="내 정보">
+<a href="${pageContext.request.contextPath }/my/mypage"><input type="button" value="내 정보"></a>
 <a href="${pageContext.request.contextPath }/my/list"><input type="button" value="치료일지" class="btn submit"></a>
 <a href="${pageContext.request.contextPath }/my/health"><input type="button" value="건강일지" class="btn submit"></a>
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import chart.semi.model.vo.StaffReqVo;
 import chart.semi.model.vo.StaffVo;
 
 
@@ -14,6 +15,10 @@ public class StaffDao {
 					return session.selectList("staffMapper.selectAllList");
 				}
 
+				// select staff login 
+				public StaffReqVo selectOneLogin(SqlSession session, String staffId) {
+					return session.selectOne("staffMapper.selectOneLogin", staffId );
+				}
 				// select one 
 				public StaffVo selectOne(SqlSession session, String staffId) {
 					return session.selectOne("staffMapper.selectOne", staffId );
