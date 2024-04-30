@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class WriteController
  */
-@WebServlet("/write")
-public class WriteController extends HttpServlet {
+@WebServlet("/staff/write")
+public class StaffChartWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WriteController() {
+    public StaffChartWriteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,7 +26,7 @@ public class WriteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/write.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/staff_write.jsp").forward(request, response);
 	}
 
 }
