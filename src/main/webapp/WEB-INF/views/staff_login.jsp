@@ -17,9 +17,8 @@ flex-wrap: wrap;
 align-content: center;
 justify-content: center;
 align-items: baseline;
-
 }
-
+.staff_btn_login .staff_btn_id .staff_btn_pwd
 
 </style>
 
@@ -37,10 +36,11 @@ align-items: baseline;
 <fieldset class="log_frm1">
 	<legend> 의료진 로그인  </legend>
 	<form id="frm-stafflogin">
-	<div id="aaa" class="login_1"><label>로그인 :   <input type="text" name="staffId"></label></div><br>
+	<div id="staffId" class="login_1"><label>로그인 :   <input type="text" name="staffId"></label></div><br>
 	<div class="pwd_1"><label>비밀번호 : <input type="password" name="staffPwd"></label></div><br>
-	<div class="login_btn"><input type="button" value="로그인" class="btn submit" ></div><br>
-	<div class="join_btn""><input type="button" value="아이디 찾기" class="btn submit"> <input type="button" value="비밀번호 찾기"> <a href="${pageContext.request.contextPath }/join"><input type="button" value="의료진 회원가입하기" ></a></div>
+	<div class="staff_btn_login"><input type="button" value="로그인" class="btn submit" ></div><br>
+	<div class="staff_btn_id""><input type="button" value="아이디 찾기" class="btn submit"></div> 
+	<div class="staff_btn_pwd"><input type="button" value="비밀번호 찾기"></div>
 	
 	</form>
 </fieldset>

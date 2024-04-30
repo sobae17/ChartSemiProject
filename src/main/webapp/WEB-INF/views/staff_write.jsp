@@ -21,7 +21,7 @@
 				<label>제목</label><input type="text" name="ptitle">
 			</div>
 			
-			<div> <label>환자 이름 불러와서 넣기 ${pagemap.dtolist[0].patientName }</label>
+			<div> <label>환자 ${pagemap.dtolist[0].patientName }</label>
 			<select name="patientId"> 
 			<c:forEach items="${pvolist }" var="vo">
 				<option value="${vo.patientId }">
@@ -30,7 +30,7 @@
 			</c:forEach>
 			</select>
 			</div>
-			<div> <label>날짜</label> <input type="datetime-local" name="pnoteDate"  /></div>
+			<div><label>날짜</label> <input type="datetime-local" name="pnoteDate"  /></div>
 			<div>
 				<label>내용</label>
 				<textarea name="pnote" cols="130" rows="35" required> 내용쓰기</textarea>
