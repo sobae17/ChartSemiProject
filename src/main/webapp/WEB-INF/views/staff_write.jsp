@@ -30,7 +30,7 @@
 			</c:forEach>
 			</select>
 			</div>
-			<div> <label>날짜</label> <input type="datetime-local" name="aaa"  /></div>
+			<div> <label>날짜</label> <input type="datetime-local" name="pnoteDate"  /></div>
 			<div>
 				<label>내용</label>
 				<textarea name="pnote" cols="130" rows="35" required> 내용쓰기</textarea>
@@ -49,17 +49,40 @@
 		</footer>
 
 
-		<script>
-			$(loadHandler);
-			function loadHandler() {
-				$(".btn.write").on("click", btnWriteClickHandler);
-//시리얼 넘버 뭐시낑이로 묶어 보내기
-			}
-			function btnWriteClickHandler() {
-			var ptitleVal = ${"[name=ptitle]"}.val();
-			var patientNameVal = ${"[name=pnote]"}.val();
-			
-			console.log("btnWriteClickHandler 클릭클릭");
+<script>
+$(loadHandler);
+function loadHandler() {
+$(".btn.write").on("click", btnWriteClickHandler);
+}
+$("[name=ptitle]").val();
+$("[name=pnote]").val();
+function btnWriteClickHandler() {
+		
+	if(checkLogin("로그인되어야 글쓰기가 가능합니다.\n로그인페이지로 이동하시겠습니까?","write")){
+		return;
+	}
+	console.log($("[name=ptitle]").val().length);  // 사용자 입력값은 value가 진짜임.
+	console.log($("[name=pnote]")}.val().trim().length);
+	
+		if($("[name=ptitle]").val().trim().length == 0){
+		   alert("빈문자열만 입력할 수 없습니다. 제목을 작성해주세요.");
+		   return;
+	    }
+		if($("[name=pnote]").val().trim().length == 0){
+			   alert("빈문자열만 입력할 수 없습니다. 내용을 작성해주세요.");
+			   return;
+			   
+			   
+		}
+		
+		var frm = document.getElementById("frm-write");
+		frm.method="post";  // content 길이 길거라..
+		frm.action = "${pageContext.request.contextPath}/staff/write";
+		frm.enctype="multipart/form-data";  // form 태그 내부에 input type="file"이 있다면
+		frm.submit();	
+	}
+		
+			/* console.log("btnWriteClickHandler 클릭클릭");
 			$.ajax({
 					url:"${pageContext.request.contextPath }/staff/list"
 					,method: "post"
@@ -80,22 +103,8 @@
 				}
 				{
 					
-				}
-				
-			}
-			
-			
-			
-			})
-			}
-			
-			
-			
-				
-				
-				
-				
-				
+				} */
+		
 				
 		</script>
 </body>
