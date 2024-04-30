@@ -12,7 +12,7 @@
 </head>
 <body>
 	<header class="header_Chart">
-		<%@include file="/WEB-INF/views/header.jsp"%>
+		<%@include file="/WEB-INF/views/header_staff_chart.jsp"%>
 	</header>
 	<section>
 		<h1>치료사의 일지 작성하기</h1>

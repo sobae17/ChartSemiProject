@@ -32,7 +32,7 @@
 				</div>
 				<br>
 				<div class="pwd_1">
-					<label>비밀번호 : <input type="current-password" name="pwd"></label>
+					<label>비밀번호 : <input type="password" name="pwd"></label>
 				</div>
 				<br>
 				<div class="login_btn">

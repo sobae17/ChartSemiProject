@@ -32,7 +32,7 @@ padding-left: 10px;
 </head>
 <body>
 	<header class="header_Chart">
-		<%@include file="/WEB-INF/views/header_chart.jsp"%>
+		<%@include file="/WEB-INF/views/header_staff_chart.jsp"%>
 	</header>
 	[[${map }]]<br>[[${map.totalPageCount }]]<br>[[${map.startPageNum }]]<br>[[${map.endPageNum }]]<br>[[${map.currentPageNum }]]
 	<section calss="chart_readlist_section">

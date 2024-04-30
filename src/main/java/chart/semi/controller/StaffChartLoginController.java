@@ -40,30 +40,21 @@ public class StaffChartLoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
+		String id = request.getParameter("staffId");
+		String pwd = request.getParameter("staffPwd");
 
 		StaffReqVo vo = new StaffReqVo(id, pwd);
 		System.out.println("vo: " + vo);
-		/* StaffVo resVo = service.selectOne(vo); */
-//		ajax
-//		성공: 1
-//		실패: 0
-		int result = 0;
-		StaffVo resultInfo = service.selectOneLogin(vo);
-		if (vo != null) {
+		StaffVo resVo = service.selectOneLogin(vo);
+		if(resVo != null) {
 			// 로그인 정보를 Session 등록
-			request.getSession().setAttribute("sssloginStaff", resultInfo);
-			result = 1;
+			request.getSession().setAttribute("ssslogin", resVo);
 			System.out.println("로그인 성공");
-		} 
-		response.getWriter().append(String.valueOf(result));
-		
-		
-//		/*else {
-//			System.out.println("로그인 실패");
-//			response.getWriter().append("0");*/
-//		}
-		
+			response.getWriter().append("1");
+		} else {
+			System.out.println("로그인 실패");
+			response.getWriter().append("0");
+		}
 	}
 }
+		

@@ -49,8 +49,8 @@ public class StaffChartWriteController extends HttpServlet {
 		System.out.println("ptitle");
 		System.out.println("pnote");
 		
-		StaffChartWriteVo vo = new StaffChartWriteVo();
-		int sequenceNum = service.insertStaffWrite(vo);
-		response.sendRedirect(request.getContextPath()+"/board/list?num="+sequenceNum);
+	//	StaffChartWriteVo vo = new StaffChartWriteVo(patuentId, ptitle, pnote, staffId);
+		//int sequenceNum = service.insertStaffWrite(vo);
+	//	response.sendRedirect(request.getContextPath()+"/board/list?num="+sequenceNum);
 	}
 }
