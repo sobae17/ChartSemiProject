@@ -47,10 +47,7 @@ public class ChartDao {
 	public List<StaffChartListVo> selectChartByPatientId(SqlSession session, String patientId) {
 		return session.selectList("chartMapper.selectChartByPatientId", patientId);
 	}
-	// select list - PnoteCommentALL
-	public List<PnoteCommentVo> selectAllPnoteLis(SqlSession session, String chartId) {
-		return session.selectList("pnoteCommentMapper.selectAllPnoteLis", chartId);
-	}
+	
 	
 	// selectRead
 	public ChartReadVo selectRead(SqlSession session, ChartReadReqVo vo) {

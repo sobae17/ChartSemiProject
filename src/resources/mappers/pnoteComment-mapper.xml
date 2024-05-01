@@ -10,7 +10,7 @@
 	FROM pnote_comment WHERE CHART_ID=#{chartId}
 </select>
 
-<insert id="insert" parameterType="PnoteCommentVo">
+<insert id="insertPnoteReply" parameterType="PnoteCommentVo">
 	INSERT INTO pnote_comment (CHART_ID, PATIENT_ID, PULSE ,PNOTE_REPLAY,PNOTE_REP) 
 	VALUES (#{chartId}, #{patientId}, #{pnoteReplay}, #{pnoteRep})
 </insert>

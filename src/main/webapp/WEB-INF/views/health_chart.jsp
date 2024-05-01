@@ -42,7 +42,7 @@ p {
 	</header>
 	<section>
 		<form class="health_frm">
-			<h1>${vo.patientName }님의 건강 일지</h1>
+			<h1>${vo.patientName }님의건강 일지</h1>
 			<div>
 				날짜: <span id="chartdate">${vo.chartdate }</span>
 			</div>

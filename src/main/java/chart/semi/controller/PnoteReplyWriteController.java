@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import chart.semi.model.vo.PnoteReplyWriteVo;
 import chart.semi.service.ChartService;
+import chart.semi.service.PnoteCommentService;
 
 /**
  * Servlet implementation class PnoteReplyWriteController
@@ -16,7 +17,7 @@ import chart.semi.service.ChartService;
 @WebServlet("/my/reply/write.ajax")
 public class PnoteReplyWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ChartService service = new ChartService();
+	private PnoteCommentService service = new PnoteCommentService();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -39,7 +40,7 @@ public class PnoteReplyWriteController extends HttpServlet {
 		
 		PnoteReplyWriteVo vo = new PnoteReplyWriteVo(chartId,patientId,clientId,pnoteReplay);
 		System.out.println("vo");
-		int result = service.insertClientReplay(vo);
+		int result = service.insertPnoteReply(vo);
 	}
 
 }

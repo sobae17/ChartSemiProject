@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import static chart.semi.common.MybatisTemplate.*;
 
 import chart.semi.model.dao.ChartDao;
+import chart.semi.model.dao.PnoteCommentDao;
 import chart.semi.model.vo.ChartListVo;
 import chart.semi.model.vo.ChartReadReqVo;
 import chart.semi.model.vo.ChartReadVo;
@@ -19,7 +20,8 @@ import chart.semi.model.vo.StaffChartListVo;
 import chart.semi.model.vo.StaffChartWriteVo;
 
 public class ChartService {
-	private ChartDao dao = new ChartDao(); 
+	private ChartDao dao = new ChartDao();
+//	private PnoteCommentDao daopnote = new PnoteCommentDao();
 
 	// select list - page
 	public List<StaffChartListVo> selectChartByPatientId(String staffId) {
@@ -83,16 +85,14 @@ public class ChartService {
 		session.close();
 		return result;
 	}
-	// select list - pnote reply
-	public List<PnoteCommentVo> selectAllPnoteList(Integer chartId) {
-		List<PnoteCommentVo> result = null;
-		SqlSession session = getSqlSession(true);
-		result = dao.selectAllPnoteList(session, chartId);
-//		session.commit();
-//		session.rollback();
-		session.close();
-		return result;
-	}
+//	// select list - pnote reply
+//	public List<PnoteCommentVo> selectAllPnoteList(String chartId) {
+//		List<PnoteCommentVo> result = null;
+//		SqlSession session = getSqlSession(true);
+//		result = daopnote.selectAllPnoteList(session, chartId);
+//		session.close();
+//		return result;
+//	}
 	// select one
 	public ChartVo selectOne(String clientId) {
 		ChartVo result = null;
@@ -127,14 +127,14 @@ public class ChartService {
 		session.close();
 		return result;
 	}
-	// insert 댓글 등록
-	public int insertPnoteReply(PnoteReplyWriteVo vo) {
-		int result = 0;
-		SqlSession session = getSqlSession(true);
-		result = dao.insertPnoteReply(session, vo);
-		session.close();
-		return result;
-	}
+//	// insert 댓글 등록
+//	public int insertPnoteReply(PnoteReplyWriteVo vo) {
+//		int result = 0;
+//		SqlSession session = getSqlSession(true);
+//		result = dao.insertPnoteReply(session, vo);
+//		session.close();
+//		return result;
+//	}
 	// update
 	public int update(ChartVo vo) {
 		int result = 0;

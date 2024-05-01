@@ -11,12 +11,13 @@ import chart.semi.model.dao.PnoteCommentDao;
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.ClientVo;
 import chart.semi.model.vo.PnoteCommentVo;
+import chart.semi.model.vo.PnoteReplyWriteVo;
 
 public class PnoteCommentService {
 	private PnoteCommentDao dao = new PnoteCommentDao(); 
 	
 	// select list - all
-	public List<PnoteCommentVo> selectAllList() {
+	public List<PnoteCommentVo> selectAllList(String chartId, String patientId, String pnoteReplay, String pnoteRep) {
 		List<PnoteCommentVo> result = null;
 		SqlSession session = getSqlSession(true);
 		result = dao.selectAllList(session); 
@@ -37,6 +38,14 @@ public class PnoteCommentService {
 		int result = 0;
 		SqlSession session = getSqlSession(true);
 		result = dao.insert(session, vo);
+		session.close();
+		return result;
+	}
+	// insert 댓글 등록
+	public int insertPnoteReply(PnoteReplyWriteVo vo) {
+		int result = 0;
+		SqlSession session = getSqlSession(true);
+		result = dao.insertPnoteReply(session, vo);
 		session.close();
 		return result;
 	}

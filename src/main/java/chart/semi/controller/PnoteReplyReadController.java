@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 
 import chart.semi.model.vo.PnoteReplyWriteVo;
 import chart.semi.service.ChartService;
+import chart.semi.service.PnoteCommentService;
 
 /**
  * Servlet implementation class PnoteReplyWriteController
@@ -18,7 +19,7 @@ import chart.semi.service.ChartService;
 @WebServlet("my/reply/read.ajax")
 public class PnoteReplyReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ChartService service = new ChartService();
+	private PnoteCommentService service = new PnoteCommentService();
 	
 
        
@@ -37,6 +38,9 @@ public class PnoteReplyReadController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("/my/reply/write.ajax dopost()");
 		String chartId= request.getParameter("chartId");
-		response.getWriter().append(new Gson().toJson(service.selectAllPnoteList(chartId)));
+		String patientId= request.getParameter("patientId");
+		String pnoteReplay= request.getParameter("pnoteReplay");
+		String pnoteRep= request.getParameter("pnoteRep");
+		response.getWriter().append(new Gson().toJson(service.selectAllList(chartId,patientId,pnoteReplay,pnoteRep )));
 	}
 }
