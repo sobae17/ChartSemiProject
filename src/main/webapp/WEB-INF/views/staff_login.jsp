@@ -10,6 +10,14 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <style type="text/css">
+#frm-stafflogin{
+    display: grid;
+    justify-content: center;
+    align-items: end;
+    justify-items: stretch;
+    align-content: center;
+
+}
 .staff_logo {
 display: flex;
 flex-direction: row;
@@ -35,12 +43,13 @@ align-items: baseline;
 <img src="${pageContext.request.contextPath }/resources/imges/staff_login.png" alt="login img" width="500" height="300" class="staff_logo"><br>
 </div>
 <fieldset class="log_frm1">
-	<legend> 의료진 로그인  </legend>
+	<legend><strong> 의료진 로그인 </strong> </legend>
+	
 	<form id="frm-stafflogin">
 	<div id="staffId" class="login_1"><label>로그인 :   <input type="text" name="staffId"></label></div><br>
 	<div class="pwd_1"><label>비밀번호 : <input type="password" name="staffPwd"></label></div><br>
 	<div class="staff_btn_login"><input type="button" value="로그인" class="btn submit" ></div><br>
-	<div class="staff_btn_id""><input type="button" value="아이디 찾기" class="btn submit"></div> 
+	<div class="staff_btn_id""><input type="button" value="아이디 찾기" class="btn submit"></div><br>
 	<div class="staff_btn_pwd"><input type="button" value="비밀번호 찾기"></div>
 	
 	</form>

@@ -8,7 +8,14 @@
 <meta charset="UTF-8">
 <title>MyPage</title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<style type="text/css">
+.mypage{
+background-color: #ivory;
+display: inline-block;
 
+}
+
+</style>
 
 
 </head>

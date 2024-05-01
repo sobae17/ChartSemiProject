@@ -27,6 +27,9 @@ float:right;
 float: left;
 padding-left: 10px;
 }
+.total_area{
+background-color: #ivory;
+}
 </style>
 
 </head>
@@ -62,6 +65,7 @@ padding-left: 10px;
 								</option>
 							</c:forEach>
 							</select>
+							<div><a herf="${pageContext.request.contextPath}/staff/write?"></a> <input type="button" value="글 작성하기" class="btn write"></div>
 						</div>
 						<!-- 환자 이름 가지고 와서 넣기 -->
 
@@ -83,7 +87,7 @@ padding-left: 10px;
 
 		</div>
 	</section>
-	<div><a herf="${pageContext.request.contextPath}/staff/write?"></a> <input type="button" value="글 작성하기" class="btn write"></div>
+	
 
 	<footer class="footer_Chart">
 		<%@include file="/WEB-INF/views/footer.jsp"%>

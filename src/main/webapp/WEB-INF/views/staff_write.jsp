@@ -73,7 +73,7 @@ $(loadHandler);
 	         data: formData,
 	         success: function(result) {
 	             console.log(result);
-	             if (result === "success") {
+	             if (result == "success") {
 	                 alert("글이 등록되었습니다.");
 	                 window.location.href = "${pageContext.request.contextPath}/staff/write";
 	             } else {
