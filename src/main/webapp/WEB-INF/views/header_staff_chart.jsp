@@ -11,11 +11,13 @@
 		<div><button class="btn login">로그인</button></div>
 	</c:when>
 	<c:otherwise>
+		<div style="display: ruby-text; text-align:right;">
 		<form id="frm-logout">
 		<div><button class="btn logout">로그아웃</button></div>
 		</form>
 		<div><button class="btn list">일지 목록 보기</button></div>
 		<div><button class="btn write">일지 작성하기</button></div>
+</div>	
 	</c:otherwise>
 </c:choose>
 

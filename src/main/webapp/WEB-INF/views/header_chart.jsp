@@ -15,12 +15,13 @@
 		</form>
 		<div><button class="btn mypage">내 정보</button></div>
 		<div><button class="btn list">치료일지</button></div>
-		<div><button class="btn health"">건강일지</button></div>
+		<div><button class="btn health">건강일지</button></div>
 	</c:otherwise>
 </c:choose>
 <script>
+
 $(loadedHandler);
-function loadedHandler(){
+ function loadedHandler(){
 	//event 등록
 	$(".btn.login").on("click", btnLoginClickHandler);
 	$(".btn.mypage").on("click", btnMypageClickHandler);
