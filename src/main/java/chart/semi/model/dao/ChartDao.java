@@ -11,6 +11,8 @@ import chart.semi.model.vo.ChartListVo;
 import chart.semi.model.vo.ChartReadReqVo;
 import chart.semi.model.vo.ChartReadVo;
 import chart.semi.model.vo.ChartVo;
+import chart.semi.model.vo.PnoteCommentVo;
+import chart.semi.model.vo.PnoteReplyWriteVo;
 import chart.semi.model.vo.StaffChartListVo;
 import chart.semi.model.vo.StaffChartWriteVo;
 import chart.semi.model.vo.StaffVo;
@@ -38,12 +40,16 @@ public class ChartDao {
 		return session.selectList("chartMapper.selectPageListRowBounds", patientId, rbounds);
 	}
 	// select list - all
-	public List<ChartListVo> selectAllList(SqlSession session) {
-		return session.selectList("chartMapper.selectAllList");
+	public List<ChartListVo> selectAllList(SqlSession session, String chartId) {
+		return session.selectList("chartMapper.selectAllList",chartId);
 	}
 	// select list - ChartListAll
 	public List<StaffChartListVo> selectChartByPatientId(SqlSession session, String patientId) {
 		return session.selectList("chartMapper.selectChartByPatientId", patientId);
+	}
+	// select list - PnoteCommentALL
+	public List<PnoteCommentVo> selectAllPnoteLis(SqlSession session, String chartId) {
+		return session.selectList("pnoteCommentMapper.selectAllPnoteLis", chartId);
 	}
 	
 	// selectRead
@@ -60,13 +66,13 @@ public class ChartDao {
 	public int insert(SqlSession session, StaffVo vo) {
 		return session.insert("chartMapper.insert", vo);
 	}
-//	// insert
-//	public int insertStaffWrite(SqlSession session, StaffChartWriteVo vo) {
-//		return session.insert("chartMapper.insertStaffWrite", vo);
-//	}
-	// insert
-	public int insert(SqlSession session, StaffChartWriteVo vo) {
-		return session.insert("chartMapper.insert", vo);
+	// insert_ 글등록 
+	public int insertStaffWrite(SqlSession session, StaffChartWriteVo vo) {
+		return session.insert("chartMapper.insertStaffWrite", vo);
+	}
+	// insert_댓글 등록(회원)
+	public int insertPnoteReply(SqlSession session, PnoteReplyWriteVo vo) {
+		return session.insert("pnoteCommentMapper.insertPnoteReply", vo);
 	}
 	// update
 	public int update(SqlSession session, ChartVo vo) {

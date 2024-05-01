@@ -46,11 +46,19 @@ select substr(chart_id, 0,6) chartdate
 	, (select patient_name from patient where patient_id = #{patientId} ) patient_name
 from chart tc where PATIENT_ID = #{patientId} and chart_id=#{chartId}
 </select>
-
+<!--글 등록  -->
 <insert id="insert" parameterType="StaffChartWriteVo">
-	INSERT INTO CHART 
+	INSERT INTO CHART CHART_ID, PATIENT_ID, PTITLE, PNOTE, STAFF_ID)
 	VALUES (chart_seq.NEXTVAL, #{patientId}, #{ptitle}, #{pnote}, #{staffId})
 </insert>
+<!--댓글 달기  -->
+<insert id="insertClientReplay" parameterType="PnoteCommentVo">
+
+INSERT INTO PNOTE_COMMENT 
+VALUES (#{chartId}, #{patientId}, #{pnoteReplay}  ,null);
+</insert>
+
+
 <update id="update" parameterType="ChartVo">
 <!-- TODO -->
 </update>

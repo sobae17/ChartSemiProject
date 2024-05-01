@@ -13,9 +13,10 @@ import chart.semi.model.vo.ChartListVo;
 import chart.semi.model.vo.ChartReadReqVo;
 import chart.semi.model.vo.ChartReadVo;
 import chart.semi.model.vo.ChartVo;
+import chart.semi.model.vo.PnoteCommentVo;
+import chart.semi.model.vo.PnoteReplyWriteVo;
 import chart.semi.model.vo.StaffChartListVo;
 import chart.semi.model.vo.StaffChartWriteVo;
-import chart.semi.model.vo.StaffVo;
 
 public class ChartService {
 	private ChartDao dao = new ChartDao(); 
@@ -75,14 +76,23 @@ public class ChartService {
 		return result;
 	}
 	// select list - all
-	public List<ChartListVo> selectAllList() {
+	public List<ChartListVo> selectAllList(String chartId) {
 		List<ChartListVo> result = null;
 		SqlSession session = getSqlSession(true);
-		result = dao.selectAllList(session); 
+		result = dao.selectAllList(session, chartId); 
 		session.close();
 		return result;
 	}
-
+	// select list - pnote reply
+	public List<PnoteCommentVo> selectAllPnoteList(Integer chartId) {
+		List<PnoteCommentVo> result = null;
+		SqlSession session = getSqlSession(true);
+		result = dao.selectAllPnoteList(session, chartId);
+//		session.commit();
+//		session.rollback();
+		session.close();
+		return result;
+	}
 	// select one
 	public ChartVo selectOne(String clientId) {
 		ChartVo result = null;
@@ -109,11 +119,19 @@ public class ChartService {
 //		session.close();
 //		return result;
 //	}
-	// insert
-	public int insert(StaffChartWriteVo vo) {
+	// insert 글 등록
+	public int insertStaffWrite(StaffChartWriteVo vo) {
 		int result = 0;
 		SqlSession session = getSqlSession(true);
-		result = dao.insert(session, vo);
+		result = dao.insertStaffWrite(session, vo);
+		session.close();
+		return result;
+	}
+	// insert 댓글 등록
+	public int insertPnoteReply(PnoteReplyWriteVo vo) {
+		int result = 0;
+		SqlSession session = getSqlSession(true);
+		result = dao.insertPnoteReply(session, vo);
 		session.close();
 		return result;
 	}

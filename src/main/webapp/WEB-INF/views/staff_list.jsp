@@ -37,14 +37,13 @@ background-color: #ivory;
 	<header class="header_Chart">
 		<%@include file="/WEB-INF/views/header_staff_chart.jsp"%>
 	</header>
-	[[${pvolist }]] [[${pagemap.dtolist }]]
+	[[${dtolist }]]
 	<section calss="chart_readlist_section">
 		<h1 style="text-align: center;">치료일지</h1>
 		<div class="notice-area">
 			<article class="list-area">
 				<!-- 검색 시작 -->
 				<fieldset id="chart_sch" >
-					<legend> 검색 </legend>
 					<form name="csearch" method="get">
 						<div class="search_area">
 							<div class="wrap" style="border-left-width: 100;">
@@ -110,20 +109,20 @@ function selectChangeHandler(){
 		success : function(result) {
 			console.log(result);
 			if(result == -1){
-				alert("다시 시도해 주세요.");
+				alert("retry...... dfksdljfl");
 				return;
 			} 
 			//display
 			var htmlVal = `
 			<tr>
-				<td class="c_num" style="width:100px;"> chart id</td>
-				<td class="c_date" style="width: 200px;"> 치료사</td>
+				<td class="c_num" style="width:100px;"> chart id</a></td>
+				<td class="c_date" style="width: 200px;">staffName</td>
 				<td class="c_subject" style="width: 500px;">제목</td>
-				<td class="c_writer"style="width: 200px;"> 환자 </td>
+				<td class="c_writer"style="width: 200px;">patientName</td>
 			</tr>
-				`;
+			`;
 			for(var i in result){
-				var vo = result[i];
+				var dto = result[i];
 				htmlVal += `
 				<tr>
 					<td>\${dto.chartId }</td>
@@ -133,7 +132,7 @@ function selectChangeHandler(){
 				</tr>
 				`;
 			}
-			$(".list_flex").html(htmlVal);
+$(".list_flex").html(htmlVal);
 			
 		},
 		error : function(request, status, error) {

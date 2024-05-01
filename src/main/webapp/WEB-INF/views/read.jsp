@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Read Chart</title>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <style type="text/css">
 .chart_grid {
 	display: grid;
@@ -77,4 +78,52 @@ background: #ivory;
 		<%@include file="/WEB-INF/views/footer.jsp"%>
 	</footer>
 </body>
+<script type="text/javascript">
+$(loadedHandler);
+function loadedHandler(){
+	$(".btn.replay").on("click", btnReplyClickHandler);
+	
+	$.ajax({
+		url: "${pageContext.request.contextPath }/my/reply/read.ajax"
+		,method:"post"
+		,error : ajaxErrorHandler
+		,data: {chartId:"${dto.chartId }"}
+		,dataType:"json"
+		,success: function(result){
+			console.log(result);
+			displayReplyWrap(result);
+		}
+	});
+}
+function btnReplyClickHandler(){
+	if($("#frm-reply [name=chartReplyContent]").val().trim().length == 0){
+		alert("입력된 글이 없습니다. 입력 후 글 등록해주세요.");
+		return;
+	}
+	console.log($("#frm-reply").serialize());
+	$.ajax({
+		url: "${pageContext.request.contextPath }/my/reply/write.ajax"
+		,method:"post"
+		,error : ajaxErrorHandler
+		,data: $("#frm-reply").serialize()
+		,dataType:"json"
+		,success: function(result){
+			console.log(result);
+			if(result == "-1"){
+				alert("댓글 작성이 되지 않았습니다. 게시글 목록으로 이동 후 다시 작성해주세요.");
+				location.href="${pageContext.request.contextPath }/my/list";
+				return;
+			}
+			if(result == "0"){
+				alert("댓글 등록에 실패했습니다. 다시 시도해주세요.");
+				return;
+			}
+			displayReplyWrap(result);
+		}
+	});
+}	
+	
+	
+	
+</script>
 </html>
