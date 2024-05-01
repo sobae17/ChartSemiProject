@@ -9,10 +9,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 <style>
-.join_frm {
-	
-}
-
 .patientId {
 	display: none;
 }
@@ -53,9 +49,14 @@
 }
 
 .join_section {
-	background-color: #ivory;
-	border-bottom-left-radius: 10 10 10;
+	background-color: #seashell;
+	
 }
+.btn_join{
+padding-bottom: 10px;
+}
+.btn_reset{
+padding-bottom: 10px;
 }
 </style>
 </head>
@@ -102,16 +103,16 @@
 					입원환자아이디 <input type="text" name="patientId" readonly>
 				</div>
 				<br>
-				<div class="agree-check">
+				<div class="agree_check">
 					<input type="checkbox" required> 이용약관 개인정보 수집 및 이용, 마케팅 활용
 					선택에 모두 동의합니다.
 				</div>
 				<br>
 			</div>
-			<div>
+			<div class="btn_join">
 				<button type="submit">회원가입</button>
 			</div>
-			<div>
+			<div class="btn_reset">
 				<button type="reset">취소하기</button>
 			</div>
 		</form>

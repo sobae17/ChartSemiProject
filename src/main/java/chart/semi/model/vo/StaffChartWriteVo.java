@@ -7,20 +7,20 @@ public class StaffChartWriteVo {
 //	PNOTE      NOT NULL VARCHAR2(4000) 
 //	STAFF_ID   NOT NULL VARCHAR2(7)    
  private String chartId;
- private String patuentId;
+ private String patientId;
  private String ptitle;
  private String pnote;
  private String staffId;
 @Override
 public String toString() {
-	return "StaffChartWriteVo [chartId=" + chartId + ", patuentId=" + patuentId + ", ptitle=" + ptitle + ", pnote="
+	return "StaffChartWriteVo [chartId=" + chartId + ", patientId=" + patientId + ", ptitle=" + ptitle + ", pnote="
 			+ pnote + ", staffId=" + staffId + "]";
 }
 
-public StaffChartWriteVo(String chartId, String patuentId, String ptitle, String pnote, String staffId) {
+public StaffChartWriteVo(String chartId, String patientId, String ptitle, String pnote, String staffId) {
 	super();
 	this.chartId = chartId;
-	this.patuentId = patuentId;
+	this.patientId = patientId;
 	this.ptitle = ptitle;
 	this.pnote = pnote;
 	this.staffId = staffId;
@@ -32,11 +32,11 @@ public String getChartId() {
 public void setChartId(String chartId) {
 	this.chartId = chartId;
 }
-public String getPatuentId() {
-	return patuentId;
+public String getpatientId() {
+	return patientId;
 }
-public void setPatuentId(String patuentId) {
-	this.patuentId = patuentId;
+public void setpatientId(String patientId) {
+	this.patientId = patientId;
 }
 public String getPtitle() {
 	return ptitle;

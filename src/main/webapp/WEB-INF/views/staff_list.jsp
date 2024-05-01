@@ -37,7 +37,7 @@ background-color: #ivory;
 	<header class="header_Chart">
 		<%@include file="/WEB-INF/views/header_staff_chart.jsp"%>
 	</header>
-	[[${pvolist }]]/[[${dto }]]
+	[[${pvolist }]] [[${pagemap.dtolist }]]
 	<section calss="chart_readlist_section">
 		<h1 style="text-align: center;">치료일지</h1>
 		<div class="notice-area">
@@ -116,10 +116,10 @@ function selectChangeHandler(){
 			//display
 			var htmlVal = `
 			<tr>
-				<td class="c_num" style="width:100px;"> chart id</a></td>
-				<td class="c_date" style="width: 200px;">staffName</td>
+				<td class="c_num" style="width:100px;"> chart id</td>
+				<td class="c_date" style="width: 200px;"> 치료사</td>
 				<td class="c_subject" style="width: 500px;">제목</td>
-				<td class="c_writer"style="width: 200px;">patientName</td>
+				<td class="c_writer"style="width: 200px;"> 환자 </td>
 			</tr>
 				`;
 			for(var i in result){

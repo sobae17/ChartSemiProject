@@ -48,9 +48,8 @@ from chart tc where PATIENT_ID = #{patientId} and chart_id=#{chartId}
 </select>
 
 <insert id="insert" parameterType="StaffChartWriteVo">
-	INSERT INTO CHART (CHART_ID,PATIENT_ID,PTITLE,PNOTE,STAFF_ID) 
-	VALUES ((TO_CHAR(SYSDATE, 'YYMMDD') || TO_CHAR(chart_seq.NEXTVAL, 'FM00')), 
-  patuentId, ptitle, pnote, staffId)
+	INSERT INTO CHART 
+	VALUES (chart_seq.NEXTVAL, #{patientId}, #{ptitle}, #{pnote}, #{staffId})
 </insert>
 <update id="update" parameterType="ChartVo">
 <!-- TODO -->

@@ -11,11 +11,13 @@
 	</c:when>
 	<c:otherwise>
 		<form id="frm-logout">
-		<div><button class="btn logout">로그아웃</button></div>
+		<div class="c_logout" style="display: grid; justify-content: end;"><button class="btn logout">로그아웃</button></div>
 		</form>
+		<div class="c_btns" style="display:flex; justify-content: space-evenly; justify-items: end;">
 		<div><button class="btn mypage">내 정보</button></div>
 		<div><button class="btn list">치료일지</button></div>
 		<div><button class="btn health">건강일지</button></div>
+		</div>
 	</c:otherwise>
 </c:choose>
 <script>

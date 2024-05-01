@@ -9,10 +9,15 @@
 <title>login page</title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <style type="text/css">
+.log_frm1 {
+	display: grid;
+	justify-items: stretch;
+	justify-content: center;
+	background-color: #seashell;
+}
 
-.log_frm1{display: grid;
-    justify-items: stretch;
-    justify-content: center;
+.c_login_img {
+	padding-bottom: 10px;
 }
 </style>
 
@@ -26,7 +31,7 @@
 	<section class="wrap_section">
 		<img
 			src="${pageContext.request.contextPath }/resources/imges/chart_title.jpg"
-			alt="login img" width="960" height="460"><br>
+			alt="login img" width="960" height="460" class="c_login_img"><br>
 		<fieldset class="log_frm1">
 			<legend> 로그인 </legend>
 			<form id="frm-login">
@@ -48,7 +53,7 @@
 						href="${pageContext.request.contextPath }/join"><input
 						type="button" value="회원가입하기"></a>
 				</div>
-					<br>
+				<br>
 				<div class="staff_login">
 					<a href="${pageContext.request.contextPath }/stafflogin"><input
 						type="button" value="의료진 로그인하기" style="border-style: none;"></a>

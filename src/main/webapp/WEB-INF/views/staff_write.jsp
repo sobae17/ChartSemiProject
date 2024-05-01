@@ -8,14 +8,35 @@
 <meta charset="UTF-8">
 <title>Write page</title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<style type="text/css">
+.btn_write_staff{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: nowrap;
+	align-items: flex-end;
+	flex-direction: column;
+}
+.btn_write_W{
+padding-top: 20px;
+padding-right: 10px;
 
+}
+.btn_rest_W{
+padding: 10px;
+
+}
+.s_wrtie_title{
+border-bottom-style: ridge;
+padding-bottom: 10px;
+}
+</style>
 </head>
 <body>
 	<header class="header_Chart">
 		<%@include file="/WEB-INF/views/header_staff_chart.jsp"%>
 	</header>
 	<section>
-		<h1>치료사의 일지 작성하기</h1>
+		<h1 class="s_wrtie_title">치료사의 일지 작성하기</h1>
 		<form id="frm-write">
 			<div>
 				<label>제목</label><input type="text" name="ptitle">
@@ -38,13 +59,15 @@
 				<textarea name="pnote" cols="130" rows="35" required> 내용쓰기</textarea>
 			</div>
 			<!-- event click 시 추가됨 -->
-			<div>
-				<button type="button" class="btn write"
-					style="width: 80px; height: 30px;">글쓰기</button>
-			</div>
-			<div>
-				<button type="reset" class="btn reset"
-					style="width: 80px; height: 30px;">취소하기</button>
+			<div class="btn_write_staff">
+				<div class="btn_write_W">
+					<button type="button" class="btn write"
+						style="width: 80px; height: 30px;">글쓰기</button>
+				</div>
+				<div class="btn_rest_W">
+					<button type="reset" class="btn reset"
+						style="width: 80px; height: 30px;">취소하기</button>
+				</div>
 			</div>
 		</form>
 	</section>
@@ -54,43 +77,33 @@
 
 
 	<script>
-$(loadHandler);
-
-	 function loadHandler() {
-	     $(".btn.write").on("click", btnWriteClickHandler);
-	 }
-
-	 function btnWriteClickHandler() {
-	     console.log("btnWriteClickHandler 클릭클릭");
-
-	     // 폼 데이터를 시리얼라이즈
-	     var formData = $("#frm-write").serialize();
-
-	     // AJAX 요청
-	     $.ajax({
-	         url: "${pageContext.request.contextPath}/staff/list",
-	         method: "POST",
-	         data: formData,
-	         success: function(result) {
-	             console.log(result);
-	             if (result == "success") {
-	                 alert("글이 등록되었습니다.");
-	                 window.location.href = "${pageContext.request.contextPath}/staff/write";
-	             } else {
-	                 alert("글 등록에 실패했습니다. 다시 시도해 주세요.");
-	             }
-	         },
-	         error: function(xhr, status, error) {
-	             console.error(xhr, status, error);
-	             alert("서버와의 통신 중 에러가 발생했습니다. 다시 시도해 주세요.");
-	         }
-	     });
-	 }
-				
-				
-		</script>
+$(loadedHandler);
+function loadedHandler(){
+	//event 등록
+	$(".btn.write").on("click", btnWriteClickHandler);
+}
+function btnWriteClickHandler(){
+	//Login 페이지로 이동
+	
+	if($("[name=ptitle]").val().trim().length == 0){
+	   alert("빈문자열만 입력할 수 없습니다. 제목을 작성해주세요.");
+	   return;
+    }
+	if($("[name=pnote]").val().trim().length == 0){
+	   alert("빈문자열만 입력할 수 없습니다. 내용을 작성해주세요.");
+	   return;
+	}
+	
+	// 중요!
+	var frm = document.getElementById("frm-write");
+	frm.method="post";  // content 길이 길거라..
+	frm.action = "${pageContext.request.contextPath}/staff/write";
+	frm.enctype="multipart/form-data";  // form 태그 내부에 input type="file"이 있다면
+	frm.submit();
+}
+	</script>
 </body>
 </html>
 
 
-		
+

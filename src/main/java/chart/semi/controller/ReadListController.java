@@ -31,7 +31,7 @@ public class ReadListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		-- 한페이지당글수 3 씩
-		int pageSize = 2;
+		int pageSize = 5;
 //		-- 화면하단 나타날 페이지수 5 씩
 		int pageBlockSize = 5;
 //		-- 현재페이지
