@@ -60,12 +60,12 @@ public class ChartDao {
 	public int insert(SqlSession session, StaffVo vo) {
 		return session.insert("chartMapper.insert", vo);
 	}
+//	// insert
+//	public int insertStaffWrite(SqlSession session, StaffChartWriteVo vo) {
+//		return session.insert("chartMapper.insertStaffWrite", vo);
+//	}
 	// insert
-	public int insertStaffWrite(SqlSession session, StaffChartWriteVo vo) {
-		return session.insert("chartMapper.insertStaffWrite", vo);
-	}
-	// insert
-	public int insert(SqlSession session, ChartVo vo) {
+	public int insert(SqlSession session, StaffChartWriteVo vo) {
 		return session.insert("chartMapper.insert", vo);
 	}
 	// update

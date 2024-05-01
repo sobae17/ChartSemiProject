@@ -101,16 +101,16 @@ public class ChartService {
 		return result;
 	}
 	
+//	// insert
+//	public int insertStaffWrite(StaffChartWriteVo vo) {
+//		int result = 0;
+//		SqlSession session = getSqlSession(true);
+//		result = dao.insertStaffWrite(session, vo);
+//		session.close();
+//		return result;
+//	}
 	// insert
-	public int insertStaffWrite(StaffChartWriteVo vo) {
-		int result = 0;
-		SqlSession session = getSqlSession(true);
-		result = dao.insertStaffWrite(session, vo);
-		session.close();
-		return result;
-	}
-	// insert
-	public int insert(ChartVo vo) {
+	public int insert(StaffChartWriteVo vo) {
 		int result = 0;
 		SqlSession session = getSqlSession(true);
 		result = dao.insert(session, vo);

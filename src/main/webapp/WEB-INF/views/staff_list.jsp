@@ -34,7 +34,7 @@ padding-left: 10px;
 	<header class="header_Chart">
 		<%@include file="/WEB-INF/views/header_staff_chart.jsp"%>
 	</header>
-	[[${pvolist }]]
+	[[${pvolist }]]/[[${dto }]]
 	<section calss="chart_readlist_section">
 		<h1 style="text-align: center;">치료일지</h1>
 		<div class="notice-area">
@@ -117,9 +117,9 @@ function selectChangeHandler(){
 				<td class="c_subject" style="width: 500px;">제목</td>
 				<td class="c_writer"style="width: 200px;">patientName</td>
 			</tr>
-			`;
+				`;
 			for(var i in result){
-				var dto = result[i];
+				var vo = result[i];
 				htmlVal += `
 				<tr>
 					<td>\${dto.chartId }</td>

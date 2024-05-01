@@ -16,6 +16,16 @@ public String toString() {
 	return "StaffChartWriteVo [chartId=" + chartId + ", patuentId=" + patuentId + ", ptitle=" + ptitle + ", pnote="
 			+ pnote + ", staffId=" + staffId + "]";
 }
+
+public StaffChartWriteVo(String chartId, String patuentId, String ptitle, String pnote, String staffId) {
+	super();
+	this.chartId = chartId;
+	this.patuentId = patuentId;
+	this.ptitle = ptitle;
+	this.pnote = pnote;
+	this.staffId = staffId;
+}
+
 public String getChartId() {
 	return chartId;
 }

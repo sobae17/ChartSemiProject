@@ -41,6 +41,7 @@ public class StaffChartListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("pvolist", service.selectAllPatientIdName());
+	
 		request.getRequestDispatcher("/WEB-INF/views/staff_list.jsp").forward(request, response);
 	}
 	@Override

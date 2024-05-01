@@ -42,6 +42,7 @@ public class StaffChartWriteController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String chartId = request.getParameter("chartId");
 		String patuentId = request.getParameter("patuentId");
 		String ptitle = request.getParameter("ptitle");
 		String pnote = request.getParameter("pnote");
@@ -52,7 +53,9 @@ public class StaffChartWriteController extends HttpServlet {
 		System.out.println("ptitle");
 		System.out.println("pnote");
 		
-	//	StaffChartWriteVo vo = new StaffChartWriteVo(patuentId, ptitle, pnote, staffId);
+		StaffChartWriteVo vo = new StaffChartWriteVo(chartId, patuentId, ptitle, pnote, staffId);
+		int result = service.insert(vo);
+		response.sendRedirect(request.getContextPath()+"/staff/list");
 		//int sequenceNum = service.insertStaffWrite(vo);
 	//	response.sendRedirect(request.getContextPath()+"/board/list?num="+sequenceNum);
 	}

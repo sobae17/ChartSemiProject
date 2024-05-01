@@ -18,7 +18,8 @@ align-content: center;
 justify-content: center;
 align-items: baseline;
 }
-.staff_btn_login .staff_btn_id .staff_btn_pwd
+.staff_btn_login .staff_btn_id .staff_btn_pwd{
+}
 
 </style>
 
