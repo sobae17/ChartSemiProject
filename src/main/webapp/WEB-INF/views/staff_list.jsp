@@ -120,9 +120,9 @@ function selectChangeHandler(){
 			var htmlVal = `
 			<tr>
 				<td class="c_num" style="width:100px;"> chart id</a></td>
-				<td class="c_date" style="width: 200px;">staffName</td>
+				<td class="c_date" style="width: 200px;">치료사</td>
 				<td class="c_subject" style="width: 500px;">제목</td>
-				<td class="c_writer"style="width: 200px;">patientName</td>
+				<td class="c_writer"style="width: 200px;">보호자 </td>
 			</tr>
 			`;
 			for(var i in result){
