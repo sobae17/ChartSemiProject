@@ -65,7 +65,7 @@ public class ChartDao {
 	}
 	// insert_ 글등록 
 	public int insertStaffWrite(SqlSession session, StaffChartWriteVo vo) {
-		return session.insert("chartMapper.insertStaffWrite", vo);
+		return session.insert("chartMapper.insert", vo);
 	}
 	// insert_댓글 등록(회원)
 	public int insertPnoteReply(SqlSession session, PnoteReplyWriteVo vo) {

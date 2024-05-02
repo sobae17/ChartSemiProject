@@ -48,8 +48,13 @@ from chart tc where PATIENT_ID = #{patientId} and chart_id=#{chartId}
 </select>
 <!--글 등록  -->
 <insert id="insert" parameterType="StaffChartWriteVo">
-	INSERT INTO CHART CHART_ID, PATIENT_ID, PTITLE, PNOTE, STAFF_ID)
+INSERT INTO CHART (CHART_ID,PATIENT_ID,PTITLE,PNOTE,STAFF_ID) 
+	VALUES ((TO_CHAR(SYSDATE, 'YYMMDD') || TO_CHAR(chart_seq.NEXTVAL, 'FM00')), 
+  #{patientId},  #{ptitle}, #{pnote}, #{staffId})
+  <!-- 
+	INSERT INTO CHART( CHART_ID, PATIENT_ID, PTITLE, PNOTE, STAFF_ID)
 	VALUES (chart_seq.NEXTVAL, #{patientId}, #{ptitle}, #{pnote}, #{staffId})
+	 -->
 </insert>
 <!--댓글 달기  -->
 <insert id="insertClientReplay" parameterType="PnoteCommentVo">

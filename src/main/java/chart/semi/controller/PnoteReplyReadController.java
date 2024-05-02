@@ -16,7 +16,7 @@ import chart.semi.service.PnoteCommentService;
 /**
  * Servlet implementation class PnoteReplyWriteController
  */
-@WebServlet("my/reply/read.ajax")
+@WebServlet("/my/reply/read.ajax")
 public class PnoteReplyReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PnoteCommentService service = new PnoteCommentService();

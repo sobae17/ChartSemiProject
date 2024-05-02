@@ -98,7 +98,7 @@ function btnWriteClickHandler(){
 	var frm = document.getElementById("frm-write");
 	frm.method="post";  // content 길이 길거라..
 	frm.action = "${pageContext.request.contextPath}/staff/write";
-	frm.enctype="multipart/form-data";  // form 태그 내부에 input type="file"이 있다면
+	// frm.enctype="multipart/form-data";  // form 태그 내부에 input type="file"이 있다면
 	frm.submit();
 }
 	</script>

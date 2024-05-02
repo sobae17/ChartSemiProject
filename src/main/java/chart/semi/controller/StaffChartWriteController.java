@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import chart.semi.model.vo.ChartVo;
 import chart.semi.model.vo.StaffChartWriteVo;
+import chart.semi.model.vo.StaffReqVo;
 import chart.semi.model.vo.StaffVo;
 import chart.semi.service.ChartService;
 import chart.semi.service.PatientService;
@@ -43,10 +44,11 @@ public class StaffChartWriteController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String chartId = request.getParameter("chartId");
-		String patuentId = request.getParameter("patuentId");
+		String patuentId = request.getParameter("patientId");
 		String ptitle = request.getParameter("ptitle");
 		String pnote = request.getParameter("pnote");
-		String staffId = request.getParameter("staffId");
+		StaffVo resVo = (StaffVo) request.getSession().getAttribute("sssloginStaff");
+		String staffId = resVo.getStaffId();
 		// 스태프 로그인 
 		//		StaffVo sssloginStaff = (StaffVo)request.getSession().getAttribute("sssloginStaff");
 		StaffVo sssloginStaff = (StaffVo)request.getSession().getAttribute("sssloginStaff");

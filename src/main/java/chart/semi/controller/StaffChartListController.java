@@ -48,10 +48,13 @@ public class StaffChartListController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// ajax
 		String patientId = request.getParameter("patientId");
+		System.out.println(patientId);
 		if(patientId == null || patientId.equals("")) {
 			response.getWriter().append("-1");
 		}
 		List<StaffChartListVo> result =serviceChart.selectChartByPatientId(patientId);
+		System.out.println("staff con >>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println(result);
 		response.getWriter().append(new Gson().toJson(result));
 	}
 }

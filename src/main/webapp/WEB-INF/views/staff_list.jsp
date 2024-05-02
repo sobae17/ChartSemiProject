@@ -58,11 +58,13 @@ background-color: #ivory;
 						<div class="total_area">
 							
 							<select name="patientId"> 
+							<option>선택해주세요.</option>
 							<c:forEach items="${pvolist }" var="vo">
 								<option value="${vo.patientId }">
 								${vo.patientName }(${vo.patientId }) 
 								</option>
 							</c:forEach>
+							
 							</select>
 							<div><a herf="${pageContext.request.contextPath}/staff/write?"></a> <input type="button" value="글 작성하기" class="btn write"></div>
 						</div>
@@ -74,7 +76,7 @@ background-color: #ivory;
 				<!-- 게시판 목록   -->
 				<form class="frm_list">
 					<fieldset class="list_fieled">
-						<table class="list_flex">
+						<table class="list_flex patientName" >
 
 						</table>
 
@@ -94,17 +96,19 @@ background-color: #ivory;
 	
 	
 <script>
-$(function(){
-	$("[name=patientName]").on("change", selectChangeHandler)
-});
+$(loadedHandler);
+function loadedHandler(){
+	$("[name=patientId]").on("change", selectChangeHandler);
+}
+ 
 function selectChangeHandler(){
 	console.log("select change!!!");
-	console.log($("[name=patientName]").val());
+	console.log($("[name=patientId]").val());
 	
 	$.ajax({
 		url : "${pageContext.request.contextPath }/staff/list",
 		method : "post",
-		data : {patientId :$("[name=patientName]").val()},
+		data : {patientId :$("[name=patientId]").val()},
 		dataType: "json",
 		success : function(result) {
 			console.log(result);
@@ -132,7 +136,7 @@ function selectChangeHandler(){
 				</tr>
 				`;
 			}
-$(".list_flex").html(htmlVal);
+$(".list_flex.patientName").html(htmlVal);
 			
 		},
 		error : function(request, status, error) {
