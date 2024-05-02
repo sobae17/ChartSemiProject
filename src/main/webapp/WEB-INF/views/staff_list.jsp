@@ -104,11 +104,12 @@ function loadedHandler(){
 function selectChangeHandler(){
 	console.log("select change!!!");
 	console.log($("[name=patientId]").val());
+	var patientId = $("[name=patientId]").val();
 	
 	$.ajax({
 		url : "${pageContext.request.contextPath }/staff/list",
 		method : "post",
-		data : {patientId :$("[name=patientId]").val()},
+		data : {patientId :patientId},
 		dataType: "json",
 		success : function(result) {
 			console.log(result);
@@ -131,7 +132,7 @@ function selectChangeHandler(){
 				<tr>
 					<td>\${dto.chartId }</td>
 					<td>\${dto.staffName }</td>
-					<td><a href="${pageContext.request.contextPath}/staff/read?id=\${dto.chartId }">\${dto.ptitle }</a></td>
+					<td><a href="${pageContext.request.contextPath}/staff/read?id=\${dto.chartId }&pid=\${patientId}">\${dto.ptitle }</a></td>
 					<td>\${dto.patientName }</td>
 				</tr>
 				`;

@@ -33,10 +33,10 @@ public class StaffChartReadController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String chartId = request.getParameter("id");
-		// ((ClientLoginResVo)request.getSession().getAttribute("ssslogin")).getPatientId() ==> 로그인정보
-		ChartReadReqVo vo = new ChartReadReqVo(chartId, ((StaffVo)request.getSession().getAttribute("sssloginStaff")).getStaffId());
+		String patientId = request.getParameter("pid");
+		ChartReadReqVo vo = new ChartReadReqVo(chartId, patientId);
 		request.setAttribute("dto", service.selectRead(vo));
-		request.getRequestDispatcher("/WEB-INF/views/read.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/Staff_read.jsp").forward(request, response);
 			
 			
 	}
