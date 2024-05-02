@@ -14,8 +14,9 @@
 	align-content: space-around;
 	align-items: stretch;
 	justify-content: space-around;
+	grid-template-columns: 1fr 1fr;
 	background-color: seashell;
-}
+	}
 
 .read_pnote_title {
 	display: flex;
@@ -29,9 +30,12 @@
 	border-top-style: double;
 }
 .c_read_pnote{
-
+padding-top: 30px;
+padding-bottom: 30px;;
+}
+.read_reply{
 display: grid;
-background: #ivory;
+grid-template-columns: 1fr 1fr 1fr;
 }
 </style>
 </head>
@@ -59,11 +63,11 @@ background: #ivory;
 			<!-- 댓글  -->
 			<form id="frm_replay">
 				<input type="hidden" name="chartId" value="${dto.chartId}">
-				<div class="flex">
+				<div class="read_reply">
 					<div>댓글</div>
 
 					<div>
-						<input type="text" name="chartReplyContent" required></
+						<input type="text" name="chartReplyContent" required>
 					</div>
 					<div>
 						<button type="button" class="btn replay">댓글 달기</button>
@@ -82,6 +86,9 @@ background: #ivory;
 $(loadedHandler);
 function loadedHandler(){
 	$(".btn.replay").on("click", btnReplyClickHandler);
+	//getRelyData();
+}
+function getRelyDat(){
 	
 	$.ajax({
 		url: "${pageContext.request.contextPath }/my/reply/read.ajax"

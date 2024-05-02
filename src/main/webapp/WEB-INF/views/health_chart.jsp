@@ -42,11 +42,12 @@ p {
 	</header>
 	<section>
 		<form class="health_frm">
-			<h1>${vo.patientName }님의건강 일지</h1>
+			<h1>${vo.patientName } 님의건강 일지</h1>
 			<div>
 				날짜: <span id="chartdate">${vo.chartdate }</span>
 			</div>
-
+				<input type="date" name="healthDate" id="healthDate">
+				<br>
 			<div class="health_chart">
 				<div class="pulse">
 					<p>맥박</p>
@@ -74,13 +75,13 @@ p {
 						style="text-align: center;" readonly>
 				</div>
 				<br>
-				<div class="">
-					작성자 <input type="text" name="staffName" value="${vo.staffName }"
-						style="border-style: hidden;">
+				<div class="staffName">
+					<p>작성자</p> <input type="text" name="staffName" value="${vo.staffName }"
+						style="text-align: center;"readonly>
 				</div>
 			</div>
 		</form>
-		<input type="date" name="healthDate" id="healthDate">
+		
 	</section>
 	</table>
 	<footer class="footer_Chart">

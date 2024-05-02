@@ -9,11 +9,12 @@
 <title>Staff Read Chart</title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <style type="text/css">
-.chart_grid {
+.container {
 	display: grid;
 	align-content: space-around;
 	align-items: stretch;
 	justify-content: space-around;
+	grid-template-columns: 1fr 1fr;
 	background-color: seashell;
 }
 
@@ -29,9 +30,12 @@
 	border-top-style: double;
 }
 .c_read_pnote{
-
+padding-top: 30px;
+padding-bottom: 30px;;
+}
+.read_reply{
 display: grid;
-background: #ivory;
+grid-template-columns: 1fr 1fr 1fr;
 }
 </style>
 </head>
@@ -40,16 +44,18 @@ background: #ivory;
 		<%@include file="/WEB-INF/views/header_staff_chart.jsp"%>
 	</header>
 	<section class="wrap_section">
+	
 		<h1 class="read_pnote_title">치료일지</h1>
+		
 		<div class="flex">
 
-			<div class="chart_grid">
-				<div>날짜</div>
-				<div>${dto.chartdate }</div>
-				<div>환자</div>
-				<div>${dto.patientName }</div>
-				<div>치료사</div>
-				<div>${dto.staffName }</div>
+			<div class="container">
+				<div class="item">날짜</div>
+				<div class="item">${dto.chartdate }</div>
+				<div class="item">환자</div>
+				<div class="item">${dto.patientName }</div>
+				<div class="item">치료사</div>
+				<div class="item">${dto.staffName }</div>
 			</div>
 			<div class="c_read_pnote">
 				<div>${dto.ptitle }</div>
@@ -59,11 +65,10 @@ background: #ivory;
 			<!-- 댓글  -->
 			<form id="frm_replay">
 				<input type="hidden" name="chartId" value="${dto.chartId}">
-				<div class="flex">
+				<div class="read_reply">
 					<div>댓글</div>
-
 					<div>
-						<input type="text" name="chartReplyContent" required></
+						<input type="text" name="chartReplyContent" required>
 					</div>
 					<div>
 						<button type="button" class="btn replay">댓글 달기</button>
@@ -71,20 +76,24 @@ background: #ivory;
 
 				</div>
 			</form>
-
+			
 		</div>
+		
 	</section>
+	
 	<footer class="footer_Chart">
 		<%@include file="/WEB-INF/views/footer.jsp"%>
 	</footer>
-</body>
+
 <script type="text/javascript">
 $(loadedHandler);
 function loadedHandler(){
 	$(".btn.replay").on("click", btnReplyClickHandler);
-	
+	//getReplyData();
+}
+function getReplyData(){
 	$.ajax({
-		url: "${pageContext.request.contextPath }/my/reply/read.ajax"
+		url: "${pageContext.request.contextPath }/staff/reply/read.ajax"
 		,method:"post"
 		,error : ajaxErrorHandler
 		,data: {chartId:"${dto.chartId }"}
@@ -95,6 +104,7 @@ function loadedHandler(){
 		}
 	});
 }
+
 function btnReplyClickHandler(){
 	if($("#frm-reply [name=chartReplyContent]").val().trim().length == 0){
 		alert("입력된 글이 없습니다. 입력 후 글 등록해주세요.");
@@ -121,7 +131,7 @@ function btnReplyClickHandler(){
 			displayReplyWrap(result);
 		}
 	});
-}	
+}
 function ajaxErrorHandler (request, status, error){
 	alert("code: "+request.status + "\n" + "message: " 
 			+ request.responseText + "\n"
@@ -129,4 +139,5 @@ function ajaxErrorHandler (request, status, error){
 }
 	
 </script>
+</body>
 </html>

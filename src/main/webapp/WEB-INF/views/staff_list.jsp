@@ -37,7 +37,7 @@ background-color: #ivory;
 	<header class="header_Chart">
 		<%@include file="/WEB-INF/views/header_staff_chart.jsp"%>
 	</header>
-	[[${dtolist }]]
+	
 	<section calss="chart_readlist_section">
 		<h1 style="text-align: center;">치료일지</h1>
 		<div class="notice-area">
@@ -83,6 +83,10 @@ background-color: #ivory;
 					</fieldset>
 
 				</form>
+				
+				
+				
+				
 <!--게시판 목록 끝  -->
 			</article>
 
