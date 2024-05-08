@@ -23,4 +23,9 @@
       * 시작일 : 2024-05-02
       * 종료일 : 2024-05-03 (최종 발표)
 ---
-C:\Users\user1\Downloads\요일_요양일지_배소진-이미지-4.jpg
+## Document
+
+* ERD 다이어그램
+<p align="center">
+    <img src = "src/main/webapp/resources/imges/배소진_요일 ERD차트.png", width="100%">
+</p>
